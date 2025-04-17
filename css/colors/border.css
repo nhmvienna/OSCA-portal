@@ -1,0 +1,1839 @@
+
+.border-p-white {
+    border-color: #FFF !important;
+}
+.border-p-black {
+    border-color: #000 !important;
+}
+.border-p-transparent {
+    border-color: transparent !important;
+}
+
+/* BORDER GRAYS */
+
+/* Blue Gray */
+.border-p-bluegray-50 {
+    border-color: #F8FAFC !important;
+}
+
+.border-p-bluegray-100 {
+    border-color: #F1F5F9 !important;
+}
+
+.border-p-bluegray-200 {
+    border-color: #E2E8F0 !important;
+}
+
+.border-p-bluegray-300 {
+    border-color: #CBD5E1 !important;
+}
+
+.border-p-bluegray-400 {
+    border-color: #94A3B8 !important;
+}
+
+.border-p-bluegray-500 {
+    border-color: #64748B !important;
+}
+
+.border-p-bluegray-600 {
+    border-color: #475569 !important;
+}
+
+.border-p-bluegray-700 {
+    border-color: #334155 !important;
+}
+
+.border-p-bluegray-800 {
+    border-color: #1E293B !important;
+}
+
+.border-p-bluegray-900 {
+    border-color: #0F172A !important;
+}
+
+/* Cool Gray */
+.border-p-coolgray-50 {
+    border-color: #F9FAFB !important;
+}
+
+.border-p-coolgray-100 {
+    border-color: #F3F4F6 !important;
+}
+
+.border-p-coolgray-200 {
+    border-color: #E5E7EB !important;
+}
+
+.border-p-coolgray-300 {
+    border-color: #D1D5DB !important;
+}
+
+.border-p-coolgray-400 {
+    border-color: #9CA3AF !important;
+}
+
+.border-p-coolgray-500 {
+    border-color: #6B7280 !important;
+}
+
+.border-p-coolgray-600 {
+    border-color: #4B5563 !important;
+}
+
+.border-p-coolgray-700 {
+    border-color: #374151 !important;
+}
+
+.border-p-coolgray-800 {
+    border-color: #1F2937 !important;
+}
+
+.border-p-coolgray-900 {
+    border-color: #111827 !important;
+}
+
+/* Gray */
+.border-p-gray-50 {
+    border-color: #FAFAFA !important;
+}
+
+.border-p-gray-100 {
+    border-color: #F4F4F5 !important;
+}
+
+.border-p-gray-200 {
+    border-color: #E4E4E7 !important;
+}
+
+.border-p-gray-300 {
+    border-color: #D4D4D8 !important;
+}
+
+.border-p-gray-400 {
+    border-color: #A1A1AA !important;
+}
+
+.border-p-gray-500 {
+    border-color: #71717A !important;
+}
+
+.border-p-gray-600 {
+    border-color: #52525B !important;
+}
+
+.border-p-gray-700 {
+    border-color: #3F3F46 !important;
+}
+
+.border-p-gray-800 {
+    border-color: #27272A !important;
+}
+
+.border-p-gray-900 {
+    border-color: #18181B !important;
+}
+
+/* True Gray */
+.border-p-truegray-50 {
+    border-color: #FAFAFA !important;
+}
+
+.border-p-truegray-100 {
+    border-color: #F5F5F5!important;
+}
+
+.border-p-truegray-200 {
+    border-color: #E5E5E5 !important;
+}
+
+.border-p-truegray-300 {
+    border-color: #D4D4D4 !important;
+}
+
+.border-p-truegray-400 {
+    border-color: #A3A3A3 !important;
+}
+
+.border-p-truegray-500 {
+    border-color: #737373 !important;
+}
+
+.border-p-truegray-600 {
+    border-color: #525252 !important;
+}
+
+.border-p-truegray-700 {
+    border-color: #404040 !important;
+}
+
+.border-p-truegray-800 {
+    border-color: #262626 !important;
+}
+
+.border-p-truegray-900 {
+    border-color: #171717 !important;
+}
+
+/* Warm Gray */
+.border-p-warmgray-50 {
+    border-color: #FAFAF9 !important;
+}
+
+.border-p-warmgray-100 {
+    border-color: #F5F5F4 !important;
+}
+
+.border-p-warmgray-200 {
+    border-color: #E7E5E4 !important;
+}
+
+.border-p-warmgray-300 {
+    border-color: #D6D3D1 !important;
+}
+
+.border-p-warmgray-400 {
+    border-color: #A8A29E !important;
+}
+
+.border-p-warmgray-500 {
+    border-color: #78716C !important;
+}
+
+.border-p-warmgray-600 {
+    border-color: #57534E !important;
+}
+
+.border-p-warmgray-700 {
+    border-color: #44403C !important;
+}
+
+.border-p-warmgray-800 {
+    border-color: #292524 !important;
+}
+
+.border-p-warmgray-900 {
+    border-color: #1C1917 !important;
+}
+
+/* REDS */
+/* Red */
+.border-p-red-50 {
+    border-color: #FEF2F2 !important;
+}
+
+.border-p-red-100 {
+    border-color: #FEE2E2 !important;
+}
+
+.border-p-red-200 {
+    border-color: #FECACA !important;
+}
+
+.border-p-red-300 {
+    border-color: #FCA5A5 !important;
+}
+
+.border-p-red-400 {
+    border-color: #F87171 !important;
+}
+
+.border-p-red-500 {
+    border-color: #EF4444 !important;
+}
+
+.border-p-red-600 {
+    border-color: #DC2626 !important;
+}
+
+.border-p-red-700 {
+    border-color: #B91C1C !important;
+}
+
+.border-p-red-800 {
+    border-color: #991B1B !important;
+}
+
+.border-p-red-900 {
+    border-color: #7F1D1D !important;
+}
+
+/* Rose */
+.border-p-rose-50 {
+    border-color: #FFF1F2 !important;
+}
+
+.border-p-rose-100 {
+    border-color: #FFE4E6 !important;
+}
+
+.border-p-rose-200 {
+    border-color: #FECDD3 !important;
+}
+
+.border-p-rose-300 {
+    border-color: #FDA4AF !important;
+}
+
+.border-p-rose-400 {
+    border-color: #FB7185 !important;
+}
+
+.border-p-rose-500 {
+    border-color: #F43F5E !important;
+}
+
+.border-p-rose-600 {
+    border-color: #E11D48 !important;
+}
+
+.border-p-rose-700 {
+    border-color: #BE123C !important;
+}
+
+.border-p-rose-800 {
+    border-color: #9F1239 !important;
+}
+
+.border-p-rose-900 {
+    border-color: #881337 !important;
+}
+
+/* ORANGES */
+/* Orange */
+.border-p-orange-50 {
+    border-color: #FFF7ED !important;
+}
+
+.border-p-orange-100 {
+    border-color: #FFEDD5 !important;
+}
+
+.border-p-orange-200 {
+    border-color: #FED7AA !important;
+}
+
+.border-p-orange-300 {
+    border-color: #FDBA74 !important;
+}
+
+.border-p-orange-400 {
+    border-color: #FB923C !important;
+}
+
+.border-p-orange-500 {
+    border-color: #F97316 !important;
+}
+
+.border-p-orange-600 {
+    border-color: #EA580C !important;
+}
+
+.border-p-orange-700 {
+    border-color: #C2410C !important;
+}
+
+.border-p-orange-800 {
+    border-color: #9A3412 !important;
+}
+
+.border-p-orange-900 {
+    border-color: #7C2D12 !important;
+}
+
+/* Amber */
+.border-p-amber-50 {
+    border-color: #FFFBEB !important;
+}
+
+.border-p-amber-100 {
+    border-color: #FEF3C7 !important;
+}
+
+.border-p-amber-200 {
+    border-color: #FDE68A !important;
+}
+
+.border-p-amber-300 {
+    border-color: #FCD34D !important;
+}
+
+.border-p-amber-400 {
+    border-color: #FBBF24 !important;
+}
+
+.border-p-amber-500 {
+    border-color: #F59E0B !important;
+}
+
+.border-p-amber-600 {
+    border-color: #D97706 !important;
+}
+
+.border-p-amber-700 {
+    border-color: #B45309 !important;
+}
+
+.border-p-amber-800 {
+    border-color: #92400E !important;
+}
+
+.border-p-amber-900 {
+    border-color: #78350F !important;
+}
+
+/* Yellow */
+.border-p-yellow-50 {
+    border-color: #FEFCE8 !important;
+}
+
+.border-p-yellow-100 {
+    border-color: #FEF9C3 !important;
+}
+
+.border-p-yellow-200 {
+    border-color: #FEF08A !important;
+}
+
+.border-p-yellow-300 {
+    border-color: #FDE047 !important;
+}
+
+.border-p-yellow-400 {
+    border-color: #FACC15 !important;
+}
+
+.border-p-yellow-500 {
+    border-color: #EAB308 !important;
+}
+
+.border-p-yellow-600 {
+    border-color: #CA8A04 !important;
+}
+
+.border-p-yellow-700 {
+    border-color: #A16207 !important;
+}
+
+.border-p-yellow-800 {
+    border-color: #854D0E !important;
+}
+
+.border-p-yellow-900 {
+    border-color: #713F12 !important;
+}
+
+/* Lime */
+.border-p-lime-50 {
+    border-color: #F7FEE7 !important;
+}
+
+.border-p-lime-100 {
+    border-color: #ECFCCB !important;
+}
+
+.border-p-lime-200 {
+    border-color: #D9F99D !important;
+}
+
+.border-p-lime-300 {
+    border-color: #BEF264 !important;
+}
+
+.border-p-lime-400 {
+    border-color: #A3E635 !important;
+}
+
+.border-p-lime-500 {
+    border-color: #84CC16 !important;
+}
+
+.border-p-lime-600 {
+    border-color: #65A30D !important;
+}
+
+.border-p-lime-700 {
+    border-color: #4D7C0F !important;
+}
+
+.border-p-lime-800 {
+    border-color: #3F6212 !important;
+}
+
+.border-p-lime-900 {
+    border-color: #365314 !important;
+}
+
+/* Green */
+.border-p-green-50 {
+    border-color: #F0FDF4 !important;
+}
+
+.border-p-green-100 {
+    border-color: #DCFCE7 !important;
+}
+
+.border-p-green-200 {
+    border-color: #BBF7D0 !important;
+}
+
+.border-p-green-300 {
+    border-color: #86EFAC !important;
+}
+
+.border-p-green-400 {
+    border-color: #4ADE80 !important;
+}
+
+.border-p-green-500 {
+    border-color: #22C55E !important;
+}
+
+.border-p-green-600 {
+    border-color: #16A34A !important;
+}
+
+.border-p-green-700 {
+    border-color: #15803D !important;
+}
+
+.border-p-green-800 {
+    border-color: #166534 !important;
+}
+
+.border-p-green-900 {
+    border-color: #14532D !important;
+}
+
+/* Emerald */
+.border-p-emerald-50 {
+    border-color: #ECFDF5 !important;
+}
+
+.border-p-emerald-100 {
+    border-color: #D1FAE5 !important;
+}
+
+.border-p-emerald-200 {
+    border-color: #A7F3D0 !important;
+}
+
+.border-p-emerald-300 {
+    border-color: #6EE7B7 !important;
+}
+
+.border-p-emerald-400 {
+    border-color: #34D399 !important;
+}
+
+.border-p-emerald-500 {
+    border-color: #10B981 !important;
+}
+
+.border-p-emerald-600 {
+    border-color: #059669 !important;
+}
+
+.border-p-emerald-700 {
+    border-color: #047857 !important;
+}
+
+.border-p-emerald-800 {
+    border-color: #065F46 !important;
+}
+
+.border-p-emerald-900 {
+    border-color: #064E3B !important;
+}
+
+/* Teal */
+.border-p-teal-50 {
+    border-color: #F0FDFA !important;
+}
+
+.border-p-teal-100 {
+    border-color: #CCFBF1 !important;
+}
+
+.border-p-teal-200 {
+    border-color: #99F6E4 !important;
+}
+
+.border-p-teal-300 {
+    border-color: #5EEAD4 !important;
+}
+
+.border-p-teal-400 {
+    border-color: #2DD4BF !important;
+}
+
+.border-p-teal-500 {
+    border-color: #14B8A6 !important;
+}
+
+.border-p-teal-600 {
+    border-color: #0D9488 !important;
+}
+
+.border-p-teal-700 {
+    border-color: #0F766E !important;
+}
+
+.border-p-teal-800 {
+    border-color: #115E59 !important;
+}
+
+.border-p-teal-900 {
+    border-color: #134E4A !important;
+}
+
+/* Cyan */
+.border-p-cyan-50 {
+    border-color: #ECFEFF !important;
+}
+
+.border-p-cyan-100 {
+    border-color: #CFFAFE !important;
+}
+
+.border-p-cyan-200 {
+    border-color: #A5F3FC !important;
+}
+
+.border-p-cyan-300 {
+    border-color: #67E8F9 !important;
+}
+
+.border-p-cyan-400 {
+    border-color: #22D3EE !important;
+}
+
+.border-p-cyan-500 {
+    border-color: #06B6D4 !important;
+}
+
+.border-p-cyan-600 {
+    border-color: #0891B2 !important;
+}
+
+.border-p-cyan-700 {
+    border-color: #0E7490 !important;
+}
+
+.border-p-cyan-800 {
+    border-color: #155E75 !important;
+}
+
+.border-p-cyan-900 {
+    border-color: #164E63 !important;
+}
+
+/* Sky */
+.border-p-sky-50 {
+    border-color: #F0F9FF !important;
+}
+
+.border-p-sky-100 {
+    border-color: #E0F2FE !important;
+}
+
+.border-p-sky-200 {
+    border-color: #BAE6FD !important;
+}
+
+.border-p-sky-300 {
+    border-color: #7DD3FC !important;
+}
+
+.border-p-sky-400 {
+    border-color: #38BDF8 !important;
+}
+
+.border-p-sky-500 {
+    border-color: #0EA5E9 !important;
+}
+
+.border-p-sky-600 {
+    border-color: #0284C7 !important;
+}
+
+.border-p-sky-700 {
+    border-color: #0369A1 !important;
+}
+
+.border-p-sky-800 {
+    border-color: #075985 !important;
+}
+
+.border-p-sky-900 {
+    border-color: #0C4A6E !important;
+}
+
+/* Blue */
+.border-p-blue-50 {
+    border-color: #EFF6FF !important;
+}
+
+.border-p-blue-100 {
+    border-color: #DBEAFE !important;
+}
+
+.border-p-blue-200 {
+    border-color: #BFDBFE !important;
+}
+
+.border-p-blue-300 {
+    border-color: #93C5FD !important;
+}
+
+.border-p-blue-400 {
+    border-color: #60A5FA !important;
+}
+
+.border-p-blue-500 {
+    border-color: #3B82F6 !important;
+}
+
+.border-p-blue-600 {
+    border-color: #2563EB !important;
+}
+
+.border-p-blue-700 {
+    border-color: #1D4ED8 !important;
+}
+
+.border-p-blue-800 {
+    border-color: #1E40AF !important;
+}
+
+.border-p-blue-900 {
+    border-color: #1E3A8A !important;
+}
+
+/* Indigo */
+.border-p-indigo-50 {
+    border-color: #EEF2FF !important;
+}
+
+.border-p-indigo-100 {
+    border-color: #E0E7FF !important;
+}
+
+.border-p-indigo-200 {
+    border-color: #C7D2FE !important;
+}
+
+.border-p-indigo-300 {
+    border-color: #A5B4FC !important;
+}
+
+.border-p-indigo-400 {
+    border-color: #818CF8 !important;
+}
+
+.border-p-indigo-500 {
+    border-color: #6366F1 !important;
+}
+
+.border-p-indigo-600 {
+    border-color: #4F46E5 !important;
+}
+
+.border-p-indigo-700 {
+    border-color: #4338CA !important;
+}
+
+.border-p-indigo-800 {
+    border-color: #3730A3 !important;
+}
+
+.border-p-indigo-900 {
+    border-color: #312E81 !important;
+}
+
+/* Violet */
+.border-p-violet-50 {
+    border-color: #F5F3FF !important;
+}
+
+.border-p-violet-100 {
+    border-color: #EDE9FE !important;
+}
+
+.border-p-violet-200 {
+    border-color: #DDD6FE !important;
+}
+
+.border-p-violet-300 {
+    border-color: #C4B5FD !important;
+}
+
+.border-p-violet-400 {
+    border-color: #A78BFA !important;
+}
+
+.border-p-violet-500 {
+    border-color: #8B5CF6 !important;
+}
+
+.border-p-violet-600 {
+    border-color: #7C3AED !important;
+}
+
+.border-p-violet-700 {
+    border-color: #6D28D9 !important;
+}
+
+.border-p-violet-800 {
+    border-color: #5B21B6 !important;
+}
+
+.border-p-violet-900 {
+    border-color: #4C1D95 !important;
+}
+
+/* Purple */
+.border-p-purple-50 {
+    border-color: #FAF5FF !important;
+}
+
+.border-p-purple-100 {
+    border-color: #F3E8FF !important;
+}
+
+.border-p-purple-200 {
+    border-color: #E9D5FF !important;
+}
+
+.border-p-purple-300 {
+    border-color: #D8B4FE !important;
+}
+
+.border-p-purple-400 {
+    border-color: #C084FC !important;
+}
+
+.border-p-purple-500 {
+    border-color: #A855F7 !important;
+}
+
+.border-p-purple-600 {
+    border-color: #9333EA !important;
+}
+
+.border-p-purple-700 {
+    border-color: #7E22CE !important;
+}
+
+.border-p-purple-800 {
+    border-color: #6B21A8 !important;
+}
+
+.border-p-purple-900 {
+    border-color: #581C87 !important;
+}
+
+/* Fuchsia */
+.border-p-fuchsia-50 {
+    border-color: #FDF4FF !important;
+}
+
+.border-p-fuchsia-100 {
+    border-color: #FAE8FF !important;
+}
+
+.border-p-fuchsia-200 {
+    border-color: #F5D0FE !important;
+}
+
+.border-p-fuchsia-300 {
+    border-color: #F0ABFC !important;
+}
+
+.border-p-fuchsia-400 {
+    border-color: #E879F9 !important;
+}
+
+.border-p-fuchsia-500 {
+    border-color: #D946EF !important;
+}
+
+.border-p-fuchsia-600 {
+    border-color: #C026D3 !important;
+}
+
+.border-p-fuchsia-700 {
+    border-color: #A21CAF !important;
+}
+
+.border-p-fuchsia-800 {
+    border-color: #86198F !important;
+}
+
+.border-p-fuchsia-900 {
+    border-color: #701A75 !important;
+}
+
+/* Pink */
+.border-p-pink-50 {
+    border-color: #FDF2F8 !important;
+}
+
+.border-p-pink-100 {
+    border-color: #FCE7F3 !important;
+}
+
+.border-p-pink-200 {
+    border-color: #FBCFE8 !important;
+}
+
+.border-p-pink-300 {
+    border-color: #F9A8D4 !important;
+}
+
+.border-p-pink-400 {
+    border-color: #F472B6 !important;
+}
+
+.border-p-pink-500 {
+    border-color: #EC4899 !important;
+}
+
+.border-p-pink-600 {
+    border-color: #DB2777 !important;
+}
+
+.border-p-pink-700 {
+    border-color: #BE185D !important;
+}
+
+.border-p-pink-800 {
+    border-color: #9D174D !important;
+}
+
+.border-p-pink-900 {
+    border-color: #831843 !important;
+}
+
+/*
+*
+* HOVER STATE
+*
+*/
+
+/* BORDER STATIC COLORS */
+.hover\:border-p-white:hover {
+    border-color: #FFF !important;
+}
+.hover\:border-p-black:hover {
+    border-color: #000 !important;
+}
+.hover\:border-p-transparent:hover {
+    border-color: transparent !important;
+}
+
+/* BORDER GRAYS */
+
+/* Blue Gray */
+.hover\:border-p-bluegray-50:hover {
+    border-color: #F8FAFC !important;
+}
+
+.hover\:border-p-bluegray-100:hover {
+    border-color: #F1F5F9 !important;
+}
+
+.hover\:border-p-bluegray-200:hover {
+    border-color: #E2E8F0 !important;
+}
+
+.hover\:border-p-bluegray-300:hover {
+    border-color: #CBD5E1 !important;
+}
+
+.hover\:border-p-bluegray-400:hover {
+    border-color: #94A3B8 !important;
+}
+
+.hover\:border-p-bluegray-500:hover {
+    border-color: #64748B !important;
+}
+
+.hover\:border-p-bluegray-600:hover {
+    border-color: #475569 !important;
+}
+
+.hover\:border-p-bluegray-700:hover {
+    border-color: #334155 !important;
+}
+
+.hover\:border-p-bluegray-800:hover {
+    border-color: #1E293B !important;
+}
+
+.hover\:border-p-bluegray-900:hover {
+    border-color: #0F172A !important;
+}
+
+/* Cool Gray */
+.hover\:border-p-coolgray-50:hover {
+    border-color: #F9FAFB !important;
+}
+
+.hover\:border-p-coolgray-100:hover {
+    border-color: #F3F4F6 !important;
+}
+
+.hover\:border-p-coolgray-200:hover {
+    border-color: #E5E7EB !important;
+}
+
+.hover\:border-p-coolgray-300:hover {
+    border-color: #D1D5DB !important;
+}
+
+.hover\:border-p-coolgray-400:hover {
+    border-color: #9CA3AF !important;
+}
+
+.hover\:border-p-coolgray-500:hover {
+    border-color: #6B7280 !important;
+}
+
+.hover\:border-p-coolgray-600:hover {
+    border-color: #4B5563 !important;
+}
+
+.hover\:border-p-coolgray-700:hover {
+    border-color: #374151 !important;
+}
+
+.hover\:border-p-coolgray-800:hover {
+    border-color: #1F2937 !important;
+}
+
+.hover\:border-p-coolgray-900:hover {
+    border-color: #111827 !important;
+}
+
+/* Gray */
+.hover\:border-p-gray-50:hover {
+    border-color: #FAFAFA !important;
+}
+
+.hover\:border-p-gray-100:hover {
+    border-color: #F4F4F5 !important;
+}
+
+.hover\:border-p-gray-200:hover {
+    border-color: #E4E4E7 !important;
+}
+
+.hover\:border-p-gray-300:hover {
+    border-color: #D4D4D8 !important;
+}
+
+.hover\:border-p-gray-400:hover {
+    border-color: #A1A1AA !important;
+}
+
+.hover\:border-p-gray-500:hover {
+    border-color: #71717A !important;
+}
+
+.hover\:border-p-gray-600:hover {
+    border-color: #52525B !important;
+}
+
+.hover\:border-p-gray-700:hover {
+    border-color: #3F3F46 !important;
+}
+
+.hover\:border-p-gray-800:hover {
+    border-color: #27272A !important;
+}
+
+.hover\:border-p-gray-900:hover {
+    border-color: #18181B !important;
+}
+
+/* True Gray */
+.hover\:border-p-truegray-50:hover {
+    border-color: #FAFAFA !important;
+}
+
+.hover\:border-p-truegray-100:hover {
+    border-color: #F5F5F5!important;
+}
+
+.hover\:border-p-truegray-200:hover {
+    border-color: #E5E5E5 !important;
+}
+
+.hover\:border-p-truegray-300:hover {
+    border-color: #D4D4D4 !important;
+}
+
+.hover\:border-p-truegray-400:hover {
+    border-color: #A3A3A3 !important;
+}
+
+.hover\:border-p-truegray-500:hover {
+    border-color: #737373 !important;
+}
+
+.hover\:border-p-truegray-600:hover {
+    border-color: #525252 !important;
+}
+
+.hover\:border-p-truegray-700:hover {
+    border-color: #404040 !important;
+}
+
+.hover\:border-p-truegray-800:hover {
+    border-color: #262626 !important;
+}
+
+.hover\:border-p-truegray-900:hover {
+    border-color: #171717 !important;
+}
+
+/* Warm Gray */
+.hover\:border-p-warmgray-50:hover {
+    border-color: #FAFAF9 !important;
+}
+
+.hover\:border-p-warmgray-100:hover {
+    border-color: #F5F5F4 !important;
+}
+
+.hover\:border-p-warmgray-200:hover {
+    border-color: #E7E5E4 !important;
+}
+
+.hover\:border-p-warmgray-300:hover {
+    border-color: #D6D3D1 !important;
+}
+
+.hover\:border-p-warmgray-400:hover {
+    border-color: #A8A29E !important;
+}
+
+.hover\:border-p-warmgray-500:hover {
+    border-color: #78716C !important;
+}
+
+.hover\:border-p-warmgray-600:hover {
+    border-color: #57534E !important;
+}
+
+.hover\:border-p-warmgray-700:hover {
+    border-color: #44403C !important;
+}
+
+.hover\:border-p-warmgray-800:hover {
+    border-color: #292524 !important;
+}
+
+.hover\:border-p-warmgray-900:hover {
+    border-color: #1C1917 !important;
+}
+
+/* REDS */
+/* Red */
+.hover\:border-p-red-50:hover {
+    border-color: #FEF2F2 !important;
+}
+
+.hover\:border-p-red-100:hover {
+    border-color: #FEE2E2 !important;
+}
+
+.hover\:border-p-red-200:hover {
+    border-color: #FECACA !important;
+}
+
+.hover\:border-p-red-300:hover {
+    border-color: #FCA5A5 !important;
+}
+
+.hover\:border-p-red-400:hover {
+    border-color: #F87171 !important;
+}
+
+.hover\:border-p-red-500:hover {
+    border-color: #EF4444 !important;
+}
+
+.hover\:border-p-red-600:hover {
+    border-color: #DC2626 !important;
+}
+
+.hover\:border-p-red-700:hover {
+    border-color: #B91C1C !important;
+}
+
+.hover\:border-p-red-800:hover {
+    border-color: #991B1B !important;
+}
+
+.hover\:border-p-red-900:hover {
+    border-color: #7F1D1D !important;
+}
+
+/* Rose */
+.hover\:border-p-rose-50:hover {
+    border-color: #FFF1F2 !important;
+}
+
+.hover\:border-p-rose-100:hover {
+    border-color: #FFE4E6 !important;
+}
+
+.hover\:border-p-rose-200:hover {
+    border-color: #FECDD3 !important;
+}
+
+.hover\:border-p-rose-300:hover {
+    border-color: #FDA4AF !important;
+}
+
+.hover\:border-p-rose-400:hover {
+    border-color: #FB7185 !important;
+}
+
+.hover\:border-p-rose-500:hover {
+    border-color: #F43F5E !important;
+}
+
+.hover\:border-p-rose-600:hover {
+    border-color: #E11D48 !important;
+}
+
+.hover\:border-p-rose-700:hover {
+    border-color: #BE123C !important;
+}
+
+.hover\:border-p-rose-800:hover {
+    border-color: #9F1239 !important;
+}
+
+.hover\:border-p-rose-900:hover {
+    border-color: #881337 !important;
+}
+
+/* ORANGES */
+/* Orange */
+.hover\:border-p-orange-50:hover {
+    border-color: #FFF7ED !important;
+}
+
+.hover\:border-p-orange-100:hover {
+    border-color: #FFEDD5 !important;
+}
+
+.hover\:border-p-orange-200:hover {
+    border-color: #FED7AA !important;
+}
+
+.hover\:border-p-orange-300:hover {
+    border-color: #FDBA74 !important;
+}
+
+.hover\:border-p-orange-400:hover {
+    border-color: #FB923C !important;
+}
+
+.hover\:border-p-orange-500:hover {
+    border-color: #F97316 !important;
+}
+
+.hover\:border-p-orange-600:hover {
+    border-color: #EA580C !important;
+}
+
+.hover\:border-p-orange-700:hover {
+    border-color: #C2410C !important;
+}
+
+.hover\:border-p-orange-800:hover {
+    border-color: #9A3412 !important;
+}
+
+.hover\:border-p-orange-900:hover {
+    border-color: #7C2D12 !important;
+}
+
+/* Amber */
+.hover\:border-p-amber-50:hover {
+    border-color: #FFFBEB !important;
+}
+
+.hover\:border-p-amber-100:hover {
+    border-color: #FEF3C7 !important;
+}
+
+.hover\:border-p-amber-200:hover {
+    border-color: #FDE68A !important;
+}
+
+.hover\:border-p-amber-300:hover {
+    border-color: #FCD34D !important;
+}
+
+.hover\:border-p-amber-400:hover {
+    border-color: #FBBF24 !important;
+}
+
+.hover\:border-p-amber-500:hover {
+    border-color: #F59E0B !important;
+}
+
+.hover\:border-p-amber-600:hover {
+    border-color: #D97706 !important;
+}
+
+.hover\:border-p-amber-700:hover {
+    border-color: #B45309 !important;
+}
+
+.hover\:border-p-amber-800:hover {
+    border-color: #92400E !important;
+}
+
+.hover\:border-p-amber-900:hover {
+    border-color: #78350F !important;
+}
+
+/* Yellow */
+.hover\:border-p-yellow-50:hover {
+    border-color: #FEFCE8 !important;
+}
+
+.hover\:border-p-yellow-100:hover {
+    border-color: #FEF9C3 !important;
+}
+
+.hover\:border-p-yellow-200:hover {
+    border-color: #FEF08A !important;
+}
+
+.hover\:border-p-yellow-300:hover {
+    border-color: #FDE047 !important;
+}
+
+.hover\:border-p-yellow-400:hover {
+    border-color: #FACC15 !important;
+}
+
+.hover\:border-p-yellow-500:hover {
+    border-color: #EAB308 !important;
+}
+
+.hover\:border-p-yellow-600:hover {
+    border-color: #CA8A04 !important;
+}
+
+.hover\:border-p-yellow-700:hover {
+    border-color: #A16207 !important;
+}
+
+.hover\:border-p-yellow-800:hover {
+    border-color: #854D0E !important;
+}
+
+.hover\:border-p-yellow-900:hover {
+    border-color: #713F12 !important;
+}
+
+/* Lime */
+.hover\:border-p-lime-50:hover {
+    border-color: #F7FEE7 !important;
+}
+
+.hover\:border-p-lime-100:hover {
+    border-color: #ECFCCB !important;
+}
+
+.hover\:border-p-lime-200:hover {
+    border-color: #D9F99D !important;
+}
+
+.hover\:border-p-lime-300:hover {
+    border-color: #BEF264 !important;
+}
+
+.hover\:border-p-lime-400:hover {
+    border-color: #A3E635 !important;
+}
+
+.hover\:border-p-lime-500:hover {
+    border-color: #84CC16 !important;
+}
+
+.hover\:border-p-lime-600:hover {
+    border-color: #65A30D !important;
+}
+
+.hover\:border-p-lime-700:hover {
+    border-color: #4D7C0F !important;
+}
+
+.hover\:border-p-lime-800:hover {
+    border-color: #3F6212 !important;
+}
+
+.hover\:border-p-lime-900:hover {
+    border-color: #365314 !important;
+}
+
+/* Green */
+.hover\:border-p-green-50:hover {
+    border-color: #F0FDF4 !important;
+}
+
+.hover\:border-p-green-100:hover {
+    border-color: #DCFCE7 !important;
+}
+
+.hover\:border-p-green-200:hover {
+    border-color: #BBF7D0 !important;
+}
+
+.hover\:border-p-green-300:hover {
+    border-color: #86EFAC !important;
+}
+
+.hover\:border-p-green-400:hover {
+    border-color: #4ADE80 !important;
+}
+
+.hover\:border-p-green-500:hover {
+    border-color: #22C55E !important;
+}
+
+.hover\:border-p-green-600:hover {
+    border-color: #16A34A !important;
+}
+
+.hover\:border-p-green-700:hover {
+    border-color: #15803D !important;
+}
+
+.hover\:border-p-green-800:hover {
+    border-color: #166534 !important;
+}
+
+.hover\:border-p-green-900:hover {
+    border-color: #14532D !important;
+}
+
+/* Emerald */
+.hover\:border-p-emerald-50:hover {
+    border-color: #ECFDF5 !important;
+}
+
+.hover\:border-p-emerald-100:hover {
+    border-color: #D1FAE5 !important;
+}
+
+.hover\:border-p-emerald-200:hover {
+    border-color: #A7F3D0 !important;
+}
+
+.hover\:border-p-emerald-300:hover {
+    border-color: #6EE7B7 !important;
+}
+
+.hover\:border-p-emerald-400:hover {
+    border-color: #34D399 !important;
+}
+
+.hover\:border-p-emerald-500:hover {
+    border-color: #10B981 !important;
+}
+
+.hover\:border-p-emerald-600:hover {
+    border-color: #059669 !important;
+}
+
+.hover\:border-p-emerald-700:hover {
+    border-color: #047857 !important;
+}
+
+.hover\:border-p-emerald-800:hover {
+    border-color: #065F46 !important;
+}
+
+.hover\:border-p-emerald-900:hover {
+    border-color: #064E3B !important;
+}
+
+/* Teal */
+.hover\:border-p-teal-50:hover {
+    border-color: #F0FDFA !important;
+}
+
+.hover\:border-p-teal-100:hover {
+    border-color: #CCFBF1 !important;
+}
+
+.hover\:border-p-teal-200:hover {
+    border-color: #99F6E4 !important;
+}
+
+.hover\:border-p-teal-300:hover {
+    border-color: #5EEAD4 !important;
+}
+
+.hover\:border-p-teal-400:hover {
+    border-color: #2DD4BF !important;
+}
+
+.hover\:border-p-teal-500:hover {
+    border-color: #14B8A6 !important;
+}
+
+.hover\:border-p-teal-600:hover {
+    border-color: #0D9488 !important;
+}
+
+.hover\:border-p-teal-700:hover {
+    border-color: #0F766E !important;
+}
+
+.hover\:border-p-teal-800:hover {
+    border-color: #115E59 !important;
+}
+
+.hover\:border-p-teal-900:hover {
+    border-color: #134E4A !important;
+}
+
+/* Cyan */
+.hover\:border-p-cyan-50:hover {
+    border-color: #ECFEFF !important;
+}
+
+.hover\:border-p-cyan-100:hover {
+    border-color: #CFFAFE !important;
+}
+
+.hover\:border-p-cyan-200:hover {
+    border-color: #A5F3FC !important;
+}
+
+.hover\:border-p-cyan-300:hover {
+    border-color: #67E8F9 !important;
+}
+
+.hover\:border-p-cyan-400:hover {
+    border-color: #22D3EE !important;
+}
+
+.hover\:border-p-cyan-500:hover {
+    border-color: #06B6D4 !important;
+}
+
+.hover\:border-p-cyan-600:hover {
+    border-color: #0891B2 !important;
+}
+
+.hover\:border-p-cyan-700:hover {
+    border-color: #0E7490 !important;
+}
+
+.hover\:border-p-cyan-800:hover {
+    border-color: #155E75 !important;
+}
+
+.hover\:border-p-cyan-900:hover {
+    border-color: #164E63 !important;
+}
+
+/* Sky */
+.hover\:border-p-sky-50:hover {
+    border-color: #F0F9FF !important;
+}
+
+.hover\:border-p-sky-100:hover {
+    border-color: #E0F2FE !important;
+}
+
+.hover\:border-p-sky-200:hover {
+    border-color: #BAE6FD !important;
+}
+
+.hover\:border-p-sky-300:hover {
+    border-color: #7DD3FC !important;
+}
+
+.hover\:border-p-sky-400:hover {
+    border-color: #38BDF8 !important;
+}
+
+.hover\:border-p-sky-500:hover {
+    border-color: #0EA5E9 !important;
+}
+
+.hover\:border-p-sky-600:hover {
+    border-color: #0284C7 !important;
+}
+
+.hover\:border-p-sky-700:hover {
+    border-color: #0369A1 !important;
+}
+
+.hover\:border-p-sky-800:hover {
+    border-color: #075985 !important;
+}
+
+.hover\:border-p-sky-900:hover {
+    border-color: #0C4A6E !important;
+}
+
+/* Blue */
+.hover\:border-p-blue-50:hover {
+    border-color: #EFF6FF !important;
+}
+
+.hover\:border-p-blue-100:hover {
+    border-color: #DBEAFE !important;
+}
+
+.hover\:border-p-blue-200:hover {
+    border-color: #BFDBFE !important;
+}
+
+.hover\:border-p-blue-300:hover {
+    border-color: #93C5FD !important;
+}
+
+.hover\:border-p-blue-400:hover {
+    border-color: #60A5FA !important;
+}
+
+.hover\:border-p-blue-500:hover {
+    border-color: #3B82F6 !important;
+}
+
+.hover\:border-p-blue-600:hover {
+    border-color: #2563EB !important;
+}
+
+.hover\:border-p-blue-700:hover {
+    border-color: #1D4ED8 !important;
+}
+
+.hover\:border-p-blue-800:hover {
+    border-color: #1E40AF !important;
+}
+
+.hover\:border-p-blue-900:hover {
+    border-color: #1E3A8A !important;
+}
+
+/* Indigo */
+.hover\:border-p-indigo-50:hover {
+    border-color: #EEF2FF !important;
+}
+
+.hover\:border-p-indigo-100:hover {
+    border-color: #E0E7FF !important;
+}
+
+.hover\:border-p-indigo-200:hover {
+    border-color: #C7D2FE !important;
+}
+
+.hover\:border-p-indigo-300:hover {
+    border-color: #A5B4FC !important;
+}
+
+.hover\:border-p-indigo-400:hover {
+    border-color: #818CF8 !important;
+}
+
+.hover\:border-p-indigo-500:hover {
+    border-color: #6366F1 !important;
+}
+
+.hover\:border-p-indigo-600:hover {
+    border-color: #4F46E5 !important;
+}
+
+.hover\:border-p-indigo-700:hover {
+    border-color: #4338CA !important;
+}
+
+.hover\:border-p-indigo-800:hover {
+    border-color: #3730A3 !important;
+}
+
+.hover\:border-p-indigo-900:hover {
+    border-color: #312E81 !important;
+}
+
+/* Violet */
+.hover\:border-p-violet-50:hover {
+    border-color: #F5F3FF !important;
+}
+
+.hover\:border-p-violet-100:hover {
+    border-color: #EDE9FE !important;
+}
+
+.hover\:border-p-violet-200:hover {
+    border-color: #DDD6FE !important;
+}
+
+.hover\:border-p-violet-300:hover {
+    border-color: #C4B5FD !important;
+}
+
+.hover\:border-p-violet-400:hover {
+    border-color: #A78BFA !important;
+}
+
+.hover\:border-p-violet-500:hover {
+    border-color: #8B5CF6 !important;
+}
+
+.hover\:border-p-violet-600:hover {
+    border-color: #7C3AED !important;
+}
+
+.hover\:border-p-violet-700:hover {
+    border-color: #6D28D9 !important;
+}
+
+.hover\:border-p-violet-800:hover {
+    border-color: #5B21B6 !important;
+}
+
+.hover\:border-p-violet-900:hover {
+    border-color: #4C1D95 !important;
+}
+
+/* Purple */
+.hover\:border-p-purple-50:hover {
+    border-color: #FAF5FF !important;
+}
+
+.hover\:border-p-purple-100:hover {
+    border-color: #F3E8FF !important;
+}
+
+.hover\:border-p-purple-200:hover {
+    border-color: #E9D5FF !important;
+}
+
+.hover\:border-p-purple-300:hover {
+    border-color: #D8B4FE !important;
+}
+
+.hover\:border-p-purple-400:hover {
+    border-color: #C084FC !important;
+}
+
+.hover\:border-p-purple-500:hover {
+    border-color: #A855F7 !important;
+}
+
+.hover\:border-p-purple-600:hover {
+    border-color: #9333EA !important;
+}
+
+.hover\:border-p-purple-700:hover {
+    border-color: #7E22CE !important;
+}
+
+.hover\:border-p-purple-800:hover {
+    border-color: #6B21A8 !important;
+}
+
+.hover\:border-p-purple-900:hover {
+    border-color: #581C87 !important;
+}
+
+/* Fuchsia */
+.hover\:border-p-fuchsia-50:hover {
+    border-color: #FDF4FF !important;
+}
+
+.hover\:border-p-fuchsia-100:hover {
+    border-color: #FAE8FF !important;
+}
+
+.hover\:border-p-fuchsia-200:hover {
+    border-color: #F5D0FE !important;
+}
+
+.hover\:border-p-fuchsia-300:hover {
+    border-color: #F0ABFC !important;
+}
+
+.hover\:border-p-fuchsia-400:hover {
+    border-color: #E879F9 !important;
+}
+
+.hover\:border-p-fuchsia-500:hover {
+    border-color: #D946EF !important;
+}
+
+.hover\:border-p-fuchsia-600:hover {
+    border-color: #C026D3 !important;
+}
+
+.hover\:border-p-fuchsia-700:hover {
+    border-color: #A21CAF !important;
+}
+
+.hover\:border-p-fuchsia-800:hover {
+    border-color: #86198F !important;
+}
+
+.hover\:border-p-fuchsia-900:hover {
+    border-color: #701A75 !important;
+}
+
+/* Pink */
+.hover\:border-p-pink-50:hover {
+    border-color: #FDF2F8 !important;
+}
+
+.hover\:border-p-pink-100:hover {
+    border-color: #FCE7F3 !important;
+}
+
+.hover\:border-p-pink-200:hover {
+    border-color: #FBCFE8 !important;
+}
+
+.hover\:border-p-pink-300:hover {
+    border-color: #F9A8D4 !important;
+}
+
+.hover\:border-p-pink-400:hover {
+    border-color: #F472B6 !important;
+}
+
+.hover\:border-p-pink-500:hover {
+    border-color: #EC4899 !important;
+}
+
+.hover\:border-p-pink-600:hover {
+    border-color: #DB2777 !important;
+}
+
+.hover\:border-p-pink-700:hover {
+    border-color: #BE185D !important;
+}
+
+.hover\:border-p-pink-800:hover {
+    border-color: #9D174D !important;
+}
+
+.hover\:border-p-pink-900:hover {
+    border-color: #831843 !important;
+}

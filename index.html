@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="article" />
+
+
+    <title>Open Scientific Collections Austria (OSCA) - Portal</title>
+    <link rel="shortcut icon" href="https://osca.science/wp-content/uploads/2024/01/cropped-android-chrome-512x512-2-32x32.png">
+
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="og:title" property="og:title" content="" />
+    <meta name="og:description" property="og:description" content="" />
+    <meta name="og:image" property="og:image" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Pazly Colors -->
+    <link rel="stylesheet" href="css/colors/gradients.css" />
+    <link rel="stylesheet" href="css/colors/backgrounds.css" />
+    <link rel="stylesheet" href="css/colors/text.css" />
+    <link rel="stylesheet" href="css/colors/border.css" />
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1.3 !important;
+        }
+
+        ol {
+            list-style-type: decimal !important;
+            padding-left: 1em !important;
+        }
+
+        ul {
+            list-style-type: disc !important;
+            padding-left: 1em !important;
+        }
+
+        .stretchToScreen {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+
+    <!-- Fontswesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.min.js" integrity="sha512-R60W3LgKdvvfwbGbqKusRu/434Snuvr9/Flhtoq9cj1LQ9P4HFKParULqOCAisHk/J4zyaEWWjiWIMuP13vXEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body class="m-0 p-0 stretchToScreen">
+    <!-- Pazly Blocks Come Here -->
+    <section id="pazly-template-set" class="absolute top-0  m-0 p-0 stretchToScreen">
+        <section xmlns="http://www.w3.org/1999/xhtml" class="fixed z-10 w-full bg-white text-p-gray-700 border-b shadow">
+            <div class="flex md:p-3 flex-col md:flex-row justify-between">
+                <div class="flex items-start flex-col pr-2 border-r">
+                    <a pazly-editable="href" class="flex title-font font-medium items-center p-2 text-p-gray-900 md:mb-0">
+                        <span class="text-xs">v4.17</span> <br>
+                    </a>
+                    <div id="filter-toggle-button" onclick="filtersModule.switchFilters()" class="whitespace-nowrap text-xs px-4 py-2 rounded-lg shadow-md border cursor-pointer bg-p-gray-50 border-pink-200"> <i class="fas fa-sliders-h text-sm font-semibold"></i> Filter</div>
+                </div>
+
+                <!-- Search UI-->
+                <div class="flex flex-grow flex-col">
+                    <div class="flex flex-grow items-center px-4 text-sm">
+                        <div class="relative w-full">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </span>
+                            <input id="searchQuery" type="text" class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 w-full placeholder-gray-400" placeholder="Search for specimens, countries, etc. ..." />
+                        </div>
+                        <button id="searchButton" class="flex items-center shadow bg-p-green-500 hover:bg-p-green-700 text-p-white ml-2 py-2 px-4 rounded-lg"><i class="fas fa-search mr-2"></i> Suchen</a>
+                                  
+                    </div>
+                    <div class="flex flex-grow items-center">
+                        <fieldset class="flex flex-grow items-start px-2 justify-between gap-2 pt-2 text-sm">
+                            <div class="flex items-center justify-center py-1 pl-3 pr-1">Ergebnisse: </div>
+                            <div class="flex whitespace-nowrap items-center justify-center">
+                                <div class="flex rounded-lg bg-p-orange-50 py-1 px-3">
+                                    <input type="checkbox" checked name="search-source" id="search-source-osca" value="3" onclick="toggleResultCards(this.value, this.checked)"> 
+                                    <label for="search-source-osca" class="pl-1"> <span id="resultCountOSCA" class="result-count font-bold"></span> von OSCA <img src="./img/osca-icon.png" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label>
+                                </div>
+
+                                <svg id="resultLoadingOSCA" class="hidden animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-50" cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                        
+                            <div class="flex whitespace-nowrap items-center justify-center">
+                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
+                                    <input type="checkbox" checked name="search-source" id="search-source-gbif" value="1" onclick="toggleResultCards(this.value, this.checked)"> 
+                                    <label for="search-source-gbif" class="pl-1"> <span id="resultCountGBIF" class="result-count font-bold"></span> von GBIF <img src="./img/gbif-icon.png" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label> 
+                                </div>
+
+                                <svg id="resultLoadingGBIF" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-50" cx="12" cy="12" r="10" stroke="#2563eb" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+
+                            <div class="flex whitespace-nowrap items-center justify-center">
+                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3"> 
+                                    <input type="checkbox" checked name="search-source" id="search-source-geocase" value="2" onclick="toggleResultCards(this.value, this.checked)"> 
+                                    <label for="search-source-geocase" class="pl-1"> <span id="resultCountGeocase" class="result-count font-bold"></span> von GeoCASe <img src="./img/geocase-icon.ico" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label> 
+                                </div>
+
+                                <svg id="resultLoadingGeocase" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-50" cx="12" cy="12" r="10" stroke="#2563eb" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+
+
+                            <!--   <div class="flex items-center justify-center rounded-lg bg-p-blue-50 py-1 px-3"> <input type="checkbox" name="search-source" id="search-source-bold" value="4"> <label for="search-source-bold" class="pl-1"> Suche auf BOLD <img src="./img/bold-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /></label> </div> -->
+                        
+                        
+                            <div class="flex whitespace-nowrap items-center justify-center">
+                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3"> 
+                                    <input type="checkbox" checked name="search-source" id="search-source-europeana" value="5" onclick="toggleResultCards(this.value, this.checked)"> 
+                                    <label for="search-source-europeana" class="pl-1"> <span id="resultCountEuropeana" class="result-count font-bold"></span> von Europeana <img src="./img/europeana-icon.jpg" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label> 
+                                </div>
+
+                                <svg id="resultLoadingEuropeana" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-50" cx="12" cy="12" r="10" stroke="#2563eb" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+
+                            <div class="flex whitespace-nowrap items-center justify-center">
+                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3"> 
+                                    <input type="checkbox" checked name="search-source" id="search-source-dissco" value="6" onclick="toggleResultCards(this.value, this.checked)"> 
+                                    <label for="search-source-dissco" class="pl-1"> <span id="resultCountDissco" class="result-count font-bold"></span> von DiSSCO <img src="./img/dissco-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /> (Sandbox)</label> 
+                                </div>
+
+                                <svg id="resultLoadingDissco" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-50" cx="12" cy="12" r="10" stroke="#2563eb" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                        
+                        </fieldset>
+                       
+                    </div>
+
+                </div>
+
+                <!-- Stats and Other Buttons-->
+                <div class="flex flex-col items-start pl-2 gap-2 border-l text-center">
+
+                    <div onclick="loadProjectStatus()" class="w-full flex flex-row items-center justify-center text-xs rounded-lg px-4 py-2 bg-gray-50 border hover:bg-white shadow cursor-pointer"> 
+                       <span>OSCA in Zahlen</span>
+                    </div>
+                
+                    <div onclick="resultListModule.downloadCurrentResults()" class="flex flex-row justify-between items-center border px-4 py-2 text-xs rounded-lg shadow cursor-pointer bg-white">
+                        <i id="resultDownloadIcon" class="fas fa-arrow-down mr-2"></i>
+                        <i id="resultDownloadInProgressIcon" class="hidden animate-spin fas fa-circle-notch text-p-green-600 mr-2"></i>
+                        <span>Seitenergebnisse Herunterladen</span>
+                    </div>  
+                </div>
+            </div>
+        </section>
+
+
+        <section class="relative mt-32 md:mt-24 z-0 pt-1  w-full h-full bg-white text-p-gray-700 flex flex-row">
+            <!-- Filters -->
+            <div id="filters" class="hidden mt-2 w-1/3 z-40 col-span-3 bg-gray-50 bg-opacity-100 shadow-lg -ml-1 h-full" style="min-width: 420px;">
+                <!-- Title -->
+                <div class="w-full flex items-center border-b p-4 text-sm font-semibold">
+                    Ergebnis-Filter (in Arbeit)
+                </div>
+                <!-- Filter Source -->
+                <div class="w-full flex items-center border-b p-4 text-sm font-semibold gap-4">
+                    Einschränkungen der Suche
+                    <button class="py-2 px-4 shadow bg-gray-50 text-black text-xs rounded-lg border-2 hover:border-red-100 border-red-300" onclick="filtersModule.filterByStrictSearch(document.getElementById('searchQuery').value); resultListModule.renderResultGrid()">Strenge Suchbegriffe verwenden</button>   
+                </div>
+
+                <div class="w-full flex items-center border-b p-4 text-sm font-semibold gap-4">
+                    Land der Veröffentlichung
+                    <button class="py-2 px-4 shadow bg-gray-50 text-black text-xs rounded-lg border-2 hover:border-red-100 border-red-300 "> Österreichische Ergebnisse anzeigen </button>
+                    <button class="py-2 px-4 shadow bg-gray-50 text-black text-xs rounded-lg border-2 hover:border-red-100"> Internationale Ergebnisse anzeigen </button>
+                </div>
+
+                <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
+                    Organisation <input id="instituteStringFilter" type="text" placeholder="Einen Organisationsnamen eingeben" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                </div>
+
+                <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
+                    Probe ID <br> (Fragment) <input id="specimenIDStringFilter" type="text" placeholder="Zum Beispiel: 12345" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                </div>
+
+                <!-- 
+                <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
+                    Probe Typ <br> (Specimen Type) <input type="text" placeholder="Zum Beispiel: preserved specimen, fossil specimen, etc." class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                </div>
+                -->
+                <!--
+                <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
+                    Geändertes Datum <input type="date" placeholder="UTC date/time of first creation or subsequent modification" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                </div>
+                 -->
+
+                <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
+                    Nur Objekte mit Medien anzeigen <input type="checkbox" placeholder="has Media" class="mx-2 p-2 rounded-lg border" value="hm" onclick="toggleResultCards(this.value, this.checked)" />
+                </div>
+
+                <div class="w-full flex flex-row justify-around items-center border-b p-4 text-sm font-semibold">
+                   <button class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value}); resultListModule.renderResultGrid()">Filter anwenden</button>
+                   <button class="py-2 px-4 shadow bg-red-400 text-white rounded-lg"  onclick="filtersModule.resetFilters(); resultListModule.renderResultGrid()">Filter zurücksetzen</button>
+                </div>
+            </div>
+
+            <!-- Result List  -->
+            <div class="w-full col-span-12 bg-p-truegray-100 h-full overflow-auto">
+
+                <!-- Result Items -->
+                <div class="relative w-full p-4 mt-6 ">
+                    <table id="result-list" class="items-center w-full border border-white shadow-lg rounded bg-white overflow-hidden">
+                        <thead class="static">
+                            <tr>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Scientific Name
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Physical Specimen ID
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Organization
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Speciment Type
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Modified
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    License
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Location Qualitative[Quantitative]
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Geological Age
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Collecting Agent
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Event Date
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Type Status
+                                </th>
+                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                    Media
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="resultItems">
+
+                        </tbody>
+
+                    </table>
+
+                    <div id="result-grid" class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+                    </div>
+                </div>
+
+                <!-- 
+                <div class="resultPages flex flex-row items-centers gap-2 my-4 px-4 pt-2 overflow-auto"> </div>
+                -->
+            </div>
+        </section>
+    </section>
+    <!-- Pazly Blocks Ends Here -->
+
+    <!-- Modals and Hidden Elements-->
+    <div id="modal" class="hidden fixed w-full h-full bg-black bg-opacity-50 p-32">
+        <div class="w-full h-full bg-white shadow rounded ">
+            <div class="static w-full flex flex-row justify-between p-4 shadow">
+                <div>
+                    Occurrence Details for <b id="detailsScientificName"></b>
+                </div>
+                <button onclick="resultDetailsModule.modalHandler(false)" class="rounded-sm px-2 py-1 shadow text-white bg-red-500 hover:bg-red-700 mr-1" style="font-size:10px; font-weight:700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="relative w-full overflow-auto" style="height: calc(100% - 70px);">
+                <div id="detailsMedia" class="fixed right-36"></div>
+                <div id="detailsBody" class="w-full"> </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="project-stats-modal" class="fixed hidden w-full h-full bg-black bg-opacity-50 px-24 pt-32 pb-20">
+        <div class="w-full h-full bg-white shadow rounded ">
+            <div class="static w-full flex flex-row justify-between p-4 shadow">
+                <div>  <span class="text-pink-500 text-xs"> Letzte Aktualisierung: 3 Dezember 2024 </span> </div>
+                <div class="font-semibold w-1/3">
+                    OSCA in Zahlen 
+                </div>
+                <button onclick="hideProjectStats()" class="rounded-sm px-2 py-1 shadow text-white bg-red-500 hover:bg-red-700 mr-1" style="font-size:10px; font-weight:700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div id="oscaInNumbersPopup" class="relative w-full overflow-auto" style="height: calc(100% - 70px);">
+                <div class="w-full text-center text-sm p-4">
+                    Das OSCA-Konsortium besteht derzeit aus 12 Institutionen aus ganz Österreich, die bio- und geowissenschaftliche Sammlungen bewahren, entwickeln, erforschen und für die Öffentlichkeit sichtbar machen. Diese Statistiken veranschaulichen unseren Prozess und unsere Aufwandsverteilung
+                </div>
+                <div class="w-full grid grid-cols-3 gap-4 p-4">
+                    <div></div>
+                    <div>
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Verarbeitung der Daten ...
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Pazly Scripts Start Here -->
+    <section id="pazly-scripts-set" class="m-0 p-0 w-0 h-0">
+
+        <!-- Smooth scrolling -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- <script src="./index.js"></script> -->
+        <script src="js/localData/localData.js"></script>
+        <script src="js/search/searchModule.js"></script>
+        <script src="js/filters/filtersModule.js"></script>
+        <script src="js/resultList/resultListModule.js"></script>
+        <script src="js/resultDetails/resultDetailsModule.js"></script>
+
+        <script src="js/main.js"></script>
+
+    </section>
+
+</body>
+
+</html>

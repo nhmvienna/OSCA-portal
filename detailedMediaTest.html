@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Explorer</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    .image-container {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+<body class="bg-gray-100 py-8">
+  <div class="container mx-auto">
+    <h1 class="text-3xl text-center mb-8">Image Explorer</h1>
+    
+    <div id="image-gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Function to extract query parameters from URL
+      function getQueryParams(url) {
+        const queryParams = {};
+        const urlParams = new URLSearchParams(url);
+        for (const [key, value] of urlParams) {
+          queryParams[key] = value;
+        }
+        return queryParams;
+      }
+
+      // Get image URLs from query parameters
+      const queryParams = getQueryParams(window.location.search);
+      const imageUrls = queryParams.images ? queryParams.images.split(',') : [];
+
+      // Display images
+      imageUrls.forEach(function(imageUrl) {
+        const imageElement = $('<img>').attr('src', imageUrl).addClass('w-full');
+        const imageContainer = $('<div>').addClass('image-container').append(imageElement);
+        $('#image-gallery').append(imageContainer);
+      });
+    });
+  </script>
+</body>
+</html>

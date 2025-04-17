@@ -1,0 +1,4 @@
+occurrenceID,scientificName,kingdom,phylum,class,order,family,genus,specificEpithet,decimalLatitude,decimalLongitude,eventDate,country
+"1","Panthera leo","Animalia","Chordata","Mammalia","Carnivora","Felidae","Panthera","leo",-23.9884,31.5547,"2024-02-15","South Africa"
+"2","Quercus robur","Plantae","Tracheophyta","Magnoliopsida","Fagales","Fagaceae","Quercus","robur",52.2297,21.0122,"2024-03-01","Poland"
+"3","Aptenodytes forsteri","Animalia","Chordata","Aves","Sphenisciformes","Spheniscidae","Aptenodytes","forsteri",-77.8460,166.6836,"2024-01-20","Antarctica"

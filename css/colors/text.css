@@ -1,0 +1,1840 @@
+
+.text-p-white {
+    color: #FFF !important;
+}
+.text-p-black {
+    color: #000 !important;
+}
+.text-p-transparent {
+    color: transparent !important;
+}
+
+/* TEXT GRAYS */
+
+/* Blue Gray */
+.text-p-bluegray-50 {
+    color: #F8FAFC !important;
+}
+
+.text-p-bluegray-100 {
+    color: #F1F5F9 !important;
+}
+
+.text-p-bluegray-200 {
+    color: #E2E8F0 !important;
+}
+
+.text-p-bluegray-300 {
+    color: #CBD5E1 !important;
+}
+
+.text-p-bluegray-400 {
+    color: #94A3B8 !important;
+}
+
+.text-p-bluegray-500 {
+    color: #64748B !important;
+}
+
+.text-p-bluegray-600 {
+    color: #475569 !important;
+}
+
+.text-p-bluegray-700 {
+    color: #334155 !important;
+}
+
+.text-p-bluegray-800 {
+    color: #1E293B !important;
+}
+
+.text-p-bluegray-900 {
+    color: #0F172A !important;
+}
+
+/* Cool Gray */
+.text-p-coolgray-50 {
+    color: #F9FAFB !important;
+}
+
+.text-p-coolgray-100 {
+    color: #F3F4F6 !important;
+}
+
+.text-p-coolgray-200 {
+    color: #E5E7EB !important;
+}
+
+.text-p-coolgray-300 {
+    color: #D1D5DB !important;
+}
+
+.text-p-coolgray-400 {
+    color: #9CA3AF !important;
+}
+
+.text-p-coolgray-500 {
+    color: #6B7280 !important;
+}
+
+.text-p-coolgray-600 {
+    color: #4B5563 !important;
+}
+
+.text-p-coolgray-700 {
+    color: #374151 !important;
+}
+
+.text-p-coolgray-800 {
+    color: #1F2937 !important;
+}
+
+.text-p-coolgray-900 {
+    color: #111827 !important;
+}
+
+/* Gray */
+.text-p-gray-50 {
+    color: #FAFAFA !important;
+}
+
+.text-p-gray-100 {
+    color: #F4F4F5 !important;
+}
+
+.text-p-gray-200 {
+    color: #E4E4E7 !important;
+}
+
+.text-p-gray-300 {
+    color: #D4D4D8 !important;
+}
+
+.text-p-gray-400 {
+    color: #A1A1AA !important;
+}
+
+.text-p-gray-500 {
+    color: #71717A !important;
+}
+
+.text-p-gray-600 {
+    color: #52525B !important;
+}
+
+.text-p-gray-700 {
+    color: #3F3F46 !important;
+}
+
+.text-p-gray-800 {
+    color: #27272A !important;
+}
+
+.text-p-gray-900 {
+    color: #18181B !important;
+}
+
+/* True Gray */
+.text-p-truegray-50 {
+    color: #FAFAFA !important;
+}
+
+.text-p-truegray-100 {
+    color: #F5F5F5!important;
+}
+
+.text-p-truegray-200 {
+    color: #E5E5E5 !important;
+}
+
+.text-p-truegray-300 {
+    color: #D4D4D4 !important;
+}
+
+.text-p-truegray-400 {
+    color: #A3A3A3 !important;
+}
+
+.text-p-truegray-500 {
+    color: #737373 !important;
+}
+
+.text-p-truegray-600 {
+    color: #525252 !important;
+}
+
+.text-p-truegray-700 {
+    color: #404040 !important;
+}
+
+.text-p-truegray-800 {
+    color: #262626 !important;
+}
+
+.text-p-truegray-900 {
+    color: #171717 !important;
+}
+
+/* Warm Gray */
+.text-p-warmgray-50 {
+    color: #FAFAF9 !important;
+}
+
+.text-p-warmgray-100 {
+    color: #F5F5F4 !important;
+}
+
+.text-p-warmgray-200 {
+    color: #E7E5E4 !important;
+}
+
+.text-p-warmgray-300 {
+    color: #D6D3D1 !important;
+}
+
+.text-p-warmgray-400 {
+    color: #A8A29E !important;
+}
+
+.text-p-warmgray-500 {
+    color: #78716C !important;
+}
+
+.text-p-warmgray-600 {
+    color: #57534E !important;
+}
+
+.text-p-warmgray-700 {
+    color: #44403C !important;
+}
+
+.text-p-warmgray-800 {
+    color: #292524 !important;
+}
+
+.text-p-warmgray-900 {
+    color: #1C1917 !important;
+}
+
+/* REDS */
+/* Red */
+.text-p-red-50 {
+    color: #FEF2F2 !important;
+}
+
+.text-p-red-100 {
+    color: #FEE2E2 !important;
+}
+
+.text-p-red-200 {
+    color: #FECACA !important;
+}
+
+.text-p-red-300 {
+    color: #FCA5A5 !important;
+}
+
+.text-p-red-400 {
+    color: #F87171 !important;
+}
+
+.text-p-red-500 {
+    color: #EF4444 !important;
+}
+
+.text-p-red-600 {
+    color: #DC2626 !important;
+}
+
+.text-p-red-700 {
+    color: #B91C1C !important;
+}
+
+.text-p-red-800 {
+    color: #991B1B !important;
+}
+
+.text-p-red-900 {
+    color: #7F1D1D !important;
+}
+
+/* Rose */
+.text-p-rose-50 {
+    color: #FFF1F2 !important;
+}
+
+.text-p-rose-100 {
+    color: #FFE4E6 !important;
+}
+
+.text-p-rose-200 {
+    color: #FECDD3 !important;
+}
+
+.text-p-rose-300 {
+    color: #FDA4AF !important;
+}
+
+.text-p-rose-400 {
+    color: #FB7185 !important;
+}
+
+.text-p-rose-500 {
+    color: #F43F5E !important;
+}
+
+.text-p-rose-600 {
+    color: #E11D48 !important;
+}
+
+.text-p-rose-700 {
+    color: #BE123C !important;
+}
+
+.text-p-rose-800 {
+    color: #9F1239 !important;
+}
+
+.text-p-rose-900 {
+    color: #881337 !important;
+}
+
+/* ORANGES */
+/* Orange */
+.text-p-orange-50 {
+    color: #FFF7ED !important;
+}
+
+.text-p-orange-100 {
+    color: #FFEDD5 !important;
+}
+
+.text-p-orange-200 {
+    color: #FED7AA !important;
+}
+
+.text-p-orange-300 {
+    color: #FDBA74 !important;
+}
+
+.text-p-orange-400 {
+    color: #FB923C !important;
+}
+
+.text-p-orange-500 {
+    color: #F97316 !important;
+}
+
+.text-p-orange-600 {
+    color: #EA580C !important;
+}
+
+.text-p-orange-700 {
+    color: #C2410C !important;
+}
+
+.text-p-orange-800 {
+    color: #9A3412 !important;
+}
+
+.text-p-orange-900 {
+    color: #7C2D12 !important;
+}
+
+/* Amber */
+.text-p-amber-50 {
+    color: #FFFBEB !important;
+}
+
+.text-p-amber-100 {
+    color: #FEF3C7 !important;
+}
+
+.text-p-amber-200 {
+    color: #FDE68A !important;
+}
+
+.text-p-amber-300 {
+    color: #FCD34D !important;
+}
+
+.text-p-amber-400 {
+    color: #FBBF24 !important;
+}
+
+.text-p-amber-500 {
+    color: #F59E0B !important;
+}
+
+.text-p-amber-600 {
+    color: #D97706 !important;
+}
+
+.text-p-amber-700 {
+    color: #B45309 !important;
+}
+
+.text-p-amber-800 {
+    color: #92400E !important;
+}
+
+.text-p-amber-900 {
+    color: #78350F !important;
+}
+
+/* Yellow */
+.text-p-yellow-50 {
+    color: #FEFCE8 !important;
+}
+
+.text-p-yellow-100 {
+    color: #FEF9C3 !important;
+}
+
+.text-p-yellow-200 {
+    color: #FEF08A !important;
+}
+
+.text-p-yellow-300 {
+    color: #FDE047 !important;
+}
+
+.text-p-yellow-400 {
+    color: #FACC15 !important;
+}
+
+.text-p-yellow-500 {
+    color: #EAB308 !important;
+}
+
+.text-p-yellow-600 {
+    color: #CA8A04 !important;
+}
+
+.text-p-yellow-700 {
+    color: #A16207 !important;
+}
+
+.text-p-yellow-800 {
+    color: #854D0E !important;
+}
+
+.text-p-yellow-900 {
+    color: #713F12 !important;
+}
+
+/* Lime */
+.text-p-lime-50 {
+    color: #F7FEE7 !important;
+}
+
+.text-p-lime-100 {
+    color: #ECFCCB !important;
+}
+
+.text-p-lime-200 {
+    color: #D9F99D !important;
+}
+
+.text-p-lime-300 {
+    color: #BEF264 !important;
+}
+
+.text-p-lime-400 {
+    color: #A3E635 !important;
+}
+
+.text-p-lime-500 {
+    color: #84CC16 !important;
+}
+
+.text-p-lime-600 {
+    color: #65A30D !important;
+}
+
+.text-p-lime-700 {
+    color: #4D7C0F !important;
+}
+
+.text-p-lime-800 {
+    color: #3F6212 !important;
+}
+
+.text-p-lime-900 {
+    color: #365314 !important;
+}
+
+/* Green */
+.text-p-green-50 {
+    color: #F0FDF4 !important;
+}
+
+.text-p-green-100 {
+    color: #DCFCE7 !important;
+}
+
+.text-p-green-200 {
+    color: #BBF7D0 !important;
+}
+
+.text-p-green-300 {
+    color: #86EFAC !important;
+}
+
+.text-p-green-400 {
+    color: #4ADE80 !important;
+}
+
+.text-p-green-500 {
+    color: #22C55E !important;
+}
+
+.text-p-green-600 {
+    color: #16A34A !important;
+}
+
+.text-p-green-700 {
+    color: #15803D !important;
+}
+
+.text-p-green-800 {
+    color: #166534 !important;
+}
+
+.text-p-green-900 {
+    color: #14532D !important;
+}
+
+/* Emerald */
+.text-p-emerald-50 {
+    color: #ECFDF5 !important;
+}
+
+.text-p-emerald-100 {
+    color: #D1FAE5 !important;
+}
+
+.text-p-emerald-200 {
+    color: #A7F3D0 !important;
+}
+
+.text-p-emerald-300 {
+    color: #6EE7B7 !important;
+}
+
+.text-p-emerald-400 {
+    color: #34D399 !important;
+}
+
+.text-p-emerald-500 {
+    color: #10B981 !important;
+}
+
+.text-p-emerald-600 {
+    color: #059669 !important;
+}
+
+.text-p-emerald-700 {
+    color: #047857 !important;
+}
+
+.text-p-emerald-800 {
+    color: #065F46 !important;
+}
+
+.text-p-emerald-900 {
+    color: #064E3B !important;
+}
+
+/* Teal */
+.text-p-teal-50 {
+    color: #F0FDFA !important;
+}
+
+.text-p-teal-100 {
+    color: #CCFBF1 !important;
+}
+
+.text-p-teal-200 {
+    color: #99F6E4 !important;
+}
+
+.text-p-teal-300 {
+    color: #5EEAD4 !important;
+}
+
+.text-p-teal-400 {
+    color: #2DD4BF !important;
+}
+
+.text-p-teal-500 {
+    color: #14B8A6 !important;
+}
+
+.text-p-teal-600 {
+    color: #0D9488 !important;
+}
+
+.text-p-teal-700 {
+    color: #0F766E !important;
+}
+
+.text-p-teal-800 {
+    color: #115E59 !important;
+}
+
+.text-p-teal-900 {
+    color: #134E4A !important;
+}
+
+/* Cyan */
+.text-p-cyan-50 {
+    color: #ECFEFF !important;
+}
+
+.text-p-cyan-100 {
+    color: #CFFAFE !important;
+}
+
+.text-p-cyan-200 {
+    color: #A5F3FC !important;
+}
+
+.text-p-cyan-300 {
+    color: #67E8F9 !important;
+}
+
+.text-p-cyan-400 {
+    color: #22D3EE !important;
+}
+
+.text-p-cyan-500 {
+    color: #06B6D4 !important;
+}
+
+.text-p-cyan-600 {
+    color: #0891B2 !important;
+}
+
+.text-p-cyan-700 {
+    color: #0E7490 !important;
+}
+
+.text-p-cyan-800 {
+    color: #155E75 !important;
+}
+
+.text-p-cyan-900 {
+    color: #164E63 !important;
+}
+
+/* Sky */
+.text-p-sky-50 {
+    color: #F0F9FF !important;
+}
+
+.text-p-sky-100 {
+    color: #E0F2FE !important;
+}
+
+.text-p-sky-200 {
+    color: #BAE6FD !important;
+}
+
+.text-p-sky-300 {
+    color: #7DD3FC !important;
+}
+
+.text-p-sky-400 {
+    color: #38BDF8 !important;
+}
+
+.text-p-sky-500 {
+    color: #0EA5E9 !important;
+}
+
+.text-p-sky-600 {
+    color: #0284C7 !important;
+}
+
+.text-p-sky-700 {
+    color: #0369A1 !important;
+}
+
+.text-p-sky-800 {
+    color: #075985 !important;
+}
+
+.text-p-sky-900 {
+    color: #0C4A6E !important;
+}
+
+/* Blue */
+.text-p-blue-50 {
+    color: #EFF6FF !important;
+}
+
+.text-p-blue-100 {
+    color: #DBEAFE !important;
+}
+
+.text-p-blue-200 {
+    color: #BFDBFE !important;
+}
+
+.text-p-blue-300 {
+    color: #93C5FD !important;
+}
+
+.text-p-blue-400 {
+    color: #60A5FA !important;
+}
+
+.text-p-blue-500 {
+    color: #3B82F6 !important;
+}
+
+.text-p-blue-600 {
+    color: #2563EB !important;
+}
+
+.text-p-blue-700 {
+    color: #1D4ED8 !important;
+}
+
+.text-p-blue-800 {
+    color: #1E40AF !important;
+}
+
+.text-p-blue-900 {
+    color: #1E3A8A !important;
+}
+
+/* Indigo */
+.text-p-indigo-50 {
+    color: #EEF2FF !important;
+}
+
+.text-p-indigo-100 {
+    color: #E0E7FF !important;
+}
+
+.text-p-indigo-200 {
+    color: #C7D2FE !important;
+}
+
+.text-p-indigo-300 {
+    color: #A5B4FC !important;
+}
+
+.text-p-indigo-400 {
+    color: #818CF8 !important;
+}
+
+.text-p-indigo-500 {
+    color: #6366F1 !important;
+}
+
+.text-p-indigo-600 {
+    color: #4F46E5 !important;
+}
+
+.text-p-indigo-700 {
+    color: #4338CA !important;
+}
+
+.text-p-indigo-800 {
+    color: #3730A3 !important;
+}
+
+.text-p-indigo-900 {
+    color: #312E81 !important;
+}
+
+/* Violet */
+.text-p-violet-50 {
+    color: #F5F3FF !important;
+}
+
+.text-p-violet-100 {
+    color: #EDE9FE !important;
+}
+
+.text-p-violet-200 {
+    color: #DDD6FE !important;
+}
+
+.text-p-violet-300 {
+    color: #C4B5FD !important;
+}
+
+.text-p-violet-400 {
+    color: #A78BFA !important;
+}
+
+.text-p-violet-500 {
+    color: #8B5CF6 !important;
+}
+
+.text-p-violet-600 {
+    color: #7C3AED !important;
+}
+
+.text-p-violet-700 {
+    color: #6D28D9 !important;
+}
+
+.text-p-violet-800 {
+    color: #5B21B6 !important;
+}
+
+.text-p-violet-900 {
+    color: #4C1D95 !important;
+}
+
+/* Purple */
+.text-p-purple-50 {
+    color: #FAF5FF !important;
+}
+
+.text-p-purple-100 {
+    color: #F3E8FF !important;
+}
+
+.text-p-purple-200 {
+    color: #E9D5FF !important;
+}
+
+.text-p-purple-300 {
+    color: #D8B4FE !important;
+}
+
+.text-p-purple-400 {
+    color: #C084FC !important;
+}
+
+.text-p-purple-500 {
+    color: #A855F7 !important;
+}
+
+.text-p-purple-600 {
+    color: #9333EA !important;
+}
+
+.text-p-purple-700 {
+    color: #7E22CE !important;
+}
+
+.text-p-purple-800 {
+    color: #6B21A8 !important;
+}
+
+.text-p-purple-900 {
+    color: #581C87 !important;
+}
+
+/* Fuchsia */
+.text-p-fuchsia-50 {
+    color: #FDF4FF !important;
+}
+
+.text-p-fuchsia-100 {
+    color: #FAE8FF !important;
+}
+
+.text-p-fuchsia-200 {
+    color: #F5D0FE !important;
+}
+
+.text-p-fuchsia-300 {
+    color: #F0ABFC !important;
+}
+
+.text-p-fuchsia-400 {
+    color: #E879F9 !important;
+}
+
+.text-p-fuchsia-500 {
+    color: #D946EF !important;
+}
+
+.text-p-fuchsia-600 {
+    color: #C026D3 !important;
+}
+
+.text-p-fuchsia-700 {
+    color: #A21CAF !important;
+}
+
+.text-p-fuchsia-800 {
+    color: #86198F !important;
+}
+
+.text-p-fuchsia-900 {
+    color: #701A75 !important;
+}
+
+/* Pink */
+.text-p-pink-50 {
+    color: #FDF2F8 !important;
+}
+
+.text-p-pink-100 {
+    color: #FCE7F3 !important;
+}
+
+.text-p-pink-200 {
+    color: #FBCFE8 !important;
+}
+
+.text-p-pink-300 {
+    color: #F9A8D4 !important;
+}
+
+.text-p-pink-400 {
+    color: #F472B6 !important;
+}
+
+.text-p-pink-500 {
+    color: #EC4899 !important;
+}
+
+.text-p-pink-600 {
+    color: #DB2777 !important;
+}
+
+.text-p-pink-700 {
+    color: #BE185D !important;
+}
+
+.text-p-pink-800 {
+    color: #9D174D !important;
+}
+
+.text-p-pink-900 {
+    color: #831843 !important;
+}
+
+
+/*
+*
+* HOVER STATE
+*
+*/
+
+/* TEXT STATIC COLORS */
+.hover\:text-p-white:hover {
+    color: #FFF !important;
+}
+.hover\:text-p-black:hover {
+    color: #000 !important;
+}
+.hover\:text-p-transparent:hover {
+    color: transparent !important;
+}
+
+/* TEXT GRAYS */
+
+/* Blue Gray */
+.hover\:text-p-bluegray-50:hover {
+    color: #F8FAFC !important;
+}
+
+.hover\:text-p-bluegray-100:hover {
+    color: #F1F5F9 !important;
+}
+
+.hover\:text-p-bluegray-200:hover {
+    color: #E2E8F0 !important;
+}
+
+.hover\:text-p-bluegray-300:hover {
+    color: #CBD5E1 !important;
+}
+
+.hover\:text-p-bluegray-400:hover {
+    color: #94A3B8 !important;
+}
+
+.hover\:text-p-bluegray-500:hover {
+    color: #64748B !important;
+}
+
+.hover\:text-p-bluegray-600:hover {
+    color: #475569 !important;
+}
+
+.hover\:text-p-bluegray-700:hover {
+    color: #334155 !important;
+}
+
+.hover\:text-p-bluegray-800:hover {
+    color: #1E293B !important;
+}
+
+.hover\:text-p-bluegray-900:hover {
+    color: #0F172A !important;
+}
+
+/* Cool Gray */
+.hover\:text-p-coolgray-50:hover {
+    color: #F9FAFB !important;
+}
+
+.hover\:text-p-coolgray-100:hover {
+    color: #F3F4F6 !important;
+}
+
+.hover\:text-p-coolgray-200:hover {
+    color: #E5E7EB !important;
+}
+
+.hover\:text-p-coolgray-300:hover {
+    color: #D1D5DB !important;
+}
+
+.hover\:text-p-coolgray-400:hover {
+    color: #9CA3AF !important;
+}
+
+.hover\:text-p-coolgray-500:hover {
+    color: #6B7280 !important;
+}
+
+.hover\:text-p-coolgray-600:hover {
+    color: #4B5563 !important;
+}
+
+.hover\:text-p-coolgray-700:hover {
+    color: #374151 !important;
+}
+
+.hover\:text-p-coolgray-800:hover {
+    color: #1F2937 !important;
+}
+
+.hover\:text-p-coolgray-900:hover {
+    color: #111827 !important;
+}
+
+/* Gray */
+.hover\:text-p-gray-50:hover {
+    color: #FAFAFA !important;
+}
+
+.hover\:text-p-gray-100:hover {
+    color: #F4F4F5 !important;
+}
+
+.hover\:text-p-gray-200:hover {
+    color: #E4E4E7 !important;
+}
+
+.hover\:text-p-gray-300:hover {
+    color: #D4D4D8 !important;
+}
+
+.hover\:text-p-gray-400:hover {
+    color: #A1A1AA !important;
+}
+
+.hover\:text-p-gray-500:hover {
+    color: #71717A !important;
+}
+
+.hover\:text-p-gray-600:hover {
+    color: #52525B !important;
+}
+
+.hover\:text-p-gray-700:hover {
+    color: #3F3F46 !important;
+}
+
+.hover\:text-p-gray-800:hover {
+    color: #27272A !important;
+}
+
+.hover\:text-p-gray-900:hover {
+    color: #18181B !important;
+}
+
+/* True Gray */
+.hover\:text-p-truegray-50:hover {
+    color: #FAFAFA !important;
+}
+
+.hover\:text-p-truegray-100:hover {
+    color: #F5F5F5!important;
+}
+
+.hover\:text-p-truegray-200:hover {
+    color: #E5E5E5 !important;
+}
+
+.hover\:text-p-truegray-300:hover {
+    color: #D4D4D4 !important;
+}
+
+.hover\:text-p-truegray-400:hover {
+    color: #A3A3A3 !important;
+}
+
+.hover\:text-p-truegray-500:hover {
+    color: #737373 !important;
+}
+
+.hover\:text-p-truegray-600:hover {
+    color: #525252 !important;
+}
+
+.hover\:text-p-truegray-700:hover {
+    color: #404040 !important;
+}
+
+.hover\:text-p-truegray-800:hover {
+    color: #262626 !important;
+}
+
+.hover\:text-p-truegray-900:hover {
+    color: #171717 !important;
+}
+
+/* Warm Gray */
+.hover\:text-p-warmgray-50:hover {
+    color: #FAFAF9 !important;
+}
+
+.hover\:text-p-warmgray-100:hover {
+    color: #F5F5F4 !important;
+}
+
+.hover\:text-p-warmgray-200:hover {
+    color: #E7E5E4 !important;
+}
+
+.hover\:text-p-warmgray-300:hover {
+    color: #D6D3D1 !important;
+}
+
+.hover\:text-p-warmgray-400:hover {
+    color: #A8A29E !important;
+}
+
+.hover\:text-p-warmgray-500:hover {
+    color: #78716C !important;
+}
+
+.hover\:text-p-warmgray-600:hover {
+    color: #57534E !important;
+}
+
+.hover\:text-p-warmgray-700:hover {
+    color: #44403C !important;
+}
+
+.hover\:text-p-warmgray-800:hover {
+    color: #292524 !important;
+}
+
+.hover\:text-p-warmgray-900:hover {
+    color: #1C1917 !important;
+}
+
+/* REDS */
+/* Red */
+.hover\:text-p-red-50:hover {
+    color: #FEF2F2 !important;
+}
+
+.hover\:text-p-red-100:hover {
+    color: #FEE2E2 !important;
+}
+
+.hover\:text-p-red-200:hover {
+    color: #FECACA !important;
+}
+
+.hover\:text-p-red-300:hover {
+    color: #FCA5A5 !important;
+}
+
+.hover\:text-p-red-400:hover {
+    color: #F87171 !important;
+}
+
+.hover\:text-p-red-500:hover {
+    color: #EF4444 !important;
+}
+
+.hover\:text-p-red-600:hover {
+    color: #DC2626 !important;
+}
+
+.hover\:text-p-red-700:hover {
+    color: #B91C1C !important;
+}
+
+.hover\:text-p-red-800:hover {
+    color: #991B1B !important;
+}
+
+.hover\:text-p-red-900:hover {
+    color: #7F1D1D !important;
+}
+
+/* Rose */
+.hover\:text-p-rose-50:hover {
+    color: #FFF1F2 !important;
+}
+
+.hover\:text-p-rose-100:hover {
+    color: #FFE4E6 !important;
+}
+
+.hover\:text-p-rose-200:hover {
+    color: #FECDD3 !important;
+}
+
+.hover\:text-p-rose-300:hover {
+    color: #FDA4AF !important;
+}
+
+.hover\:text-p-rose-400:hover {
+    color: #FB7185 !important;
+}
+
+.hover\:text-p-rose-500:hover {
+    color: #F43F5E !important;
+}
+
+.hover\:text-p-rose-600:hover {
+    color: #E11D48 !important;
+}
+
+.hover\:text-p-rose-700:hover {
+    color: #BE123C !important;
+}
+
+.hover\:text-p-rose-800:hover {
+    color: #9F1239 !important;
+}
+
+.hover\:text-p-rose-900:hover {
+    color: #881337 !important;
+}
+
+/* ORANGES */
+/* Orange */
+.hover\:text-p-orange-50:hover {
+    color: #FFF7ED !important;
+}
+
+.hover\:text-p-orange-100:hover {
+    color: #FFEDD5 !important;
+}
+
+.hover\:text-p-orange-200:hover {
+    color: #FED7AA !important;
+}
+
+.hover\:text-p-orange-300:hover {
+    color: #FDBA74 !important;
+}
+
+.hover\:text-p-orange-400:hover {
+    color: #FB923C !important;
+}
+
+.hover\:text-p-orange-500:hover {
+    color: #F97316 !important;
+}
+
+.hover\:text-p-orange-600:hover {
+    color: #EA580C !important;
+}
+
+.hover\:text-p-orange-700:hover {
+    color: #C2410C !important;
+}
+
+.hover\:text-p-orange-800:hover {
+    color: #9A3412 !important;
+}
+
+.hover\:text-p-orange-900:hover {
+    color: #7C2D12 !important;
+}
+
+/* Amber */
+.hover\:text-p-amber-50:hover {
+    color: #FFFBEB !important;
+}
+
+.hover\:text-p-amber-100:hover {
+    color: #FEF3C7 !important;
+}
+
+.hover\:text-p-amber-200:hover {
+    color: #FDE68A !important;
+}
+
+.hover\:text-p-amber-300:hover {
+    color: #FCD34D !important;
+}
+
+.hover\:text-p-amber-400:hover {
+    color: #FBBF24 !important;
+}
+
+.hover\:text-p-amber-500:hover {
+    color: #F59E0B !important;
+}
+
+.hover\:text-p-amber-600:hover {
+    color: #D97706 !important;
+}
+
+.hover\:text-p-amber-700:hover {
+    color: #B45309 !important;
+}
+
+.hover\:text-p-amber-800:hover {
+    color: #92400E !important;
+}
+
+.hover\:text-p-amber-900:hover {
+    color: #78350F !important;
+}
+
+/* Yellow */
+.hover\:text-p-yellow-50:hover {
+    color: #FEFCE8 !important;
+}
+
+.hover\:text-p-yellow-100:hover {
+    color: #FEF9C3 !important;
+}
+
+.hover\:text-p-yellow-200:hover {
+    color: #FEF08A !important;
+}
+
+.hover\:text-p-yellow-300:hover {
+    color: #FDE047 !important;
+}
+
+.hover\:text-p-yellow-400:hover {
+    color: #FACC15 !important;
+}
+
+.hover\:text-p-yellow-500:hover {
+    color: #EAB308 !important;
+}
+
+.hover\:text-p-yellow-600:hover {
+    color: #CA8A04 !important;
+}
+
+.hover\:text-p-yellow-700:hover {
+    color: #A16207 !important;
+}
+
+.hover\:text-p-yellow-800:hover {
+    color: #854D0E !important;
+}
+
+.hover\:text-p-yellow-900:hover {
+    color: #713F12 !important;
+}
+
+/* Lime */
+.hover\:text-p-lime-50:hover {
+    color: #F7FEE7 !important;
+}
+
+.hover\:text-p-lime-100:hover {
+    color: #ECFCCB !important;
+}
+
+.hover\:text-p-lime-200:hover {
+    color: #D9F99D !important;
+}
+
+.hover\:text-p-lime-300:hover {
+    color: #BEF264 !important;
+}
+
+.hover\:text-p-lime-400:hover {
+    color: #A3E635 !important;
+}
+
+.hover\:text-p-lime-500:hover {
+    color: #84CC16 !important;
+}
+
+.hover\:text-p-lime-600:hover {
+    color: #65A30D !important;
+}
+
+.hover\:text-p-lime-700:hover {
+    color: #4D7C0F !important;
+}
+
+.hover\:text-p-lime-800:hover {
+    color: #3F6212 !important;
+}
+
+.hover\:text-p-lime-900:hover {
+    color: #365314 !important;
+}
+
+/* Green */
+.hover\:text-p-green-50:hover {
+    color: #F0FDF4 !important;
+}
+
+.hover\:text-p-green-100:hover {
+    color: #DCFCE7 !important;
+}
+
+.hover\:text-p-green-200:hover {
+    color: #BBF7D0 !important;
+}
+
+.hover\:text-p-green-300:hover {
+    color: #86EFAC !important;
+}
+
+.hover\:text-p-green-400:hover {
+    color: #4ADE80 !important;
+}
+
+.hover\:text-p-green-500:hover {
+    color: #22C55E !important;
+}
+
+.hover\:text-p-green-600:hover {
+    color: #16A34A !important;
+}
+
+.hover\:text-p-green-700:hover {
+    color: #15803D !important;
+}
+
+.hover\:text-p-green-800:hover {
+    color: #166534 !important;
+}
+
+.hover\:text-p-green-900:hover {
+    color: #14532D !important;
+}
+
+/* Emerald */
+.hover\:text-p-emerald-50:hover {
+    color: #ECFDF5 !important;
+}
+
+.hover\:text-p-emerald-100:hover {
+    color: #D1FAE5 !important;
+}
+
+.hover\:text-p-emerald-200:hover {
+    color: #A7F3D0 !important;
+}
+
+.hover\:text-p-emerald-300:hover {
+    color: #6EE7B7 !important;
+}
+
+.hover\:text-p-emerald-400:hover {
+    color: #34D399 !important;
+}
+
+.hover\:text-p-emerald-500:hover {
+    color: #10B981 !important;
+}
+
+.hover\:text-p-emerald-600:hover {
+    color: #059669 !important;
+}
+
+.hover\:text-p-emerald-700:hover {
+    color: #047857 !important;
+}
+
+.hover\:text-p-emerald-800:hover {
+    color: #065F46 !important;
+}
+
+.hover\:text-p-emerald-900:hover {
+    color: #064E3B !important;
+}
+
+/* Teal */
+.hover\:text-p-teal-50:hover {
+    color: #F0FDFA !important;
+}
+
+.hover\:text-p-teal-100:hover {
+    color: #CCFBF1 !important;
+}
+
+.hover\:text-p-teal-200:hover {
+    color: #99F6E4 !important;
+}
+
+.hover\:text-p-teal-300:hover {
+    color: #5EEAD4 !important;
+}
+
+.hover\:text-p-teal-400:hover {
+    color: #2DD4BF !important;
+}
+
+.hover\:text-p-teal-500:hover {
+    color: #14B8A6 !important;
+}
+
+.hover\:text-p-teal-600:hover {
+    color: #0D9488 !important;
+}
+
+.hover\:text-p-teal-700:hover {
+    color: #0F766E !important;
+}
+
+.hover\:text-p-teal-800:hover {
+    color: #115E59 !important;
+}
+
+.hover\:text-p-teal-900:hover {
+    color: #134E4A !important;
+}
+
+/* Cyan */
+.hover\:text-p-cyan-50:hover {
+    color: #ECFEFF !important;
+}
+
+.hover\:text-p-cyan-100:hover {
+    color: #CFFAFE !important;
+}
+
+.hover\:text-p-cyan-200:hover {
+    color: #A5F3FC !important;
+}
+
+.hover\:text-p-cyan-300:hover {
+    color: #67E8F9 !important;
+}
+
+.hover\:text-p-cyan-400:hover {
+    color: #22D3EE !important;
+}
+
+.hover\:text-p-cyan-500:hover {
+    color: #06B6D4 !important;
+}
+
+.hover\:text-p-cyan-600:hover {
+    color: #0891B2 !important;
+}
+
+.hover\:text-p-cyan-700:hover {
+    color: #0E7490 !important;
+}
+
+.hover\:text-p-cyan-800:hover {
+    color: #155E75 !important;
+}
+
+.hover\:text-p-cyan-900:hover {
+    color: #164E63 !important;
+}
+
+/* Sky */
+.hover\:text-p-sky-50:hover {
+    color: #F0F9FF !important;
+}
+
+.hover\:text-p-sky-100:hover {
+    color: #E0F2FE !important;
+}
+
+.hover\:text-p-sky-200:hover {
+    color: #BAE6FD !important;
+}
+
+.hover\:text-p-sky-300:hover {
+    color: #7DD3FC !important;
+}
+
+.hover\:text-p-sky-400:hover {
+    color: #38BDF8 !important;
+}
+
+.hover\:text-p-sky-500:hover {
+    color: #0EA5E9 !important;
+}
+
+.hover\:text-p-sky-600:hover {
+    color: #0284C7 !important;
+}
+
+.hover\:text-p-sky-700:hover {
+    color: #0369A1 !important;
+}
+
+.hover\:text-p-sky-800:hover {
+    color: #075985 !important;
+}
+
+.hover\:text-p-sky-900:hover {
+    color: #0C4A6E !important;
+}
+
+/* Blue */
+.hover\:text-p-blue-50:hover {
+    color: #EFF6FF !important;
+}
+
+.hover\:text-p-blue-100:hover {
+    color: #DBEAFE !important;
+}
+
+.hover\:text-p-blue-200:hover {
+    color: #BFDBFE !important;
+}
+
+.hover\:text-p-blue-300:hover {
+    color: #93C5FD !important;
+}
+
+.hover\:text-p-blue-400:hover {
+    color: #60A5FA !important;
+}
+
+.hover\:text-p-blue-500:hover {
+    color: #3B82F6 !important;
+}
+
+.hover\:text-p-blue-600:hover {
+    color: #2563EB !important;
+}
+
+.hover\:text-p-blue-700:hover {
+    color: #1D4ED8 !important;
+}
+
+.hover\:text-p-blue-800:hover {
+    color: #1E40AF !important;
+}
+
+.hover\:text-p-blue-900:hover {
+    color: #1E3A8A !important;
+}
+
+/* Indigo */
+.hover\:text-p-indigo-50:hover {
+    color: #EEF2FF !important;
+}
+
+.hover\:text-p-indigo-100:hover {
+    color: #E0E7FF !important;
+}
+
+.hover\:text-p-indigo-200:hover {
+    color: #C7D2FE !important;
+}
+
+.hover\:text-p-indigo-300:hover {
+    color: #A5B4FC !important;
+}
+
+.hover\:text-p-indigo-400:hover {
+    color: #818CF8 !important;
+}
+
+.hover\:text-p-indigo-500:hover {
+    color: #6366F1 !important;
+}
+
+.hover\:text-p-indigo-600:hover {
+    color: #4F46E5 !important;
+}
+
+.hover\:text-p-indigo-700:hover {
+    color: #4338CA !important;
+}
+
+.hover\:text-p-indigo-800:hover {
+    color: #3730A3 !important;
+}
+
+.hover\:text-p-indigo-900:hover {
+    color: #312E81 !important;
+}
+
+/* Violet */
+.hover\:text-p-violet-50:hover {
+    color: #F5F3FF !important;
+}
+
+.hover\:text-p-violet-100:hover {
+    color: #EDE9FE !important;
+}
+
+.hover\:text-p-violet-200:hover {
+    color: #DDD6FE !important;
+}
+
+.hover\:text-p-violet-300:hover {
+    color: #C4B5FD !important;
+}
+
+.hover\:text-p-violet-400:hover {
+    color: #A78BFA !important;
+}
+
+.hover\:text-p-violet-500:hover {
+    color: #8B5CF6 !important;
+}
+
+.hover\:text-p-violet-600:hover {
+    color: #7C3AED !important;
+}
+
+.hover\:text-p-violet-700:hover {
+    color: #6D28D9 !important;
+}
+
+.hover\:text-p-violet-800:hover {
+    color: #5B21B6 !important;
+}
+
+.hover\:text-p-violet-900:hover {
+    color: #4C1D95 !important;
+}
+
+/* Purple */
+.hover\:text-p-purple-50:hover {
+    color: #FAF5FF !important;
+}
+
+.hover\:text-p-purple-100:hover {
+    color: #F3E8FF !important;
+}
+
+.hover\:text-p-purple-200:hover {
+    color: #E9D5FF !important;
+}
+
+.hover\:text-p-purple-300:hover {
+    color: #D8B4FE !important;
+}
+
+.hover\:text-p-purple-400:hover {
+    color: #C084FC !important;
+}
+
+.hover\:text-p-purple-500:hover {
+    color: #A855F7 !important;
+}
+
+.hover\:text-p-purple-600:hover {
+    color: #9333EA !important;
+}
+
+.hover\:text-p-purple-700:hover {
+    color: #7E22CE !important;
+}
+
+.hover\:text-p-purple-800:hover {
+    color: #6B21A8 !important;
+}
+
+.hover\:text-p-purple-900:hover {
+    color: #581C87 !important;
+}
+
+/* Fuchsia */
+.hover\:text-p-fuchsia-50:hover {
+    color: #FDF4FF !important;
+}
+
+.hover\:text-p-fuchsia-100:hover {
+    color: #FAE8FF !important;
+}
+
+.hover\:text-p-fuchsia-200:hover {
+    color: #F5D0FE !important;
+}
+
+.hover\:text-p-fuchsia-300:hover {
+    color: #F0ABFC !important;
+}
+
+.hover\:text-p-fuchsia-400:hover {
+    color: #E879F9 !important;
+}
+
+.hover\:text-p-fuchsia-500:hover {
+    color: #D946EF !important;
+}
+
+.hover\:text-p-fuchsia-600:hover {
+    color: #C026D3 !important;
+}
+
+.hover\:text-p-fuchsia-700:hover {
+    color: #A21CAF !important;
+}
+
+.hover\:text-p-fuchsia-800:hover {
+    color: #86198F !important;
+}
+
+.hover\:text-p-fuchsia-900:hover {
+    color: #701A75 !important;
+}
+
+/* Pink */
+.hover\:text-p-pink-50:hover {
+    color: #FDF2F8 !important;
+}
+
+.hover\:text-p-pink-100:hover {
+    color: #FCE7F3 !important;
+}
+
+.hover\:text-p-pink-200:hover {
+    color: #FBCFE8 !important;
+}
+
+.hover\:text-p-pink-300:hover {
+    color: #F9A8D4 !important;
+}
+
+.hover\:text-p-pink-400:hover {
+    color: #F472B6 !important;
+}
+
+.hover\:text-p-pink-500:hover {
+    color: #EC4899 !important;
+}
+
+.hover\:text-p-pink-600:hover {
+    color: #DB2777 !important;
+}
+
+.hover\:text-p-pink-700:hover {
+    color: #BE185D !important;
+}
+
+.hover\:text-p-pink-800:hover {
+    color: #9D174D !important;
+}
+
+.hover\:text-p-pink-900:hover {
+    color: #831843 !important;
+}
