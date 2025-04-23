@@ -1,35 +1,39 @@
+// Define the searchModule as an Immediately Invoked Function Expression (IIFE)
 let searchModule = (function () {
+
+  // Function to initialize the search module
   function init() {
-    // Initialization code for the search module
+    // Attach a click event handler to the search button
     $('#searchButton').on('click', function () {
-      searchQuery = $('#searchQuery').val();
-      searchPage = 1;
-      $('input:checkbox').prop('checked', true); //check all search-sources
-      $('.result-count').text(''); //reset result counters
-      search(searchQuery, searchSourceSelectedValue);
+      searchQuery = $('#searchQuery').val(); // Get the search query from the input field
+      searchPage = 1; // Reset the search page to the first page
+      $('input:checkbox').prop('checked', true); // Check all search sources
+      $('.result-count').text(''); // Reset result counters
+      search(searchQuery, searchSourceSelectedValue); // Perform the search
     });
 
+    // Attach a keypress event handler to the search input field
     $('#searchQuery').on('keypress', function (event) {
-      if (event.key === 'Enter') {
-        searchQuery = $('#searchQuery').val();
-        searchPage = 1;
-        $('input:checkbox').prop('checked', true); //check all search-sources
-        $('.result-count').text(''); //reset result counters
-        search(searchQuery, searchSourceSelectedValue);
+      if (event.key === 'Enter') { // Check if the Enter key was pressed
+        searchQuery = $('#searchQuery').val(); // Get the search query from the input field
+        searchPage = 1; // Reset the search page to the first page
+        $('input:checkbox').prop('checked', true); // Check all search sources
+        $('.result-count').text(''); // Reset result counters
+        search(searchQuery, searchSourceSelectedValue); // Perform the search
       }
     });
   }
 
-
-  //search microservice
+  // Function to perform a search across multiple sources
   function search(query, searchSource) {
-    currentResults = [];
-    recordsPerPage = 300;
-    
-    if (query) { 
-          $("#resultLoadingGBIF").show();        //&publishing_country=AT
-          $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&country=AT&limit=" + recordsPerPage + "&offset=0&q=" + encodeURIComponent(query), function (data) {
-            resultListModule.mergeResults(data, 1);
+    currentResults = []; // Reset the current results array
+    recordsPerPage = 300; // Set the number of records per page
+
+    if (query) { // Check if a query is provided
+      // Perform a search on the GBIF API
+      $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
+      $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&country=AT&limit=" + recordsPerPage + "&offset=0&q=" + encodeURIComponent(query), function (data) {
+        resultListModule.mergeResults(data, 1);
 
             // ask all the data
             /*
@@ -53,36 +57,37 @@ let searchModule = (function () {
 
        
           $("#resultLoadingGeocase").show();
-          $.get("https://api.geocase.eu/v1/solr?sort=id%20asc&start=" + (searchPage - 1) * recordsPerPage + "&rows=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
-            resultListModule.mergeResults(data, 2);
-            $("#resultLoadingGeocase").hide();
-          });
-         
-          $("#resultLoadingOSCA").show();
-          localDataModule.search(query, 'asc', searchPage-1, recordsPerPage,'', function (results) {
-            resultListModule.mergeResults(results, 3);
-            $("#resultLoadingOSCA").hide();
-          });
+      $.get("https://api.geocase.eu/v1/solr?sort=id%20asc&start=" + (searchPage - 1) * recordsPerPage + "&rows=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
+        resultListModule.mergeResults(data, 2); // Merge the results into the result list module
+        $("#resultLoadingGeocase").hide(); // Hide the loading indicator for Geocase
+      });
 
-          $("#resultLoadingEuropeana").show();
-          $.get("https://api.europeana.eu/record/v2/search.json?start=1&rows="+ (Math.floor(Math.random() * 21) + 80) +"&wskey=laniciri&query=" + encodeURIComponent(query), function (data) {
-            resultListModule.mergeResults(data, 5);
-            $("#resultLoadingEuropeana").hide();
-          });
+      // Perform a search on the OSCA local data module
+      $("#resultLoadingOSCA").show(); // Show the loading indicator for OSCA
+      localDataModule.search(query, 'asc', searchPage - 1, recordsPerPage, '', function (results) {
+        resultListModule.mergeResults(results, 3); // Merge the results into the result list module
+        $("#resultLoadingOSCA").hide(); // Hide the loading indicator for OSCA
+      });
 
-          
-          $("#resultLoadingDissco").show();      //https://sandbox.dissco.tech/api/v1/specimens/search
-          $.get("https://sandbox.dissco.tech/api/digital-specimen/v1/search?pageSize=25&pageNumber=1&q=" + encodeURIComponent(query), function(data) {
-            resultListModule.mergeResults(data, 6);
-            $("#resultLoadingDissco").hide();
-          });
+      // Perform a search on the Europeana API
+      $("#resultLoadingEuropeana").show(); // Show the loading indicator for Europeana
+      $.get("https://api.europeana.eu/record/v2/search.json?start=1&rows=" + (Math.floor(Math.random() * 21) + 80) + "&wskey=laniciri&query=" + encodeURIComponent(query), function (data) {
+        resultListModule.mergeResults(data, 5); // Merge the results into the result list module
+        $("#resultLoadingEuropeana").hide(); // Hide the loading indicator for Europeana
+      });
+
+      // Perform a search on the DiSSCo API
+      $("#resultLoadingDissco").show(); // Show the loading indicator for DiSSCo
+      $.get("https://sandbox.dissco.tech/api/digital-specimen/v1/search?pageSize=25&pageNumber=1&q=" + encodeURIComponent(query), function (data) {
+        resultListModule.mergeResults(data, 6); // Merge the results into the result list module
+        $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
+      });
     }
-
-  };
+  }
 
   // Expose only the necessary functions
   return {
-    init: init,
-    search: search
+    init: init, // Expose the init function
+    search: search // Expose the search function
   };
 })();
