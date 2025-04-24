@@ -1,10 +1,23 @@
-var localDataModule = (function () {
+/**
+ * Module for handling local data operations related to OSCA.
+ * Provides functionality to initialize data, process data from TSV files,
+ * and perform search operations.
+ */
+
+let localDataModule = (function () {
+  // Array to store processed OSCA results
   let oscaResults = [];
+
+  // Object to store processed OSCA statistics
   let oscaInNumbers = {};
 
+  /**
+   * Initializes the module by loading data from TSV files.
+   * Sets up AJAX requests to fetch and process data on document ready.
+   */
   function init() {
-    // Initialization code for the result list module
     $(document).ready(function () {
+      // Fetch and process OSCA data
       $.ajax({
         type: "GET",
         url: "./data/osca-data.tsv?v=3",
@@ -14,6 +27,7 @@ var localDataModule = (function () {
         }
       });
 
+      // Fetch and process OSCA statistics
       $.ajax({
         type: "GET",
         url: "./data/osca-in-numbers.tsv?v=3",
@@ -28,6 +42,17 @@ var localDataModule = (function () {
 
   }
 
+  /**
+   * Performs a search operation on the OSCA data.
+   * Filters results based on the query and returns paginated results.
+   *
+   * @param {string} q - The search query.
+   * @param {string} sort - Sorting criteria (not implemented in this code).
+   * @param {number} start - The starting page index for pagination.
+   * @param {number} offset - The number of results per page.
+   * @param {object} filters - Additional filters for the search (not implemented in this code).
+   * @param {function} callback - Callback function to handle the search results.
+   */
   function search(q, sort, start, offset, filters, callback) {
     let searchResults = [];
     if (q) {
@@ -49,6 +74,13 @@ var localDataModule = (function () {
     }
   }
 
+
+  /**
+   * Processes OSCA data from a TSV file.
+   * Parses the file, extracts relevant fields, and stores the results in `oscaResults`.
+   *
+   * @param {string} allText - The raw TSV data as a string.
+   */
   function processOSCAData(allText) {
     var lines = [];
     var allTextLines = allText.split(/\r\n|\n/);
@@ -80,6 +112,7 @@ var localDataModule = (function () {
 
     }
 
+    // Sort results alphabetically by scientific name
     oscaResults = lines.sort(function (a, b) {
       if (a.scientific_name.toLowerCase() < b.scientific_name.toLowerCase()) { return -1; }
       if (a.scientific_name.toLowerCase() > b.scientific_name.toLowerCase()) { return 1; }
@@ -87,10 +120,15 @@ var localDataModule = (function () {
     })
   }
 
+  /**
+   * Processes OSCA statistics from a TSV file.
+   * Extracts specific numerical data and organizes it into the `oscaInNumbers` object.
+   *
+   * @param {string} data - The raw TSV data as a string.
+   */
   function processOSCAInNumbers(data) {
     var numbers = data.split(/\r\n|\n/)[2].split('\t');;
     // data is found in allDataLines[2]
-    console.log(numbers);
     if(numbers) {
       oscaInNumbers = {
         preparation: {
@@ -123,12 +161,10 @@ var localDataModule = (function () {
           overview: numbers[19]
         }
       }
-
-
     }
-    console.log(oscaInNumbers);
-
   }
+
+  
   // Expose only the necessary functions
   return {
     init: init,
