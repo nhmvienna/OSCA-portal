@@ -19,7 +19,11 @@ let resultListModule = (function () {
         resultCountDissco = 0;
     }
 
-    // Function to update results based on the search source
+    /**
+     * Updates the results based on the search source.
+     * @param {Object} data - The data returned from the search.
+     * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
+     */
     function updateResults(data, searchSource) {
         switch (searchSource) {
             case 1: // GBIF
@@ -62,7 +66,11 @@ let resultListModule = (function () {
         }
     }
 
-     // Function to merge results from different sources
+    /**
+     * Merges results from different sources into the current results.
+     * @param {Object} data - The data returned from the search.
+     * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
+     */
     function mergeResults(data, searchSource) {
         switch (searchSource) {
             case 1: // results from GBIF 
