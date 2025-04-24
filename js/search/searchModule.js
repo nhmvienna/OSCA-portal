@@ -24,7 +24,11 @@ let searchModule = (function () {
     });
   }
 
-  // Function to perform a search across multiple sources
+  /**
+     * Performs a search across multiple sources
+     * @param {string} query - The data returned from the search.
+     * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
+     */
   function search(query, searchSource) {
     currentResults = []; // Reset the current results array
     recordsPerPage = 300; // Set the number of records per page

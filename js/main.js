@@ -23,8 +23,10 @@ function getUrlVars() {
 function getViewParameter() {
     return localStorage.getItem('view');
 }
-
-// Function to set the 'view' parameter in local storage
+/**
+* Function to set the 'view' parameter in local storage
+* @param {string} view - The value to set for the 'view' parameter
+*/
 function setViewParameter(view) {
     localStorage.setItem('view', view);
 }
@@ -35,7 +37,11 @@ function hideProjectStats() {
     projectStatsModal.addClass('hidden'); // Add 'hidden' class to hide the modal
 }
 
-// Function to toggle the visibility of result cards based on the search source and value
+/** 
+* Function to toggle the visibility of result cards based on the search source and value
+* @param {string} searchSource - The source of the search (e.g., '1', '2', etc.)
+* @param {boolean} value - Whether to show (true) or hide (false) the result cards
+*/
 function toggleResultCards(searchSource, value) {
     switch (searchSource) {
         case '1': 
