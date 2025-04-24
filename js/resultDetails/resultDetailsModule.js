@@ -1,96 +1,70 @@
-var resultDetailsModule = (function () {
+// Define the resultDetailsModule as an Immediately Invoked Function Expression (IIFE)
+let resultDetailsModule = (function () {
+
+    // Function to initialize the module
     function init() {
-        // Initialization code for the result details module
+        // Placeholder for initialization logic for the result details module
     }
 
-    //details media
+    // Utility function to convert camelCase strings to words
     function camelCaseToWords(input) {
-        // Use a regular expression to insert a space before all caps, then replace with a comma
+        // Inserts a space before uppercase letters and converts the string to uppercase
         return input.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase();
     }
 
+    // Function to display media details for GBIF observations
     function displayDetailsGBIFMedia(observation) {
         switch (observation.media[0]?.type) {
-            case 'StillImage': return `
-       
-        <div class="flex flex-col items-center gap-4">
-            <img src="${observation.media[0].identifier}" loading="lazy" class="w-64 rounded-sm shadow"/>
-            <a href="detailedMedia.html?src=${encodeURIComponent(observation.media[0].identifier)}" target="_blank" class="bg-white text-xs p-2 shadow border rounded-lg text-blue-600">Open in new tab <i class="fas fa-external-link-alt"></i></a>
-                
-            <div class="flex flex-col text-xs w-64">
-                
-                <div class="row-span-1">${observation.media[0].rightsHolder ? 'Rights Holder: ' + observation.media[0].rightsHolder : 'Rights Holder: Unknown'}</div>
-                <div class="row-span-1">${observation.media[0].license? observation.media[0].license: ''}</div>
+            case 'StillImage': 
+            return `
+            <div class="flex flex-col items-center gap-4">
+                <img src="${observation.media[0].identifier}" loading="lazy" class="w-64 rounded-sm shadow"/>
+                <a href="detailedMedia.html?src=${encodeURIComponent(observation.media[0].identifier)}" target="_blank" class="bg-white text-xs p-2 shadow border rounded-lg text-blue-600">Open in new tab <i class="fas fa-external-link-alt"></i></a>
+                    
+                <div class="flex flex-col text-xs w-64">
+                    
+                    <div class="row-span-1">${observation.media[0].rightsHolder ? 'Rights Holder: ' + observation.media[0].rightsHolder : 'Rights Holder: Unknown'}</div>
+                    <div class="row-span-1">${observation.media[0].license? observation.media[0].license: ''}</div>
+                </div>
             </div>
-        </div>
-        `;
+            `;
 
-            default: return `
-        <div class="flex flex-col gap-4"></div>
-        `
+            default: 
+            return `
+            <div class="flex flex-col gap-4"></div>
+            `
         }
     }
 
+    // Function to display media details for GeoCASe observations
     function displayGeoCASeDetailsMedia(observation) {
         if (observation.images[0].startsWith('https://')) {
             return `
-        <div class="flex flex-col items-end gap-4">   
-            <img src="${observation.images[0]}" loading="lazy" class="w-64 rounded-sm shadow"/>
-            <a href="detailedMedia.html?src=${encodeURIComponent(observation.images[0])}" target="_blank" class="bg-white text-xs p-2 shadow border rounded-lg text-blue-600">Open in new tab <i class="fas fa-external-link-alt"></i></a>
-        </div>
-        `
+            <div class="flex flex-col items-end gap-4">   
+                <img src="${observation.images[0]}" loading="lazy" class="w-64 rounded-sm shadow"/>
+                <a href="detailedMedia.html?src=${encodeURIComponent(observation.images[0])}" target="_blank" class="bg-white text-xs p-2 shadow border rounded-lg text-blue-600">Open in new tab <i class="fas fa-external-link-alt"></i></a>
+            </div>`
         } else {
             return `
-        <div class="flex flex-col items-end gap-4">
-            <img src="https://${observation.images[0]}" loading="lazy" class="w-64 rounded-sm shadow"/>
-            <a href="detailedMedia.html?src=${encodeURIComponent('https://' + observation.images[0])}" target="_blank" class="bg-white text-xs p-2 shadow border rounded-lg text-blue-600">Open in new tab <i class="fas fa-external-link-alt"></i></a>
-        </div>
-        `
+            <div class="flex flex-col items-end gap-4">
+                <img src="https://${observation.images[0]}" loading="lazy" class="w-64 rounded-sm shadow"/>
+                <a href="detailedMedia.html?src=${encodeURIComponent('https://' + observation.images[0])}" target="_blank" class="bg-white text-xs p-2 shadow border rounded-lg text-blue-600">Open in new tab <i class="fas fa-external-link-alt"></i></a>
+            </div>`
         }
-
     }
 
+    // Function to display media details for GeoCASe observations
     function displayOSCADetailsMedia(media) {
-        /*
-        if (media.length > 2) {
-            let mediaList = media.split(', ');
-            if(mediaList.length > 1) {
-                return `
-            <div class="w-60 flex flex-col items-center gap-4 p-2 bg-white rounded">
-                <img src="${mediaList[0].replace('120,', '320,')}" loading="lazy" class="w-60 rounded-md overflow-hidden shadow"/>
-                <a href="${mediaList[1]}" target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs p-2 shadow border rounded-lg text-blue-600">Open in new tab <i class="fas fa-external-link-alt"></i></a>
-            </div>
-            `
-            }
-            return `
-        <div class="w-60 flex flex-col items-start gap-4 p-4 mt-4 rounded shadow bg-white">
-            <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-lg bg-gray-50">
-                <span>Keine Medienvorschau</span>
-                <a href="${media}"  target="_blank" onclick="event.stopPropagation();" class="ml-1 bg-white text-xs px-2 py-1 shadow border rounded-lg text-blue-600"><i class="fas fa-external-link-alt"></i></a>
-            </div>       
-        </div>
-        `
-        } else {
-            return `
-        <div class="flex flex-col items-start gap-4">
-        </div>
-        `
-        }
-        */
-
-
         if (typeof media !== 'string') { // Invalid input
             return `
             <div class="w-60 flex flex-col items-center gap-4 p-2 bg-white rounded">
                 <div class="flex flex-col items-center justify-center text-center border w-full h-60 rounded-sm bg-gray-50">
                 <span>Keine Medien <br> verfügbar</span>
                 </div>
-            </div>
-            `;
+            </div>`;
         }
         
         const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/;
-        
         const urls = media.split(',').map(url => url.trim());
         
         if (urls.length === 1 && urlPattern.test(urls[0])) { // Single URL
@@ -100,8 +74,7 @@ var resultDetailsModule = (function () {
                 <div class="flex flex-col items-start">
                     <a href="${media}"  target="_blank" onclick="event.stopPropagation();" class=" mt-2 ml-1 bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i></a>
                 </div>
-            </div>
-            `;
+            </div>`;
         }
         
         if (urls.length > 1 && urls.every(url => urlPattern.test(url))) { //List of URLs
@@ -111,8 +84,7 @@ var resultDetailsModule = (function () {
                 <div class="w-100 mt-2 gap-2 flex flex-row flex-wrap items-start">
                     ${urls.map((elem) => '<a href="'+ elem +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i> </a>').join('')}
                 </div>
-            </div>
-            `;
+            </div>`;
         }
         
         // Invalid input
@@ -121,32 +93,30 @@ var resultDetailsModule = (function () {
                 <div class="flex flex-col items-center justify-center text-center border w-full h-60 rounded-sm bg-gray-50">
                     <span>Keine Medien <br> verfügbar</span>
                 </div>
-            </div>
-            `;
-
-
+            </div>`;
 
     }
 
+    // Function to display media details based on the search source
     function displayDetailsMedia(observation, searchSource) {
         $('#detailsMedia').html('');
         switch (searchSource) {
-            case 1: // show from GBIF
+            case 1: // show media from GBIF
                 $('#detailsMedia').html(displayDetailsGBIFMedia(observation));
                 break
 
-            case 2: // show from GeoCase
+            case 2: // show media from GeoCase
                 $('#detailsMedia').html(displayGeoCASeDetailsMedia(observation));
                 break
 
-            case 3: // show from OSCA
+            case 3: // show media from OSCA
                 $('#detailsMedia').html(displayOSCADetailsMedia(observation.media));
                 break
 
         }
     }
 
-    //details data
+    // Function to process and display details for GBIF observations
     function displayDetailsGBIF(obs) {
         console.dir(obs);
 
@@ -304,9 +274,8 @@ var resultDetailsModule = (function () {
         return htmlTemplate;
     }
 
+    // Function to process and display details for GBIF observations
     function displayDetailsGeoCASe(obs) {
-        console.dir(obs);
-
         let rows = '';
         if (obs) {
             for (const [key, value] of Object.entries(obs)) {
@@ -398,6 +367,7 @@ var resultDetailsModule = (function () {
         return htmlTemplate;
     }
 
+    // Function to process and display details for OSCA observations
     function displayDetailsOSCA(obs) {
         let rows = `
             <tr class="hover:bg-white text-left">
@@ -489,20 +459,21 @@ var resultDetailsModule = (function () {
         return htmlTemplate;
     }
 
+    // Function to process and display details based on the search source
     function processDetails(obs, searchSource) {
 
         $('#detailsBody').html('');
 
         switch (searchSource) {
-            case 1: // show from GBIF
+            case 1: // GBIF
                 $('#detailsBody').html(displayDetailsGBIF(obs));
                 break;
 
-            case 2: // show from GeoCase
+            case 2: // GeoCase
                 $('#detailsBody').html(displayDetailsGeoCASe(obs));
                 break;
 
-            case 3: // show from OSCA
+            case 3: // OSCA
                 $('#detailsBody').html(displayDetailsOSCA(obs));
                 break;
 
@@ -510,6 +481,7 @@ var resultDetailsModule = (function () {
 
     }
 
+    // Function to handle the modal display for details
     function modalHandler(val, idx) {
         let modal = $("#modal");
         if (val) {
@@ -521,6 +493,7 @@ var resultDetailsModule = (function () {
         }
     };
 
+    // Function to handle the modal display for new details
     function newModalHandler(val, stringObj) {
         let modal = $("#modal");
         if (val) {

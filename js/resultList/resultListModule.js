@@ -274,7 +274,7 @@ let resultListModule = (function () {
                     <a href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-700 text-white text-xs">Originalquelle Anzeigen</a> 
 
                     <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                    Inhaber: ${res.owner}  with ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                    Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                     </div>
                 `
             } 
@@ -282,7 +282,7 @@ let resultListModule = (function () {
                     <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-700 text-white text-xs">Suche-Details Anzeigen</a> 
                     
                     <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                    Inhaber: ${res.owner}  with ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                    Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                     </div>
                 `
             
@@ -292,7 +292,7 @@ let resultListModule = (function () {
                 <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
                 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Inhaber: ${res.owner}  with ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
             `
 
@@ -301,10 +301,10 @@ let resultListModule = (function () {
                 <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs">Suche-Details Anzeigen</button> 
                 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Inhaber: ${res.owner}  with ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Specimen Type: ${res.originalOject.specimen_type} | Object Type: ${res.originalOject.object_type? res.originalOject.object_type: 'Unbekannt'}
+                Exemplartyp: ${res.originalOject.specimen_type} | Objekttyp: ${res.originalOject.object_type? res.originalOject.object_type: 'Unbekannt'}
                 </div>
             `
 
@@ -313,7 +313,7 @@ let resultListModule = (function () {
                 <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
                  
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Inhaber: ${res.owner}  with ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
             `
             case 6: // search on Dissco
@@ -321,7 +321,7 @@ let resultListModule = (function () {
                 <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
                  
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Inhaber: ${res.owner}  with ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
             `
             default: break;
