@@ -1,4 +1,6 @@
-var resultListModule = (function () {
+// Define the resultListModule as an Immediately Invoked Function Expression (IIFE)
+let resultListModule = (function () {
+    // Variables to store result counts for different sources
     let resultCountGBIF;
     let resultCountGeocase;
     let resultCountOSCA;
@@ -6,8 +8,9 @@ var resultListModule = (function () {
     let resultCountEuropeana;
     let resultCountDissco;
 
+    // Function to initialize the module
     function init() {
-        // Initialization code for the result list module
+       // Initialize result counts to zero
         resultCountGBIF = 0;
         resultCountGeocase = 0;
         resultCountOSCA = 0;
@@ -16,10 +19,10 @@ var resultListModule = (function () {
         resultCountDissco = 0;
     }
 
-
+    // Function to update results based on the search source
     function updateResults(data, searchSource) {
         switch (searchSource) {
-            case 1: // search on GBIF 
+            case 1: // GBIF
                 resultCountGBIF = data?.count;
                 currentResults = data.results;
 
@@ -29,7 +32,7 @@ var resultListModule = (function () {
                 renderGBIFResultGrid(currentResults);
                 break;
 
-            case 2: // search on GeoCase
+            case 2: // GeoCase
                 resultCountGeocase = data?.response?.numFound;
                 currentResults = data.response.docs;
 
@@ -39,7 +42,7 @@ var resultListModule = (function () {
                 renderGeoCASEResultGrid(currentResults);
                 break;
 
-            case 3: // search on OSCA
+            case 3: // OSCA
                 resultCountOSCA = data.dataSize;
                 currentResults = data.data;
 
@@ -49,19 +52,20 @@ var resultListModule = (function () {
                 renderOSCAResultGrid(currentResults);
                 break;
 
-            case 4: // search on BOLD
+            case 4: // BOLD (currently under construction)
                 resultCountBOLD = 0;
 
                 $("#resultStatistics").html('BOLD data under construction');
-                renderError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
+                displayError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
                 showPages(0, 0);
                 break;
         }
     }
 
+     // Function to merge results from different sources
     function mergeResults(data, searchSource) {
         switch (searchSource) {
-            case 1: // search on GBIF 
+            case 1: // results from GBIF 
                 resultCountGBIF = data?.count;
                 currentResults =  currentResults.concat(data.results.map(res => {
                     return {
@@ -85,7 +89,7 @@ var resultListModule = (function () {
                 renderResultGrid(currentResults);
                 break;
 
-            case 2: // search on GeoCase
+            case 2: // results from GeoCase
                 resultCountGeocase = data?.response?.numFound;
                 currentResults = currentResults.concat(data.response.docs.map(res => {
                     return {
@@ -109,7 +113,7 @@ var resultListModule = (function () {
                 renderResultGrid(currentResults);
                 break;
 
-            case 3: // search on OSCA
+            case 3: // results from OSCA
                 resultCountOSCA = data.dataSize;
                 currentResults = currentResults.concat(data.data.map(res => {
                     return {
@@ -133,15 +137,15 @@ var resultListModule = (function () {
                 renderResultGrid(currentResults);
                 break;
 
-            case 4: // search on BOLD
+            case 4: // results from BOLD
                 resultCountBOLD = 0;
 
                 $("#resultStatistics").html('BOLD data under construction');
-                renderError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
+                displayError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
                 showPages(0, 0);
                 break;
 
-            case 5: // search on Europeana
+            case 5: // results from Europeana
                 resultCountEuropeana = data.itemsCount;
                 currentResults = currentResults.concat(data.items.map(res => {
                     return {
@@ -165,7 +169,7 @@ var resultListModule = (function () {
                 renderResultGrid(currentResults);
                 break;
 
-            case 6: // search on DiSSCO
+            case 6: // results from DiSSCO
                 resultCountDissco = data.data.length;
                 console.log("DiSSCO's got results:");
                 console.dir(data);
@@ -195,71 +199,7 @@ var resultListModule = (function () {
         }
     }
 
-    function renderError(errorText, sourceNumber) {
-        switch (sourceNumber) {
-            case 1: $("#result-grid").html(`
-            <div class="flex flex-col py-2"></div>
-            
-            
-            <div class="flex flex-col shadow rounded-sm gap-2 bg-white hover:bg-gray-50 text-left py-2 text-red-500">
-                <div class="border-t-0 px-3 align-middle text-xs font-semibold">
-                <img src="./img/gbif-icon.png" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
-                    ERROR: ${errorText}        
-                </div>
-            </div>
-
-            <div class="flex flex-col py-2"></div>
-            `);
-                break;
-
-            case 2: $("#result-grid").html(`
-            <div class="flex flex-col py-2"></div>
-            
-            
-            <div class="flex flex-col shadow rounded-lg gap-2 bg-white hover:bg-gray-50 text-left py-2 text-red-500">
-                <div class="border-t-0 px-3 align-middle text-xs font-semibold">
-                <img src="./img/geocase-icon.ico" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
-                    ERROR: ${errorText}        
-                </div>
-            </div>
-
-            <div class="flex flex-col py-2"></div>
-            `);
-                break;
-
-            case 3: $("#result-grid").html(`
-            <div class="flex flex-col py-2"></div>
-            
-            
-            <div class="flex flex-col shadow rounded-lg gap-2 bg-white hover:bg-gray-50 text-left py-2 text-red-500">
-                <div class="border-t-0 px-3 align-middle text-xs font-semibold">
-                <img src="./img/osca-icon.png" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
-                    ERROR: ${errorText}        
-                </div>
-            </div>
-
-            <div class="flex flex-col py-2"></div>
-            `);
-                break;
-
-            case 4: $("#result-grid").html(`
-            <div class="flex flex-col py-2"></div>
-            
-            
-            <div class="flex flex-col shadow rounded-lg gap-2 bg-white hover:bg-gray-50 text-left py-2 text-red-500">
-                <div class="border-t-0 px-3 align-middle text-xs font-semibold">
-                <img src="./img/bold-icon.png" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
-                    ERROR: ${errorText}        
-                </div>
-            </div>
-
-            <div class="flex flex-col py-2"></div>
-            `);
-                break;
-
-        }
-    }
-
+    // Function to render the result grid (merged results)
     function renderResultGrid() {
         let resultItems = '';
         currentResults.map((res, i) => {
@@ -287,6 +227,7 @@ var resultListModule = (function () {
         $("#result-grid").html(resultItems);
     }
 
+    // Utility functions for displaying media, links, and IDs
     function displayIDs(res, searchSource){
         switch (searchSource) {
             case 1: // search on GBIF 
@@ -547,6 +488,71 @@ var resultListModule = (function () {
         `
     }
 
+    function displayError(errorText, sourceNumber) {
+        switch (sourceNumber) {
+            case 1: $("#result-grid").html(`
+            <div class="flex flex-col py-2"></div>
+            
+            
+            <div class="flex flex-col shadow rounded-sm gap-2 bg-white hover:bg-gray-50 text-left py-2 text-red-500">
+                <div class="border-t-0 px-3 align-middle text-xs font-semibold">
+                <img src="./img/gbif-icon.png" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
+                    ERROR: ${errorText}        
+                </div>
+            </div>
+
+            <div class="flex flex-col py-2"></div>
+            `);
+                break;
+
+            case 2: $("#result-grid").html(`
+            <div class="flex flex-col py-2"></div>
+            
+            
+            <div class="flex flex-col shadow rounded-lg gap-2 bg-white hover:bg-gray-50 text-left py-2 text-red-500">
+                <div class="border-t-0 px-3 align-middle text-xs font-semibold">
+                <img src="./img/geocase-icon.ico" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
+                    ERROR: ${errorText}        
+                </div>
+            </div>
+
+            <div class="flex flex-col py-2"></div>
+            `);
+                break;
+
+            case 3: $("#result-grid").html(`
+            <div class="flex flex-col py-2"></div>
+            
+            
+            <div class="flex flex-col shadow rounded-lg gap-2 bg-white hover:bg-gray-50 text-left py-2 text-red-500">
+                <div class="border-t-0 px-3 align-middle text-xs font-semibold">
+                <img src="./img/osca-icon.png" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
+                    ERROR: ${errorText}        
+                </div>
+            </div>
+
+            <div class="flex flex-col py-2"></div>
+            `);
+                break;
+
+            case 4: $("#result-grid").html(`
+            <div class="flex flex-col py-2"></div>
+            
+            
+            <div class="flex flex-col shadow rounded-lg gap-2 bg-white hover:bg-gray-50 text-left py-2 text-red-500">
+                <div class="border-t-0 px-3 align-middle text-xs font-semibold">
+                <img src="./img/bold-icon.png" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
+                    ERROR: ${errorText}        
+                </div>
+            </div>
+
+            <div class="flex flex-col py-2"></div>
+            `);
+                break;
+
+        }
+    }
+
     function convertArrayOfObjectsToTSV(array) {
         let tsv = '';
         // Header
@@ -629,8 +635,7 @@ var resultListModule = (function () {
         }
     }
 
-
-    // result list UI utilities
+    // Utility functions for UI and data handling
     function showPages(totalResults, resultsPerPage) {
         let resultPageHTML = '';
 
