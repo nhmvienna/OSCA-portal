@@ -207,6 +207,135 @@ let resultListModule = (function () {
         }
     }
 
+     /**
+     * Pushed results from different sources at the end of results list.
+     * @param {Object} data - The data returned from the search.
+     * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
+     */
+     function pushResults(data, searchSource) {
+        switch (searchSource) {
+            case 1: // results from GBIF 
+                resultCountGBIF = data?.count;
+                currentResults = currentResults.push(data.results.map(res => {
+                    return {
+                        sourceOfSearch: searchSource,
+                        scientificName: res.scientificName,
+                        occurenceSourceLink: "https://www.gbif.org/occurrence/" + res.gbifID,
+                        occurrenceOriginalLink: res.occurrenceID,
+                        owner: (res.collectionCode ? res.collectionCode : 'Unbekannter Anbieter') + (res.institutionCode ? '-' + res.institutionCode : ''),
+                        license: res.license,
+                        media: res.media,
+                        specimenID: ' <span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber? res.catalogNumber : 'nicht verfügbar'),
+                        originalOject: res
+                    }
+                }));
+
+                $("#resultCountGBIF").html(resultCountGBIF);
+                showPages(parseInt(resultCountGBIF), recordsPerPage);
+
+                renderResultGrid(currentResults);
+                break;
+
+            case 2: // results from GeoCase
+                resultCountGeocase = data?.response?.numFound;
+                currentResults = currentResults.push(data.response.docs.map(res => {
+                    return {
+                        sourceOfSearch: searchSource,
+                        scientificName: res.fullscientificname,
+                        occurenceSourceLink: "https://geocase.eu/specimen/" + res.geocase_id,
+                        occurrenceOriginalLink: '',
+                        owner: (res.providername ? res.providername : 'Unbekannter Anbieter'),
+                        license: res.license,
+                        media: res.images,
+                        specimenID: '<span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber? res.catalogNumber : "nicht verfügbar") ,
+                        originalOject: res
+                    }
+                }));
+
+                $("#resultCountGeocase").html(resultCountGeocase);
+                showPages(parseInt(resultCountGeocase), recordsPerPage);
+
+                renderResultGrid(currentResults);
+                break;
+
+            case 3: // results from OSCA
+                resultCountOSCA = data.dataSize;
+                currentResults = currentResults.push(data.data.map(res => {
+                    return {
+                        sourceOfSearch: searchSource,
+                        scientificName: res.scientific_name,
+                        occurenceSourceLink: '',
+                        occurrenceOriginalLink: '',
+                        owner: (res.organization ? res.organization : 'Unbekannter Anbieter'),
+                        license: res.license,
+                        media: res.media,
+                        specimenID: '<span class="font-semibold">OSCA ID:</span>' + res.phisical_specimen_id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.collection_number? res.collection_number : 'nicht verfügbar'),
+                        originalOject: res
+                    }
+                }));
+
+                $("#resultCountOSCA").html(resultCountOSCA);
+                showPages(resultCountOSCA, recordsPerPage);
+
+                renderResultGrid(currentResults);
+                break;
+
+            case 4: // results from BOLD
+                resultCountBOLD = 0;
+
+                $("#resultStatistics").html('BOLD data under construction');
+                displayError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
+                showPages(0, 0);
+                break;
+
+            case 5: // results from Europeana
+                resultCountEuropeana = data.itemsCount;
+                currentResults = currentResults.push(data.items.map(res => {
+                    return {
+                        sourceOfSearch: searchSource,
+                        scientificName: res.title[0],
+                        occurenceSourceLink: res.guid,
+                        occurrenceOriginalLink: '',
+                        owner: (res.dataProvider ? res.dataProvider[0] : 'Unbekannter Anbieter'),
+                        license: res.rights[0],
+                        media: res.edmPreview[0],
+                        specimenID: '<span class="font-semibold">Europeana ID:</span>' + res.id,
+                        originalOject: res
+                    }
+                }));
+
+                $("#resultCountEuropeana").html(resultCountEuropeana);
+                showPages(resultCountEuropeana, recordsPerPage);
+
+                renderResultGrid(currentResults);
+                break;
+
+            case 6: // results from DiSSCO
+                resultCountDissco = data.data.length;
+                currentResults = currentResults.push(data.data.map(res => {
+                    return {
+                        sourceOfSearch: searchSource,
+                        scientificName: res.attributes['ods:specimenName'],
+                        occurenceSourceLink: res.attributes['ods:physicalSpecimenID'],
+                        occurrenceOriginalLink: '',
+                        owner: (res.attributes['ods:organisationName'] ? res.attributes['ods:organisationName'] : 'Unbekannter Anbieter'),
+                        license: res.attributes['dcterms:license'],
+                        media: "",
+                        specimenID: '<span class="font-semibold">DiSSCO ID:</span>' + res.attributes['@id'],
+                        originalOject: res
+                    }
+                }));
+
+                $("#resultCountDissco").html(resultCountDissco);
+                showPages(resultCountDissco, recordsPerPage);
+
+                renderResultGrid(currentResults);
+                break;
+            default: break;
+
+        }
+    }
+
     // Function to render the result grid (merged results)
     function renderResultGrid() {
         let resultItems = '';
@@ -763,6 +892,7 @@ let resultListModule = (function () {
         init: init,
         updateResults: updateResults,
         mergeResults: mergeResults,
+        pushResults: pushResults,
         renderResultGrid: renderResultGrid,
         showList: showList,
         showGrid: showGrid,

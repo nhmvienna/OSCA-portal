@@ -40,23 +40,20 @@ let searchModule = (function () {
         resultListModule.mergeResults(data, 1);
 
             // ask all the data
-            /*
             if(data.count > recordsPerPage) {
               const steps = Math.floor(data.count/recordsPerPage);
 
               for(let i=1; i<= steps; i++) {
                 setTimeout(() => { //delay each API call with 0.1 seconds
                   $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&limit=" + recordsPerPage + "&offset=" + i * recordsPerPage + "&scientificName=" + encodeURIComponent(query), function (data) {
-                    resultListModule.mergeResults(data, 1);
+                    resultListModule.pushResults(data, 1);
                     
                     if(i == steps) $("#resultLoadingGBIF").hide();
                   });
                 }, i*100);
               }
             } 
-              */
-            
-           
+             
             $("#resultLoadingGBIF").hide(); //remove this
           });
 
