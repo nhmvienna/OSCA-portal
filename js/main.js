@@ -170,75 +170,147 @@ function processOSCAInNumbers(data) {
         // Update the UI with the processed statistics
         $('#oscaInNumbersPopup').html(`
             <div class="w-full text-center text-sm p-4">
-                Das OSCA-Konsortium besteht derzeit aus 12 Institutionen aus ganz Österreich, die bio- und geowissenschaftliche Sammlungen bewahren, entwickeln, erforschen und für die Öffentlichkeit sichtbar machen. Diese Statistiken veranschaulichen unseren Prozess und unsere Aufwandsverteilung
-            </div>
-            <div class="w-full grid grid-cols-5 gap-4 p-4">
-                <!-- Preparation statistics -->
-                <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
-                    <span class="font-semibold"> 1. Vorbereitung <br> <br> </span>
-                    <div class="w-full bg-p-green-100 text-center p-2 rounded-lg mb-2 mt-4">
-                        <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.preparation.total}</p>
-                        <p>Vorbereitete Objekte</p>
+                    Das OSCA-Konsortium besteht derzeit aus 12 Institutionen aus ganz Österreich, die bio- und geowissenschaftliche Sammlungen bewahren, entwickeln, erforschen und für die Öffentlichkeit sichtbar machen. Diese Statistiken veranschaulichen unseren Prozess und unsere Aufwandsverteilung
+                </div>
+                <div class="w-full grid grid-cols-5 gap-4 p-4">
+                    <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
+                        <span class="font-semibold"> 1. Preparation <br> <br> </span>
+                        <div class="w-full bg-p-green-100 text-center p-2 rounded-lg mb-2 mt-4">
+                            <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.preparation.total}</p>
+                            <p>Prepared Objects</p>
+                        </div>
+                        <div class="w-full text-center grid grid-cols-2 gap-2 mb-4">
+                            <div class="bg-p-green-100 text-center py-4 rounded-lg">
+                                <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.mollusks}</p>
+                                <p>Mollusks </p>
+                            </div>
+                            <div class="bg-p-green-100 text-center py-4 rounded-lg">
+                                <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.endemics}</p>
+                                <p>Endemics </p>
+                            </div>
+                        </div>
+                        <div class="w-full text-center grid grid-cols-2 gap-2 mb-2">
+                            <div class="bg-p-green-100 text-center py-4 rounded-lg">
+                                <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.dry_specs}</p>
+                                <p>Dry Spec. </p>
+                            </div>
+                            <div class="bg-p-green-100 text-center py-4 rounded-lg">
+                                <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.wet_sepcs}</p>
+                                <p>Wet Spe. </p>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Additional preparation statistics -->
-                    <div class="w-full text-center grid grid-cols-3 gap-2 mb-2 text-xs">
-                        <div class="bg-p-green-100 text-center py-4 rounded-lg">
-                            <p class="text-lg my-3 text-gray-800">${oscaInNumbers.preparation.mollusks}</p>
-                            <p>Mollusken </p>
+                    <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
+                        <span class="font-semibold"> 2. Cataloging Metadata <br> <br> </span>
+                        <div class="w-full bg-p-green-100 text-center p-2 rounded-lg mb-2 mt-4">
+                            <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.cataloging.total}</p>
+                            <p>Cataloged Objects</p>
                         </div>
-                        <div class="bg-p-green-100 text-center py-4 rounded-lg">
-                            <p class="text-lg my-3 text-gray-800">${oscaInNumbers.preparation.endemics}</p>
-                            <p>Endemiten </p>
+                        <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
+                            <div class="text-center px-2">
+                                <p class="text-lg my-3 text-gray-800">${oscaInNumbers.cataloging.mids0}</p>
+                            </div>
+                            <div class="text-center px-2">
+                                <p class="text-xs my-3">MIDS <br> Level 0 </p>
+                            </div>
                         </div>
-                        <div class="bg-p-green-100 text-center py-4 rounded-lg">
-                            <p class="text-lg my-3 text-gray-800">${oscaInNumbers.preparation.others}</p>
-                            <p>Sonstige </p>
+                        <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
+                            <div class="text-center px-2">
+                                <p class="text-lg my-3 text-gray-800">${oscaInNumbers.cataloging.mids1}</p>
+                            </div>
+                            <div class="text-center px-2">
+                                <p class="text-xs my-3">MIDS <br> Level 1 </p>
+                            </div>
+                        </div>
+                        <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
+                            <div class="text-center px-2">
+                                <p class="text-lg my-3 text-gray-800">${oscaInNumbers.cataloging.mids2}</p>
+                            </div>
+                            <div class="text-center px-2">
+                                <p class="text-xs my-3">MIDS <br> Level 2 </p>
+                            </div>
+                        </div>
+                        <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
+                            <div class="text-center px-2">
+                                <p class="text-lg my-3 text-gray-800">${oscaInNumbers.cataloging.mids3}</p>
+                            </div>
+                            <div class="text-center px-2">
+                                <p class="text-xs my-3">MIDS <br> Level 3 </p>
+                            </div>
                         </div>
                     </div>
-                    <!-- Dry and wet specimen statistics -->
-                    <div class="w-full text-center grid grid-cols-2 gap-2 mb-2 text-xs">
-                        <div class="bg-p-green-100 text-center py-4 rounded-lg">
-                            <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.dry_specs}</p>
-                            <p>Trockene Probe </p>
+                    <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
+                        <span class="font-semibold"> 3. Digitization <br> <br> </span>
+                        <div class="w-full bg-p-green-100 text-center p-2 rounded-lg mb-2 mt-4">
+                            <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.digitization.total}</p>
+                            <p>Digitized Objects</p>
                         </div>
-                        <div class="bg-p-green-100 text-center py-4 rounded-lg">
-                            <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.wet_sepcs}</p>
-                            <p>Feuchte Probe </p>
+                        <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-3 py-2">
+                            <div class="text-center px-2">
+                                 <p class="text-xl my-3 text-gray-800">${oscaInNumbers.digitization.one_pic}</p>
+                            </div>
+                            <div class="text-center px-2">
+                                <p class="text-xs my-3">Min. One <br> Picture </p>
+                            </div>
                         </div>
+                        <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-3 py-2">
+                            <div class="text-center px-2">
+                                 <p class="text-xl my-3 text-gray-800">${oscaInNumbers.digitization.pic_gallery}</p>
+                            </div>
+                            <div class="text-center px-2">
+                                <p class="text-xs my-3">Picture <br> Gallery 1 </p>
+                            </div>
+                        </div>
+                        <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-3 py-2">
+                            <div class="text-center px-2">
+                                 <p class="text-xl my-3 text-gray-800">${oscaInNumbers.digitization.multimedia}</p>
+                            </div>
+                            <div class="text-center px-2">
+                                <p class="text-xs my-3">Multimedia <br> Available </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
+                        <span class="font-semibold"> 4. Exposure to OSCA Portal <br> <br> </span>
+                        <div class="w-full bg-p-orange-100 text-center p-2 rounded-lg mb-2 mt-4">
+                             <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.osca_portal.total}</p>
+                            <p>Exposed Objects</p>
+                        </div>
+                        
+                        <div class="w-full bg-p-orange-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
+                            <div class="text-center p-2">
+                                <p class="text-2xl my-6 text-gray-800">${oscaInNumbers.osca_portal.endemics}</p>
+                            </div>
+                            <div class="text-center p-2">
+                                <p class="text-base my-6">Endemics </p>
+                            </div>
+                        </div>
+                        <div class="w-full bg-p-orange-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
+                            <div class="text-center p-2">
+                                <p class="text-2xl my-6 text-gray-800">${oscaInNumbers.osca_portal.mollusks}</p>
+                            </div>
+                            <div class="text-center p-2">
+                                <p class="text-base my-6"> Mollusks </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
+                        <span class="font-semibold"> 5.Integration/Dissemination in International Portals  </span>
+                        <div class="w-full bg-p-blue-100 text-center p-2 rounded-lg mb-2 mt-4">
+                            <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.integration.total}</p>
+                            <p>Exposed Objects</p>
+                        </div>
+                        
+                        <div class="w-full bg-p-blue-100 rounded-lg text-left text-md leading-relaxed mb-3 py-5 pl-3">
+                            <p class="text-xl my-3 text-gray-800">${oscaInNumbers.integration.overview.replaceAll(',', '<br>')}</p>
+                        </div>
+                        
                     </div>
                 </div>
-                <!-- Additional sections for cataloging, digitization, OSCA portal, and integration -->
-                <!-- (Similar structure as above, omitted for brevity) -->
             </div>
         `);
 
-        // Create a chart for OSCA digitization trends
-        const trendLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul'];
-        const trendData = {
-            labels: trendLabels,
-            datasets: [{
-                label: 'Monthly Exposure Trend',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1,
-            }]
-        };
-
-        const ctx = document.getElementById('oscaDigitizationTrend').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: trendData,
-            options: {
-                plugins: {
-                    showLines: false,
-                    legend: {
-                        display: false,
-                        position: 'bottom'
-                    }
-                }
-            }
-        });
     }
 }
 
