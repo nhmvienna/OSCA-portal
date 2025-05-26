@@ -58,14 +58,14 @@ let localDataModule = (function () {
     if (q) {
       $.ajax({
         type: "GET",
-        url: "./data/osca-data.tsv?v=3",
+        url: "./data/osca-data.tsv?v=4",
         dataType: "text",
         success: function (data) {
           processOSCAData(data);
           console.log(q, start, offset)
-          var totalResults = oscaResults.filter((d) => d.scientific_name.toLowerCase().includes(q.toLowerCase()))
-          var results = {
-            data: totalResults.slice(start * offset, (start + 1) * offset),
+          let totalResults = oscaResults.filter((d) => d.scientific_name?.toLowerCase().includes(q.toLowerCase()))
+          let results = {
+            data: totalResults,
             dataSize: totalResults.length
           }
           callback(results);
@@ -82,15 +82,15 @@ let localDataModule = (function () {
    * @param {string} allText - The raw TSV data as a string.
    */
   function processOSCAData(allText) {
-    var lines = [];
-    var allTextLines = allText.split(/\r\n|\n/);
-    var headers = allTextLines[0].split('\t');
+    let lines = [];
+    let allTextLines = allText.split(/\r\n|\n/);
+    let headers = allTextLines[0].split('\t');
 
-    for (var i = 1; i < allTextLines.length; i++) { //start with 1 to avoid the table header
-      var data = allTextLines[i].split('\t');
+    for (let i = 1; i < allTextLines.length; i++) { //start with 1 to avoid the table header
+      let data = allTextLines[i].split('\t');
 
       if (data.length == headers.length && data[0].length > 0) {
-        var result = {
+        let result = {
           scientific_name: data[0],
           phisical_specimen_id: data[1],
           organization: data[2],
@@ -106,8 +106,8 @@ let localDataModule = (function () {
           media: data[12],
           object_type: data[13]
         };
-
-        lines.push(result);
+        
+        lines.push(result); 
       }
 
     }

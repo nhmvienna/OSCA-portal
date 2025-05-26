@@ -65,7 +65,7 @@ let filtersModule = (function () {
    */
   function filterByInstitute(instituteString) {
     if(currentResults.length > 1) {
-      filteredResults = currentResults.filter(result => result.owner.toLowerCase().includes(instituteString.toLowerCase()));
+      filteredResults = currentResults.filter(result => result.owner?.toLowerCase().includes(instituteString?.toLowerCase()));
       currentResults = filteredResults;
     }
   }
@@ -76,7 +76,7 @@ let filtersModule = (function () {
    */
   function filterBySpecimenType(specimenTypeString) {
     if(currentResults.length > 1) {
-      filteredResults = currentResults.filter(result => result.owner.toLowerCase().includes(specimenTypeString.toLowerCase()));
+      filteredResults = currentResults.filter(result => result.owner?.toLowerCase().includes(specimenTypeString?.toLowerCase()));
       currentResults = filteredResults;
     }
   }
@@ -87,7 +87,7 @@ let filtersModule = (function () {
    */
   function filterBySpecimenID(specimenIDString) {
     if(currentResults.length > 1) {
-      filteredResults = currentResults.filter(result => result.specimenID.toLowerCase().includes(specimenIDString.toLowerCase()));
+      filteredResults = currentResults.filter(result => result.specimenID?.toLowerCase().includes(specimenIDString?.toLowerCase()));
       currentResults = filteredResults;
     }
   }

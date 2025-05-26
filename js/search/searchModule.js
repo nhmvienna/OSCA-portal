@@ -57,8 +57,8 @@ let searchModule = (function () {
         $("#resultLoadingGBIF").hide(); //remove this
       });
 
-       
-          $("#resultLoadingGeocase").show();
+
+      $("#resultLoadingGeocase").show();
       $.get("https://api.geocase.eu/v1/solr?sort=id%20asc&start=" + (searchPage - 1) * recordsPerPage + "&rows=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
         resultListModule.mergeResults(data, 2); // Merge the results into the result list module
         $("#resultLoadingGeocase").hide(); // Hide the loading indicator for Geocase

@@ -215,8 +215,8 @@ let resultListModule = (function () {
      function pushResults(data, searchSource) {
         switch (searchSource) {
             case 1: // results from GBIF 
-                resultCountGBIF = data?.count;
-                currentResults = currentResults.push(data.results.map(res => {
+                //resultCountGBIF = data?.count;
+                currentResults.push(data.results.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.scientificName,
@@ -238,7 +238,7 @@ let resultListModule = (function () {
 
             case 2: // results from GeoCase
                 resultCountGeocase = data?.response?.numFound;
-                currentResults = currentResults.push(data.response.docs.map(res => {
+                currentResults.push(data.response.docs.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.fullscientificname,
@@ -260,7 +260,7 @@ let resultListModule = (function () {
 
             case 3: // results from OSCA
                 resultCountOSCA = data.dataSize;
-                currentResults = currentResults.push(data.data.map(res => {
+                currentResults.push(data.data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.scientific_name,
@@ -290,7 +290,7 @@ let resultListModule = (function () {
 
             case 5: // results from Europeana
                 resultCountEuropeana = data.itemsCount;
-                currentResults = currentResults.push(data.items.map(res => {
+                currentResults.push(data.items.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.title[0],
@@ -312,7 +312,7 @@ let resultListModule = (function () {
 
             case 6: // results from DiSSCO
                 resultCountDissco = data.data.length;
-                currentResults = currentResults.push(data.data.map(res => {
+                currentResults.push(data.data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.attributes['ods:specimenName'],
