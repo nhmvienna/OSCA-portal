@@ -372,18 +372,18 @@ let resultDetailsModule = (function () {
         let rows = `
             <tr class="hover:bg-white text-left">
                 <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
-                    ${camelCaseToWords('collection_number')}
+                    ${camelCaseToWords('dwc:recordNumber')}
                 </th>
                 <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
-                ${obs.collection_number}
+                ${obs.original_object['dwc:recordNumber']}
                 </td>
             </tr>
             <tr class="hover:bg-white text-left">
                 <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
-                    ${camelCaseToWords('physical_specimen_id')}
+                    ${camelCaseToWords('dwc:occurrenceID')}
                 </th>
                 <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
-                ${obs.phisical_specimen_id}
+                ${obs.original_object['dwc:occurrenceID']}
                 </td>
             </tr>
             `;
@@ -407,8 +407,8 @@ let resultDetailsModule = (function () {
         `;
 
         let dataRows = '';
-        if (obs) {
-            for (const [key, value] of Object.entries(obs)) {
+        if (obs?.original_object) {
+            for (const [key, value] of Object.entries(obs.original_object)) {
                 if (value && !key.includes('collection_number') && !key.includes('phisical_specimen_id')) {
 
                     dataRows +=

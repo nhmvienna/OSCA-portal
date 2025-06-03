@@ -84,27 +84,20 @@ let localDataModule = (function () {
   function processOSCAData(allText) {
     let lines = [];
     let allTextLines = allText.split(/\r\n|\n/);
-    let headers = allTextLines[0].split('\t');
+    let headers = allTextLines[1].split('\t');
 
-    for (let i = 1; i < allTextLines.length; i++) { //start with 1 to avoid the table header
+    for (let i = 2; i < allTextLines.length; i++) { //start with 1 to avoid the table header
       let data = allTextLines[i].split('\t');
 
       if (data.length == headers.length && data[0].length > 0) {
         let result = {
-          scientific_name: data[0],
-          phisical_specimen_id: data[1],
-          organization: data[2],
-          specimen_type: data[3],
-          modified_date: data[4],
-          license: data[5],
-          location: data[6],
-          geological_age: data[7],
-          collection_number: data[8],
-          collecting_agent: data[9],
-          data_collected: data[10],
-          type_status: data[11],
-          media: data[12],
-          object_type: data[13]
+          scientific_name: data[2], //dwc:scientificName
+          phisical_specimen_id: data[1],//dwc:occurrenceID
+          organization: data[5], //dwc:institutionCode
+          license: 'Creative Commons', 
+          collection_number: data[8], //dwc:collectionNumber
+          media: data[11], //dwc:associatedMedia
+          original_object: arraysToObject(data,headers)
         };
         
         lines.push(result); 
@@ -119,6 +112,33 @@ let localDataModule = (function () {
       return 0;
     })
   }
+
+  /**
+ * Converts two arrays of the same length into an object.
+ * The first array provides the values, and the second provides the keys.
+ *
+ * @param {Array} values - The array containing the values.
+ * @param {Array} keys - The array containing the keys.
+ * @returns {Object} - An object where keys are taken from the second array and values from the first.
+ * @throws {Error} If the arrays have different lengths.
+ *
+ * @example
+ * const values = ['apple', 'banana', 'cherry'];
+ * const keys = ['a', 'b', 'c'];
+ * const obj = arraysToObject(values, keys);
+ * console.log(obj); // { a: 'apple', b: 'banana', c: 'cherry' }
+ */
+function arraysToObject(values, keys) {
+  if (values.length !== keys.length) {
+    throw new Error("Arrays must have the same length");
+  }
+
+  const result = {};
+  for (let i = 0; i < values.length; i++) {
+    result[keys[i]] = values[i];
+  }
+  return result;
+}
 
   /**
    * Processes OSCA statistics from a TSV file.
