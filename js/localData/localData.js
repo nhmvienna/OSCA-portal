@@ -92,6 +92,7 @@ let localDataModule = (function () {
       if (data.length == headers.length && data[0].length > 0) {
         let result = {
           scientific_name: data[2], //dwc:scientificName
+          osca_id: data[0],
           phisical_specimen_id: data[1],//dwc:occurrenceID
           organization: data[5], //dwc:institutionCode
           license: 'Creative Commons', 

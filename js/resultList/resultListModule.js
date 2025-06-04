@@ -132,7 +132,7 @@ let resultListModule = (function () {
                         owner: (res.organization ? res.organization : 'Unbekannter Anbieter'),
                         license: res.license,
                         media: res.media,
-                        specimenID: '<span class="font-semibold">OSCA ID:</span>' + res.phisical_specimen_id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.collection_number? res.collection_number : 'nicht verfügbar'),
+                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.osca_id + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>'+ res.phisical_specimen_id + (res.collection_number? ' | <span class="font-semibold">Katalog ID:</span>' + res.collection_number : ''),
                         originalOject: res
                     }
                 }));
