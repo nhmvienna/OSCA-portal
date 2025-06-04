@@ -1,6 +1,6 @@
 // Global variables
 let searchSourceSelectedValue = 1; // Default search source value
-let searchQuery = 'Cochlostoma'; // Default search query
+let searchQuery = 'Braya'; // Default search query
 let searchPage = 1; // Default search page
 let showProjectStats = false; // Flag to show project statistics modal
 
