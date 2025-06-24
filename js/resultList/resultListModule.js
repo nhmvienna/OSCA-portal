@@ -161,9 +161,9 @@ let resultListModule = (function () {
                         scientificName: res.title[0],
                         occurenceSourceLink: res.guid,
                         occurrenceOriginalLink: '',
-                        owner: (res.dataProvider ? res.dataProvider[0] : 'Unbekannter Anbieter'),
-                        license: res.rights[0],
-                        media: res.edmPreview[0],
+                        owner: (res?.dataProvider ? res.dataProvider[0] : 'Unbekannter Anbieter'),
+                        license: (res?.rights ? res.edmPreview[0] : null),
+                        media: (res?.edmPreview ? res.edmPreview[0] : null),
                         specimenID: '<span class="font-semibold">Europeana ID:</span>' + res.id,
                         originalOject: res
                     }

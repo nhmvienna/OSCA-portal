@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="article" />
+
+
+    <title name="pageTitle"></title>
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="og:title" property="og:title" content="" />
+    <meta name="og:description" property="og:description" content="" />
+    <meta name="og:image" property="og:image" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Pazly Colors -->
+    <link rel="stylesheet" href="https://pazly.dev/colors/gradients.css" />
+    <link rel="stylesheet" href="https://pazly.dev/colors/backgrounds.css" />
+    <link rel="stylesheet" href="https://pazly.dev/colors/text.css" />
+    <link rel="stylesheet" href="https://pazly.dev/colors/border.css" />
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1.3 !important;
+        }
+
+        ol {
+            list-style-type: decimal !important;
+            padding-left: 1em !important;
+        }
+
+        ul {
+            list-style-type: disc !important;
+            padding-left: 1em !important;
+        }
+
+        .stretchToScreen {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+
+    <!-- Fontswesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</head>
+
+<body class="m-0 p-0 stretchToScreen">
+
+    <!-- Pazly Custom Background-->
+    <section id="pazly-page-background" class="fixed m-0 p-0 stretchToScreen">
+        <img class="w-full h-full object-cover object-center" loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+P///38ACfsD/QVDRcoAAAAASUVORK5CYII=" />
+    </section>
+
+
+    <!-- Pazly Blocks Come Here -->
+    <section id="pazly-template-set" class="absolute top-0  m-0 p-0 stretchToScreen">
+
+        <section xmlns="http://www.w3.org/1999/xhtml" class="w-full text-p-white bg-p-gray-100">
+    <div class="container mx-auto flex flex-wrap md:p-3 flex-col md:flex-row items-center justify-between">
+       
+        <img pazly-editable="src child" src="http://osca.science/wp-content/uploads/2024/01/OSCA_logo-1.svg" style="height: 30px; margin-top: 10px; margin-bottom: 10px;" alt="logo" class="">
+       
+        <div class="text-black font-semibold"> OCCURRENCE DETAILS </div>
+        <div class="flex flex-col md:flex-row">
+            
+            <div class="flex flex-row justify-center pb-2 md:pb-0">
+                <a pazly-editable="innerHTML href bg clone" target="_blank" href="https://osca.science/portal/" class="hover:shadow-lg ml-4 py-2 px-4 cursor-pointer rounded-full whitespace-pre-line font-semibold bg-black text-white">Zurück zur Suche</a>
+            </div>
+        </div>
+    </div>
+</section>
+        
+        <section xmlns="http://www.w3.org/1999/xhtml" class="w-full bg-p-truegray-100">
+            <div id="output" class="w-full md:px-16 p-6">
+
+            </div>
+        </section>
+    </section>
+    <!-- Pazly Blocks Ends Here -->
+
+    <!-- Pazly Scripts Start Here -->
+    <section id="pazly-scripts-set" class="m-0 p-0 w-0 h-0">
+
+        <!-- Smooth scrolling -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            // handle links with @href started with '#' only
+            $(document).on('click', 'a[href^="#"]', function (e) {
+                // target element id
+                var id = $(this).attr('href');
+
+                // target element
+                var $id = $(id);
+                if ($id.length === 0) {
+                    return;
+                }
+
+                // prevent standard hash navigation (avoid blinking in IE)
+                e.preventDefault();
+
+                // top position relative to the document
+                var pos = $id.offset().top;
+
+                // animated top scrolling
+                $('body, html').animate({ scrollTop: pos });
+            });
+        </script>
+
+        <script>
+            // Utility function to convert camelCase strings to words
+            function camelCaseToWords(input) {
+                // Inserts a space before uppercase letters and converts the string to uppercase
+                return input.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase();
+            }
+
+            // Function to process and display details for OSCA observations
+            function displayDetailsOSCA(obs) {
+                let rows = `
+            <tr class="hover:bg-white text-left">
+                <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                    ${camelCaseToWords('dwc:recordNumber')}
+                </th>
+                <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                ${obs['dwc:recordNumber']}
+                </td>
+            </tr>
+            <tr class="hover:bg-white text-left">
+                <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                    ${camelCaseToWords('dwc:occurrenceID')}
+                </th>
+                <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                ${obs['dwc:occurrenceID']}
+                </td>
+            </tr>
+            `;
+
+                let htmlKeysTemplate = `
+        <table class="items-center w-full border shadow-lg rounded bg-p-orange-50 overflow-hidden">
+            <thead>
+                <tr>
+                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                        Observation Key
+                    </th>
+                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                        Observation Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody  class="mt-12">
+                ${rows}
+            </tbody>
+        </table>
+        `;
+
+                let dataRows = '';
+                if (obs) {
+                    for (const [key, value] of Object.entries(obs)) {
+                        if (value && !key.includes('collection_number') && !key.includes('phisical_specimen_id')) {
+
+                            dataRows +=
+                                `
+            <tr class="hover:bg-white text-left">
+                <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                    ${camelCaseToWords(key)}
+                </th>
+                <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                ${typeof value === 'object' ? JSON.stringify(value) : value}
+                </td>
+            </tr>
+            `;
+                        }
+                    }
+                }
+
+                let htmlDataTemplate = `
+        <table class="items-center w-full border shadow-lg rounded bg-green-50 overflow-hidden">
+            <thead>
+                <tr>
+                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                        Observation Key
+                    </th>
+                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                        Observation Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody  class="mt-12">
+                ${dataRows}
+            </tbody>
+        </table>
+        `;
+
+             let dataOptionalRows = '';
+                if (obs) {
+                    for (const [key, value] of Object.entries(obs)) {
+                        if (!value && !key.includes('collection_number') && !key.includes('phisical_specimen_id')) {
+
+                            dataOptionalRows +=
+                                `
+            <tr class="hover:bg-white text-left">
+                <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                    ${camelCaseToWords(key)}
+                </th>
+                <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                Leer oder nicht verfügbar
+                </td>
+            </tr>
+            `;
+                        }
+                    }
+                }
+
+                let htmlOptionalDataTemplate = `
+        <table class="items-center w-full border shadow-lg rounded bg-pink-50 overflow-hidden">
+            <thead>
+                <tr>
+                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                        Observation Key
+                    </th>
+                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                        Observation Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody  class="mt-12">
+                ${dataOptionalRows}
+            </tbody>
+        </table>
+        `;
+
+                let htmlTemplate =
+                    `
+        <div class="w-full px-4 py-2"> 
+            <div class="pb-4"> <b> IDENTIFICATION KEYS </b> for <b class="text-p-blue-800">${obs['dwc:scientificName']}</b> </div>
+            ${htmlKeysTemplate} 
+            <div class="py-4"> <b> OCCURANCE DATA </b> ${obs['dwc:associatedMedia'].length > 2 ? '<span class="ml-4 rounded-full py-1 px-3 bg-p-blue-700 font-bold text-white">MIDS 2</span>' : '<span class="ml-4 rounded-full py-1 px-3 bg-p-blue-700 font-bold text-white">MIDS 1</span>'} </div>
+            ${htmlDataTemplate} 
+            <div class="py-4"> <b> EXTRA OBSERVATION KEYS </b> </div>
+            ${htmlOptionalDataTemplate} 
+            
+        </div>
+        `;
+
+                return htmlTemplate;
+            }
+
+            // Get the ID parameter from the URL
+            function getIdParameter() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('id');
+            }
+
+            // Parse TSV text into an array of objects (assuming header row)
+            function parseTSV(tsvText) {
+                const lines = tsvText.trim().split('\n');
+                const headers = lines[1].split('\t');
+                return lines.slice(2).map(line => {
+                    const values = line.split('\t');
+                    const record = {};
+                    headers.forEach((header, i) => {
+                        record[header] = values[i];
+                    });
+                    return record;
+                });
+            }
+
+            // Load TSV file and find record
+            async function loadAndFindRecord(tsvUrl) {
+                const id = getIdParameter();
+                if (!id) {
+                    document.getElementById('output').innerText = 'No ID parameter found in URL.';
+                    return;
+                }
+
+                try {
+                    const response = await fetch(tsvUrl);
+                    const tsvText = await response.text();
+                    const records = parseTSV(tsvText);
+
+                    // Find record with matching id
+                    const record = records.find(r => r['dwc:recordNumber'] === id);
+
+                    if (record) {
+                        console.dir(record);
+                        document.getElementById('output').innerHTML = displayDetailsOSCA(record);
+                    } else {
+                        document.getElementById('output').innerText = 'No record found for ID: ' + id;
+                    }
+                } catch (err) {
+                    console.error('Error loading TSV:', err);
+                    document.getElementById('output').innerText = 'Error loading TSV file.';
+                }
+            }
+
+            // Call function with your .tsv file URL
+            loadAndFindRecord('./data/osca-data.tsv'); // replace 'data.tsv' with your actual file path
+
+
+            const id = getIdParameter();
+            if (id) {
+                console.log(`ID parameter is: ${id}`);
+            } else {
+                console.log('ID parameter not found.');
+            }
+
+        </script>
+
+    </section>
+
+</body>
+
+</html>
