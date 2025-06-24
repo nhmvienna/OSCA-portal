@@ -252,6 +252,10 @@
             ${htmlKeysTemplate} 
             <div class="py-4"> <b> OCCURANCE DATA </b> ${obs['dwc:associatedMedia'].length > 2 ? '<span class="ml-4 rounded-full py-1 px-3 bg-p-blue-700 font-bold text-white">MIDS 2</span>' : '<span class="ml-4 rounded-full py-1 px-3 bg-p-blue-700 font-bold text-white">MIDS 1</span>'} </div>
             ${htmlDataTemplate} 
+            <div class="py-4 grid grid-cols-6 gap-4 items-center items-stretch">
+                <img class="col-span-4 rounded-lg object-fill object-center shadow-lg" style="max-height:360px" src="./img/map-placeholder.jpg"/>
+                <img class="rounded-lg object-fill object-center shadow-lg" src="${obs['dwc:associatedMedia']}" />
+            </div>
             <div class="py-4"> <b> EXTRA OBSERVATION KEYS </b> </div>
             ${htmlOptionalDataTemplate} 
             
