@@ -435,8 +435,11 @@ let resultListModule = (function () {
 
             case 3: // search on OSCA
             return `
-                <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs">Suche-Details Anzeigen</button> 
-                
+                <div class="w-full flex flex-row items-center">
+                <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center">Suche-Details Anzeigen</button> 
+                <a href="./occurrence.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-black"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                 Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>

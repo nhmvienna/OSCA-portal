@@ -99,6 +99,8 @@ let filtersModule = (function () {
    * @param {string} filterObject.specimenIDString - Filter by specimen ID.
    */
   function applyFilters(filterObject) {
+    resetFilters();
+    
     // Save the original results if not already saved
     if(originalResults.length < 1) {
       originalResults = currentResults;
