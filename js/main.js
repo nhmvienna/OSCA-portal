@@ -1,6 +1,6 @@
 // Global variables
 let searchSourceSelectedValue = 1; // Default search source value
-let searchQuery = 'Braya'; // Default search query
+let searchQuery = 'braya'; // Default search query e.g: 'Braya'
 let searchPage = 1; // Default search page
 let showProjectStats = false; // Flag to show project statistics modal
 

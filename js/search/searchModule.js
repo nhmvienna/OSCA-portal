@@ -79,8 +79,9 @@ let searchModule = (function () {
       });
 
       // Perform a search on the DiSSCo API
-      $("#resultLoadingDissco").show(); // Show the loading indicator for DiSSCo
-      $.get("https://sandbox.dissco.tech/api/digital-specimen/v1/search?pageSize=25&pageNumber=1&q=" + encodeURIComponent(query), function (data) {
+      $("#resultLoadingDissco").show(); // Show the loading indicator for DiSSCo https://sandbox.dissco.tech/api/digital-specimen/v1/search?q=
+      //  https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=
+      $.get("https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=" + encodeURIComponent(query), function (data) {
         resultListModule.mergeResults(data, 6); // Merge the results into the result list module
         $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
       });

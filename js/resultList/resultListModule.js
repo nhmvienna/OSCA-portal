@@ -162,7 +162,7 @@ let resultListModule = (function () {
                         occurenceSourceLink: res.guid,
                         occurrenceOriginalLink: '',
                         owner: (res?.dataProvider ? res.dataProvider[0] : 'Unbekannter Anbieter'),
-                        license: (res?.rights ? res.edmPreview[0] : null),
+                        license: (res?.rights ? res.rights[0] : null),
                         media: (res?.edmPreview ? res.edmPreview[0] : null),
                         specimenID: '<span class="font-semibold">Europeana ID:</span>' + res.id,
                         originalOject: res
@@ -185,8 +185,8 @@ let resultListModule = (function () {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.attributes['ods:specimenName'],
-                        occurenceSourceLink: res.attributes['ods:physicalSpecimenID'],
-                        occurrenceOriginalLink: '',
+                        occurenceSourceLink: res.attributes['dcterms:identifier'],
+                        occurrenceOriginalLink: res.attributes['ods:physicalSpecimenID'],
                         owner: (res.attributes['ods:organisationName'] ? res.attributes['ods:organisationName'] : 'Unbekannter Anbieter'),
                         license: res.attributes['dcterms:license'],
                         media: "",
@@ -316,8 +316,8 @@ let resultListModule = (function () {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.attributes['ods:specimenName'],
-                        occurenceSourceLink: res.attributes['ods:physicalSpecimenID'],
-                        occurrenceOriginalLink: '',
+                        occurenceSourceLink: '',
+                        occurrenceOriginalLink: res.attributes['ods:physicalSpecimenID'],
                         owner: (res.attributes['ods:organisationName'] ? res.attributes['ods:organisationName'] : 'Unbekannter Anbieter'),
                         license: res.attributes['dcterms:license'],
                         media: "",
@@ -437,7 +437,9 @@ let resultListModule = (function () {
             return `
                 <div class="w-full flex flex-row items-center">
                 <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center">Suche-Details Anzeigen</button> 
-                <a href="./occurrence.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-black"><i class="fas fa-external-link-alt"></i></a>
+               <!-- 
+                <a href="./occurrence.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-black"><i class="fas fa-external-link-alt text-p-orange-400"></i></a>
+               -->
                 </div>
 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
@@ -459,7 +461,8 @@ let resultListModule = (function () {
             case 6: // search on Dissco
             return `
                 <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
-                 
+                 <a href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-500 text-white text-xs">Originalquelle Anzeigen</a> 
+               
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                 Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
@@ -595,7 +598,7 @@ let resultListModule = (function () {
     }
 
     function displayEuropeanaMedia(media) {
-        if (media.length > 2) {
+        if (media && media.length > 2) {
                 return `
            <div class="flex flex-col">
                 <img src="${media}" loading="lazy" class="w-28 rounded-sm shadow"/>
