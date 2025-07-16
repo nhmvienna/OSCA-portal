@@ -341,21 +341,26 @@ let resultListModule = (function () {
         let resultItems = '';
         currentResults.map((res, i) => {
             resultItems += `
-    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media)}  flex flex-col shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
-        <div class="border-t-0 px-3 pt-1 pb-2 align-middle text-xs font-semibold">
-            <img src="${getIcon(res.sourceOfSearch)}" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
-             ${res.scientificName}
-        </div>
-        <div class="flex-grow flex flex-row w-full pb-2">
-            <div class="flex flex-col text-center px-4 w-full gap-2">
-                ${displayLinks(res, res.sourceOfSearch)}
+    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media)}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
+        <div class="w-full flex flex-row">
+            <div class="flex-grow flex flex-col w-full pb-2">
+                <div class="border-t-0 px-3 pt-1 pb-2 align-middle text-xs font-semibold flex flex-row items-center justify-start">
+                    <img src="${getIcon(res.sourceOfSearch)}" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
+                    <div> ${res.scientificName} </div>
+                </div>
+            
+                <div class="flex flex-col text-center px-4 w-full gap-2">
+                    ${displayLinks(res, res.sourceOfSearch)}
+                </div>
             </div>
-            <div class="w-2/6 flex-shrink border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs px-4">
+
+            <div class="w-2/6 flex-shrink border-t-0 align-middle border-l-0 border-r-0 text-xs p-4">
                 ${displayMedia(res.media, res.sourceOfSearch)}
             </div>
         </div>
+    
         <div class="w-full flex border-t flex-col text-center px-4 py-2 w-full">
-                ${displayIDs(res, res.sourceOfSearch)}
+            ${displayIDs(res, res.sourceOfSearch)}
         </div>  
     </div>
         `
@@ -407,8 +412,8 @@ let resultListModule = (function () {
             if(res.occurrenceOriginalLink && res.occurrenceOriginalLink.startsWith('http'))
             { //render Original Link only if it's actually a link
                 return `
-                    <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-700 text-white text-xs">Suche-Details Anzeigen</a> 
-                    <a href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-700 text-white text-xs">Originalquelle Anzeigen</a> 
+                    <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs">Suche-Details Anzeigen</a> 
+                    <a href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-700 text-white text-xs">Originalquelle Anzeigen</a> 
 
                     <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                     Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
@@ -416,7 +421,7 @@ let resultListModule = (function () {
                 `
             } 
             return `
-                    <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-700 text-white text-xs">Suche-Details Anzeigen</a> 
+                    <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs">Suche-Details Anzeigen</a> 
                     
                     <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                     Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
@@ -436,7 +441,7 @@ let resultListModule = (function () {
             case 3: // search on OSCA
             return `
                 <div class="w-full flex flex-row items-center">
-                <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center">Suche-Details Anzeigen</button> 
+                <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen</button> 
                <!-- 
                 <a href="./occurrence.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-black"><i class="fas fa-external-link-alt text-p-orange-400"></i></a>
                -->
