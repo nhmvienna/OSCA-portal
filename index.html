@@ -75,7 +75,7 @@
             <div class="flex md:p-3 flex-col md:flex-row justify-between">
                 <div class="flex items-start flex-col pr-2 border-r">
                     <a pazly-editable="href" class="flex title-font font-medium items-center p-2 text-p-gray-900 md:mb-0">
-                        <span class="text-xs">v4.20</span> <br>
+                        <span class="text-xs">v4.21</span> <br>
                     </a>
                     <div id="filter-toggle-button" onclick="filtersModule.switchFilters()" class="whitespace-nowrap text-xs px-4 py-2 rounded-lg shadow-md border cursor-pointer bg-p-gray-50 border-pink-200"> <i class="fas fa-sliders-h text-sm font-semibold"></i> Filter</div>
                 </div>
@@ -150,7 +150,7 @@
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3"> 
                                     <input type="checkbox" checked name="search-source" id="search-source-dissco" value="6" onclick="toggleResultCards(this.value, this.checked)"> 
-                                    <label for="search-source-dissco" class="pl-1"> <span id="resultCountDissco" class="result-count font-bold"></span> von DiSSCO <img src="./img/dissco-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /> (Sandbox)</label> 
+                                    <label for="search-source-dissco" class="pl-1"> <span id="resultCountDissco" class="result-count font-bold"></span> von DiSSCO <img src="./img/dissco-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /></label> 
                                 </div>
 
                                 <svg id="resultLoadingDissco" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -283,7 +283,7 @@
 
                     </table>
 
-                    <div id="result-grid" class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div id="result-grid" class="w-full grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
                     </div>
                 </div>
 
