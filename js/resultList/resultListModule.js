@@ -442,9 +442,9 @@ let resultListModule = (function () {
             return `
                 <div class="w-full flex flex-row items-center">
                 <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen</button> 
-               <!-- 
-                <a href="./occurrence.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-black"><i class="fas fa-external-link-alt text-p-orange-400"></i></a>
-               -->
+               
+                <a href="https://osca.science/occurrence/?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-black"><i class="fas fa-external-link-alt text-p-orange-400"></i></a>
+            
                 </div>
 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
