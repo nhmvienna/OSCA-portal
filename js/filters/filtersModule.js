@@ -17,13 +17,13 @@ let filtersModule = (function () {
   function switchFilters() {
     $('#filters').toggle(1, function() {
       if($(this).is(':visible')) {
-        $('#result-grid').removeClass('md:grid-cols-3 xl:grid-cols-4');
-        $('#result-grid').addClass('md:grid-cols-2 xl:grid-cols-3');
+        $('#result-grid').removeClass('md:grid-cols-3 2xl:grid-cols-4');
+        $('#result-grid').addClass('md:grid-cols-2 2xl:grid-cols-3');
   
         renderFilters(searchSourceSelectedValue);
       } else {
-        $('#result-grid').removeClass('md:grid-cols-2 xl:grid-cols-3');
-        $('#result-grid').addClass('md:grid-cols-3 xl:grid-cols-4');
+        $('#result-grid').removeClass('md:grid-cols-2 2xl:grid-cols-3');
+        $('#result-grid').addClass('md:grid-cols-3 2xl:grid-cols-4');
       } 
     });
   }
