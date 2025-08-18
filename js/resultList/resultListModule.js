@@ -10,7 +10,7 @@ let resultListModule = (function () {
 
     // Function to initialize the module
     function init() {
-       // Initialize result counts to zero
+        // Initialize result counts to zero
         resultCountGBIF = 0;
         resultCountGeocase = 0;
         resultCountOSCA = 0;
@@ -75,7 +75,7 @@ let resultListModule = (function () {
         switch (searchSource) {
             case 1: // results from GBIF 
                 resultCountGBIF = data?.count;
-                currentResults =  currentResults.concat(data.results.map(res => {
+                currentResults = currentResults.concat(data.results.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.scientificName,
@@ -84,7 +84,7 @@ let resultListModule = (function () {
                         owner: (res.collectionCode ? res.collectionCode : 'Unbekannter Anbieter') + (res.institutionCode ? '-' + res.institutionCode : ''),
                         license: res.license,
                         media: res.media,
-                        specimenID: ' <span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber? res.catalogNumber : 'nicht verfügbar'),
+                        specimenID: ' <span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber ? res.catalogNumber : 'nicht verfügbar'),
                         originalOject: res
                     }
                 }));
@@ -108,7 +108,7 @@ let resultListModule = (function () {
                         owner: (res.providername ? res.providername : 'Unbekannter Anbieter'),
                         license: res.license,
                         media: res.images,
-                        specimenID: '<span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber? res.catalogNumber : "nicht verfügbar") ,
+                        specimenID: '<span class="font-semibold">GeoCASE ID:</span>' + res.id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.unitid ? res.unitid : "nicht verfügbar"),
                         originalOject: res
                     }
                 }));
@@ -132,7 +132,7 @@ let resultListModule = (function () {
                         owner: (res.organization ? res.organization : 'Unbekannter Anbieter'),
                         license: res.license,
                         media: res.media,
-                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.osca_id + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>'+ res.phisical_specimen_id + (res.collection_number? ' | <span class="font-semibold">Katalog ID:</span>' + res.collection_number : ''),
+                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.osca_id + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.phisical_specimen_id + (res.collection_number ? ' | <span class="font-semibold">Katalog ID:</span>' + res.collection_number : ''),
                         originalOject: res
                     }
                 }));
@@ -207,12 +207,12 @@ let resultListModule = (function () {
         }
     }
 
-     /**
-     * Pushed results from different sources at the end of results list.
-     * @param {Object} data - The data returned from the search.
-     * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
-     */
-     function pushResults(data, searchSource) {
+    /**
+    * Pushed results from different sources at the end of results list.
+    * @param {Object} data - The data returned from the search.
+    * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
+    */
+    function pushResults(data, searchSource) {
         switch (searchSource) {
             case 1: // results from GBIF 
                 //resultCountGBIF = data?.count;
@@ -225,7 +225,7 @@ let resultListModule = (function () {
                         owner: (res.collectionCode ? res.collectionCode : 'Unbekannter Anbieter') + (res.institutionCode ? '-' + res.institutionCode : ''),
                         license: res.license,
                         media: res.media,
-                        specimenID: ' <span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber? res.catalogNumber : 'nicht verfügbar'),
+                        specimenID: ' <span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber ? res.catalogNumber : 'nicht verfügbar'),
                         originalOject: res
                     }
                 }));
@@ -247,7 +247,7 @@ let resultListModule = (function () {
                         owner: (res.providername ? res.providername : 'Unbekannter Anbieter'),
                         license: res.license,
                         media: res.images,
-                        specimenID: '<span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber? res.catalogNumber : "nicht verfügbar") ,
+                        specimenID: '<span class="font-semibold">GeoCASE ID:</span>' + res.id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.unitid ? res.unitid : "nicht verfügbar"),
                         originalOject: res
                     }
                 }));
@@ -269,7 +269,7 @@ let resultListModule = (function () {
                         owner: (res.organization ? res.organization : 'Unbekannter Anbieter'),
                         license: res.license,
                         media: res.media,
-                        specimenID: '<span class="font-semibold">OSCA ID:</span>' + res.phisical_specimen_id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.collection_number? res.collection_number : 'nicht verfügbar'),
+                        specimenID: '<span class="font-semibold">OSCA ID:</span>' + res.phisical_specimen_id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.collection_number ? res.collection_number : 'nicht verfügbar'),
                         originalOject: res
                     }
                 }));
@@ -370,48 +370,54 @@ let resultListModule = (function () {
     }
 
     // Utility functions for displaying media, links, and IDs
-    function displayIDs(res, searchSource){
-        switch (searchSource) {
-            case 1: // search on GBIF 
-            return `
-                <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs ">
-                    ${res.specimenID} 
-                </div>
-            `
-            case 2: // search on GeoCase
-            return `
-                <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs ">
-                    ${res.specimenID} 
-                </div>
-            `
-            case 3: // search on OSCA
-            return `
-                <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs ">
-                  ${res.specimenID} 
-                </div>
-            `
-            case 5: // search on Europeana
-            return `
+    function displayIDs(res, searchSource) {
+        return `
                 <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs overflow-x-hidden">
                     ${res.specimenID} 
                 </div>
             `
-            case 6: // search on DiSSCO
-            return `
-                <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs ">
-                    ${res.specimenID} 
-                </div>
-            `
-            default: break;
-        }
+        /*
+                switch (searchSource) {
+                    case 1: // search on GBIF 
+                    return `
+                        <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs ">
+                            ${res.specimenID} 
+                        </div>
+                    `
+                    case 2: // search on GeoCase
+                    return `
+                        <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs ">
+                            ${res.specimenID} 
+                        </div>
+                    `
+                    case 3: // search on OSCA
+                    return `
+                        <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs ">
+                          ${res.specimenID} 
+                        </div>
+                    `
+                    case 5: // search on Europeana
+                    return `
+                        <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs overflow-x-hidden">
+                            ${res.specimenID} 
+                        </div>
+                    `
+                    case 6: // search on DiSSCO
+                    return `
+                        <div class="w-full px-3 align-middle border-l-0 border-r-0 text-xs ">
+                            ${res.specimenID} 
+                        </div>
+                    `
+                    default: break;
+                }
+                    */
     }
 
-    function displayLinks(res, searchSource){
+    function displayLinks(res, searchSource) {
         switch (searchSource) {
             case 1: // search on GBIF 
-            if(res.occurrenceOriginalLink && res.occurrenceOriginalLink.startsWith('http'))
-            { //render Original Link only if it's actually a link
-                return `
+                if (res.occurrenceOriginalLink && res.occurrenceOriginalLink.startsWith('http')) { //render Original Link only if it's actually a link
+                    return `
                     <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs">Suche-Details Anzeigen</a> 
                     <a href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-700 text-white text-xs">Originalquelle Anzeigen</a> 
 
@@ -419,18 +425,18 @@ let resultListModule = (function () {
                     Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                     </div>
                 `
-            } 
-            return `
+                }
+                return `
                     <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs">Suche-Details Anzeigen</a> 
                     
                     <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                     Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                     </div>
                 `
-            
+
 
             case 2: // search on GeoCase
-            return `
+                return `
                 <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
                 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
@@ -439,7 +445,7 @@ let resultListModule = (function () {
             `
 
             case 3: // search on OSCA
-            return `
+                return `
                 <div class="w-full flex flex-row items-center">
                 <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen</button> 
                
@@ -451,12 +457,12 @@ let resultListModule = (function () {
                 Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Exemplartyp: ${res.originalOject.specimen_type} | Objekttyp: ${res.originalOject.object_type? res.originalOject.object_type: 'Unbekannt'}
+                Exemplartyp: ${res.originalOject.specimen_type} | Objekttyp: ${res.originalOject.object_type ? res.originalOject.object_type : 'Unbekannt'}
                 </div>
             `
 
             case 5: // search on Europeana
-            return `
+                return `
                 <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
                  
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
@@ -464,7 +470,7 @@ let resultListModule = (function () {
                 </div>
             `
             case 6: // search on Dissco
-            return `
+                return `
                 <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
                  <a href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-500 text-white text-xs">Originalquelle Anzeigen</a> 
                
@@ -476,22 +482,22 @@ let resultListModule = (function () {
         }
     }
 
-    function displayMedia(media, searchSource){
+    function displayMedia(media, searchSource) {
         switch (searchSource) {
             case 1: // search on GBIF 
-            return displayListMedia(media); 
+                return displayListMedia(media);
 
             case 2: // search on GeoCase
-            return displayGeoCASeListMedia(media); 
+                return displayGeoCASeListMedia(media);
 
             case 3: // search on OSCA
-            return displayOSCAListMedia(media);
+                return displayOSCAListMedia(media);
 
             case 5: // search on Europeana
-            return displayEuropeanaMedia(media);
+                return displayEuropeanaMedia(media);
 
             case 6: // search on Dissco
-            return displayDisscoMedia(media);
+                return displayDisscoMedia(media);
 
             default: break;
         }
@@ -506,7 +512,7 @@ let resultListModule = (function () {
                 <a href="detailedMedia.html?src=${encodeURIComponent(media[0].identifier)}" target="_blank" onclick="event.stopPropagation();" class="-mt-8 ml-1 bg-white text-xs px-2 py-1 shadow border rounded-lg text-blue-600"><i class="fas fa-external-link-alt"></i></a>
              </div>
         </div>
-        ` 
+        `
             default: return `
              <div class="flex flex-col">
                 <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
@@ -518,7 +524,7 @@ let resultListModule = (function () {
     }
 
     function displayGeoCASeListMedia(media) {
-        if(media) {
+        if (media) {
             if (media[0].startsWith('https://')) {
                 return `
                 <div class="flex flex-col">
@@ -549,7 +555,7 @@ let resultListModule = (function () {
            `
         }
 
-        
+
 
     }
 
@@ -564,11 +570,11 @@ let resultListModule = (function () {
             </div>
             `;
         }
-        
+
         const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/;
-        
+
         const urls = media.split(',').map(url => url.trim());
-        
+
         if (urls.length === 1 && urlPattern.test(urls[0])) { // Single URL
             return `
             <div class="flex flex-col">
@@ -579,18 +585,18 @@ let resultListModule = (function () {
             </div>
             `;
         }
-        
+
         if (urls.length > 1 && urls.every(url => urlPattern.test(url))) { //List of URLs
             return `
            <div class="flex flex-col">
                 <img src="${urls[0]}" loading="lazy" class="w-28 rounded-sm shadow"/>
                 <div class="w-100 -mt-8 gap-2 flex flex-row flex-wrap items-start">
-                    ${urls.map((elem) => '<a href="'+ elem +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i> </a>').join('')}
+                    ${urls.map((elem) => '<a href="' + elem + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i> </a>').join('')}
                 </div>
             </div>
             `;
         }
-        
+
         // Invalid input
         return `
             <div class="flex flex-col">
@@ -604,7 +610,7 @@ let resultListModule = (function () {
 
     function displayEuropeanaMedia(media) {
         if (media && media.length > 2) {
-                return `
+            return `
            <div class="flex flex-col">
                 <img src="${media}" loading="lazy" class="w-28 rounded-sm shadow"/>
                 <div class="flex flex-col items-start">
@@ -618,14 +624,14 @@ let resultListModule = (function () {
 
     function displayDisscoMedia(media) {
         if (media.length > 2) {
-                return `
+            return `
             <div class="flex flex-col">
                 <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
                 <span>Keine Medien <br> verfügbar</span>
                 </div>
             </div>
             `
-        } 
+        }
 
         return `
         <div class="flex flex-col">
@@ -835,7 +841,7 @@ let resultListModule = (function () {
         return monthNames[monthNumber - 1];
     }
 
-    function getIcon(searchSource){
+    function getIcon(searchSource) {
         switch (searchSource) {
             case 1: // search on GBIF 
                 return './img/gbif-icon.png';
@@ -856,12 +862,12 @@ let resultListModule = (function () {
         }
     }
 
-    function markMedia(media){
-        if(media && media.length >2) return 'hasMedia'
+    function markMedia(media) {
+        if (media && media.length > 2) return 'hasMedia'
         return 'hideMedia';
     }
 
-    function markSource(searchSource){
+    function markSource(searchSource) {
         switch (searchSource) {
             case 1: // search on GBIF 
                 return 'gbifResultCard';
@@ -871,7 +877,7 @@ let resultListModule = (function () {
 
             case 3: // search on OSCA
                 return 'oscaResultCard';
-            
+
             case 5: // search on Europeana
                 return 'europeanaResultCard';
 
@@ -885,16 +891,16 @@ let resultListModule = (function () {
     function shuffleArray(array) {
         // Create a copy of the array to avoid modifying the original
         let shuffledArray = array.slice();
-    
+
         // Fisher-Yates shuffle algorithm
         for (let i = shuffledArray.length - 1; i > 0; i--) {
             // Generate a random index from 0 to i
             let j = Math.floor(Math.random() * (i + 1));
-    
+
             // Swap elements at indices i and j
             [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
         }
-    
+
         return shuffledArray;
     }
 

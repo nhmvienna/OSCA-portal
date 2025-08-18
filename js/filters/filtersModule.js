@@ -87,7 +87,7 @@ let filtersModule = (function () {
    */
   function filterBySpecimenID(specimenIDString) {
     if(currentResults.length > 1) {
-      filteredResults = currentResults.filter(result => result.specimenID?.toLowerCase().includes(specimenIDString?.toLowerCase()));
+      filteredResults = currentResults.filter(result => result.specimenID?.toLowerCase().includes(specimenIDString?.toLowerCase()) || result.occurrenceOriginalLink?.toLowerCase().includes(specimenIDString?.toLowerCase()) );
       currentResults = filteredResults;
     }
   }
