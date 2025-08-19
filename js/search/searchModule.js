@@ -45,7 +45,7 @@ let searchModule = (function () {
 
           for (let i = 1; i <= steps; i++) {
             setTimeout(() => { //delay each API call with 0.1 seconds
-              $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&country=AT&limit=" + recordsPerPage + "&offset=" + i * recordsPerPage + "&scientificName=" + encodeURIComponent(query), function (data) {
+              $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&country=AT&limit=" + recordsPerPage + "&offset=" + i * recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
                 resultListModule.pushResults(data, 1);
 
                 if (i == steps) $("#resultLoadingGBIF").hide();
