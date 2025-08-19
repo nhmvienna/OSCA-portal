@@ -591,7 +591,12 @@ let resultListModule = (function () {
            <div class="flex flex-col">
                 <img src="${urls[0]}" loading="lazy" class="w-28 rounded-sm shadow"/>
                 <div class="w-100 -mt-8 gap-2 flex flex-row flex-wrap items-start">
-                    ${urls.map((elem) => '<a href="' + elem + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i> </a>').join('')}
+                     ${urls.map((elem) => {
+                        if(elem.indexOf('boldsystems.org') > 0) {
+                            return  '<a href="'+ elem +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-yellow-600"><i class="fas fa-dna"></i> </a>'
+                        }
+                        return '<a href="'+ elem +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i> </a>'
+                    }).join('')}
                 </div>
             </div>
             `;
