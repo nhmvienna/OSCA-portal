@@ -26,7 +26,7 @@ let searchModule = (function () {
 
   /**
      * Performs a search across multiple sources
-     * @param {string} query - The data returned from the search.
+     * @param {string} query - The search words inputted by the user (can be scientific name or verbatim name).
      * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
      */
   function search(query, searchSource) {
@@ -34,10 +34,12 @@ let searchModule = (function () {
     recordsPerPage = 300; // Set the number of records per page
 
     if (query) { // Check if a query is provided
+      console.log('query', query);
+
       // Perform a search on the GBIF API
       $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
       $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&country=AT&limit=" + recordsPerPage + "&offset=0&q=" + encodeURIComponent(query), function (data) {
-        resultListModule.mergeResults(data, 1);
+        resultListModule.mergeResults(data, 1, query);
 
         // ask all the data
         if (data.count > recordsPerPage) {
@@ -46,7 +48,7 @@ let searchModule = (function () {
           for (let i = 1; i <= steps; i++) {
             setTimeout(() => { //delay each API call with 0.1 seconds
               $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&country=AT&limit=" + recordsPerPage + "&offset=" + i * recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
-                resultListModule.pushResults(data, 1);
+                resultListModule.pushResults(data, 1, query);
 
                 if (i == steps) $("#resultLoadingGBIF").hide();
               });
@@ -60,21 +62,21 @@ let searchModule = (function () {
 
       $("#resultLoadingGeocase").show();
       $.get("https://api.geocase.eu/v1/solr?sort=id%20asc&start=" + (searchPage - 1) * recordsPerPage + "&rows=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
-        resultListModule.mergeResults(data, 2); // Merge the results into the result list module
+        resultListModule.mergeResults(data, 2, query); // Merge the results into the result list module
         $("#resultLoadingGeocase").hide(); // Hide the loading indicator for Geocase
       });
 
       // Perform a search on the OSCA local data module
       $("#resultLoadingOSCA").show(); // Show the loading indicator for OSCA
       localDataModule.search(query, 'asc', searchPage - 1, recordsPerPage, '', function (results) {
-        resultListModule.mergeResults(results, 3); // Merge the results into the result list module
+        resultListModule.mergeResults(results, 3, query); // Merge the results into the result list module
         $("#resultLoadingOSCA").hide(); // Hide the loading indicator for OSCA
       });
 
       // Perform a search on the Europeana API
       $("#resultLoadingEuropeana").show(); // Show the loading indicator for Europeana
       $.get("https://api.europeana.eu/record/v2/search.json?start=1&rows=" + (Math.floor(Math.random() * 21) + 80) + "&wskey=laniciri&query=" + encodeURIComponent(query), function (data) {
-        resultListModule.mergeResults(data, 5); // Merge the results into the result list module
+        resultListModule.mergeResults(data, 5, query); // Merge the results into the result list module
         $("#resultLoadingEuropeana").hide(); // Hide the loading indicator for Europeana
       });
 
@@ -82,11 +84,23 @@ let searchModule = (function () {
       $("#resultLoadingDissco").show(); // Show the loading indicator for DiSSCo https://sandbox.dissco.tech/api/digital-specimen/v1/search?q=
       //  https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=
       $.get("https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=" + encodeURIComponent(query), function (data) {
-        resultListModule.mergeResults(data, 6); // Merge the results into the result list module
+        resultListModule.mergeResults(data, 6, query); // Merge the results into the result list module
         $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
       });
     }
   }
+
+
+/**
+     * Checks is the input string contains all the words in the array
+     * @param {string} input - The string to search in. It can be a scientific name or a verbatim name
+     * @param {string[]} words - Array of strings (words to check for)
+     */
+function containsAllWordsInsensitive(input, words) {
+  const lowerInput = input.toLowerCase();
+  return words.every(word => lowerInput.includes(word.toLowerCase()));
+}
+
 
   // Expose only the necessary functions
   return {

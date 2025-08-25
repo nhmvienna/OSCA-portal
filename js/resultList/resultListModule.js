@@ -23,8 +23,9 @@ let resultListModule = (function () {
      * Updates the results based on the search source.
      * @param {Object} data - The data returned from the search.
      * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
+     * @param {string} query - The search words inputted by the user (can be scientific name or verbatim name).
      */
-    function updateResults(data, searchSource) {
+    function updateResults(data, searchSource, query) {
         switch (searchSource) {
             case 1: // GBIF
                 resultCountGBIF = data?.count;
@@ -70,8 +71,9 @@ let resultListModule = (function () {
      * Merges results from different sources into the current results.
      * @param {Object} data - The data returned from the search.
      * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
+     * @param {string} query - The search words inputted by the user (can be scientific name or verbatim name).
      */
-    function mergeResults(data, searchSource) {
+    function mergeResults(data, searchSource, query) {
         switch (searchSource) {
             case 1: // results from GBIF 
                 resultCountGBIF = data?.count;
@@ -89,6 +91,7 @@ let resultListModule = (function () {
                     }
                 }));
 
+                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGBIF").html(resultCountGBIF);
@@ -113,6 +116,7 @@ let resultListModule = (function () {
                     }
                 }));
 
+                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGeocase").html(resultCountGeocase);
@@ -137,6 +141,7 @@ let resultListModule = (function () {
                     }
                 }));
 
+                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountOSCA").html(resultCountOSCA);
@@ -169,6 +174,7 @@ let resultListModule = (function () {
                     }
                 }));
 
+                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query?.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountEuropeana").html(resultCountEuropeana);
@@ -179,8 +185,6 @@ let resultListModule = (function () {
 
             case 6: // results from DiSSCO
                 resultCountDissco = data.data.length;
-                console.log("DiSSCO's got results:");
-                console.dir(data);
                 currentResults = currentResults.concat(data.data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
@@ -195,6 +199,7 @@ let resultListModule = (function () {
                     }
                 }));
 
+                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountDissco").html(resultCountDissco);
@@ -211,8 +216,9 @@ let resultListModule = (function () {
     * Pushed results from different sources at the end of results list.
     * @param {Object} data - The data returned from the search.
     * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
+    * @param {string} query - The search words inputted by the user (can be scientific name or verbatim name).
     */
-    function pushResults(data, searchSource) {
+    function pushResults(data, searchSource, query) {
         switch (searchSource) {
             case 1: // results from GBIF 
                 //resultCountGBIF = data?.count;
@@ -340,6 +346,8 @@ let resultListModule = (function () {
     function renderResultGrid() {
         let resultItems = '';
         currentResults.map((res, i) => {
+
+        if(res?.scientificName) {
             resultItems += `
     <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media)}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
         <div class="w-full flex flex-row">
@@ -364,7 +372,9 @@ let resultListModule = (function () {
         </div>  
     </div>
         `
-        });
+        } 
+    });
+       
 
         $("#result-grid").html(resultItems);
     }
@@ -795,6 +805,17 @@ let resultListModule = (function () {
     }
 
     // Utility functions for UI and data handling
+    /**
+     * Checks is the input string contains all the words in the array
+     * @param {string} input - The string to search in. It can be a scientific name or a verbatim name
+     * @param {string[]} words - Array of strings (words to check for)
+     */
+function containsAllWordsInsensitive(input, words) {
+  const lowerInput = input.toLowerCase();
+  return words.every(word => lowerInput.includes(word.toLowerCase()));
+}
+
+
     function showPages(totalResults, resultsPerPage) {
         let resultPageHTML = '';
 
