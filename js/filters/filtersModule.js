@@ -9,7 +9,8 @@ let filtersModule = (function () {
   // Toggles the visibility of the filters section and adjusts the grid layout accordingly.
   function init() {
     // Initialization code for the filters module
-    $('#filter-toggle-button').show()
+    $('#filter-toggle-button').show();
+    originalResults = [];
   }
 
   
@@ -114,9 +115,13 @@ let filtersModule = (function () {
 
   // Resets the filters and restores the original results.
   function resetFilters() {
-    if(originalResults.length>0) {
+    if(originalResults.length > 0) {
       currentResults = originalResults;
     }
+  }
+
+  function clearFilters() {
+    originalResults = [];
   }
 
   // Expose only the necessary functions
@@ -125,7 +130,8 @@ let filtersModule = (function () {
     switchFilters: switchFilters,
     filterByStrictSearch: filterByStrictSearch,
     applyFilters: applyFilters,
-    resetFilters: resetFilters
+    resetFilters: resetFilters,
+    clearFilters: clearFilters
 
   };
 })();

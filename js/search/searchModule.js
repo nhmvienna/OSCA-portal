@@ -9,6 +9,8 @@ let searchModule = (function () {
       searchPage = 1; // Reset the search page to the first page
       $('input:checkbox').prop('checked', true); // Check all search sources
       $('.result-count').text(''); // Reset result counters
+      filtersModule.clearFilters();
+      
       search(searchQuery, searchSourceSelectedValue); // Perform the search
     });
 
@@ -19,6 +21,8 @@ let searchModule = (function () {
         searchPage = 1; // Reset the search page to the first page
         $('input:checkbox').prop('checked', true); // Check all search sources
         $('.result-count').text(''); // Reset result counters
+        filtersModule.clearFilters();
+
         search(searchQuery, searchSourceSelectedValue); // Perform the search
       }
     });
