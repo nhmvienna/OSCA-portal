@@ -519,7 +519,7 @@ let resultListModule = (function () {
         <div class="flex flex-col">
             <img src="${media[0].identifier}" loading="lazy" class="w-32 rounded-sm shadow"/>
             <div class="flex flex-col items-start">
-                <a href="detailedMedia.html?src=${encodeURIComponent(media[0].identifier)}" target="_blank" onclick="event.stopPropagation();" class="-mt-8 ml-1 bg-white text-xs px-2 py-1 shadow border rounded-lg text-blue-600"><i class="fas fa-external-link-alt"></i></a>
+                <a href="detailedMedia.html?src=${encodeURIComponent(media[0].identifier)}" target="_blank" onclick="event.stopPropagation();" class="-mt-8 ml-1 bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i></a>
              </div>
         </div>
         `
@@ -629,7 +629,7 @@ let resultListModule = (function () {
            <div class="flex flex-col">
                 <img src="${media}" loading="lazy" class="w-28 rounded-sm shadow"/>
                 <div class="flex flex-col items-start">
-                    <a href="${media}"  target="_blank" onclick="event.stopPropagation();" class="-mt-8 ml-1 bg-white text-xs px-2 py-1 shadow border rounded-lg text-blue-600"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="${media}"  target="_blank" onclick="event.stopPropagation();" class="-mt-8 ml-1 bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
             `
