@@ -74,7 +74,7 @@
 
         <section xmlns="http://www.w3.org/1999/xhtml" class="w-full pt-8 text-p-white bg-p-gray-100">
             <div class="w-full md:px-20 p-3 container mx-auto flex flex-row items-center justify-between">
-                <div class="text-black font-bold"> OCCURRENCE ANGABEN  (work in progress) </div>
+                <div class="text-black font-bold"> OCCURRENCE ANGABEN (work in progress) </div>
                 <div class="flex flex-col md:flex-row">
 
                     <div class="flex flex-row justify-center pb-2 md:pb-0">
@@ -121,11 +121,37 @@
         </script>
 
         <script>
+
             // Utility function to convert camelCase strings to words
             function camelCaseToWords(input) {
                 // Inserts a space before uppercase letters and converts the string to uppercase
                 return input.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase();
             }
+
+            /**
+             * Converts plain text URLs into clickable links that open in a new tab.
+             * @param {string} text - The input text that may contain URLs.
+             * @returns {string} - The text with URLs turned into HTML hyperlinks.
+             */
+            function linkifyText(text) {
+                const urlRegex = /(\bhttps?:\/\/[^\s<>]+|\bwww\.[^\s<>]+)/gi;
+
+                return text.replace(urlRegex, function (url) {
+                    // Separate trailing punctuation (.,!?;:)
+                    const match = url.match(/^(.*?)([.,!?;:|]+)?$/);
+                    let coreUrl = match[1];
+                    let trailing = match[2] || "";
+
+                    // Add http if missing
+                    let href = coreUrl;
+                    if (!/^https?:\/\//i.test(href)) {
+                        href = "http://" + href;
+                    }
+
+                    return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline">${coreUrl}</a>${trailing}`;
+                });
+            }
+
 
             // Function to process and display details for OSCA observations
             function displayDetailsOSCA(obs) {
@@ -178,7 +204,7 @@
                     ${camelCaseToWords(key)}
                 </th>
                 <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
-                ${typeof value === 'object' ? JSON.stringify(value) : value}
+                ${typeof value === 'object' ? linkifyText(JSON.stringify(value)) : linkifyText(value)}
                 </td>
             </tr>
             `;
