@@ -58,7 +58,7 @@ let localDataModule = (function () {
     if (q) {
       $.ajax({
         type: "GET",
-        url: "./data/osca-data.tsv?v=4",
+        url: "./data/osca-data.tsv?v=5",
         dataType: "text",
         success: function (data) {
           processOSCAData(data);
@@ -92,12 +92,12 @@ let localDataModule = (function () {
       if (data.length == headers.length && data[0].length > 0) {
         let result = {
           scientific_name: data[2], //dwc:scientificName
-          osca_id: data[0],
+          osca_id: data[0], //osca:osca:uniqueId
           phisical_specimen_id: data[1],//dwc:occurrenceID
-          organization: data[5], //dwc:institutionCode
+          organization: data[9], //dwc:institutionCode
           license: 'Creative Commons', 
-          collection_number: data[8], //dwc:collectionNumber
-          media: data[11], //dwc:associatedMedia
+          collection_number: data[12], //dwc:collectionNumber
+          media: data[15], //dwc:associatedMedia
           original_object: arraysToObject(data,headers)
         };
         

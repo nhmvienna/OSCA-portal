@@ -158,10 +158,10 @@
                 let rows = `
             <tr class="hover:bg-white text-left">
                 <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
-                    ${camelCaseToWords('dwc:recordNumber')}
+                    ${camelCaseToWords('osca:uniqueId')}
                 </th>
                 <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
-                ${obs['dwc:recordNumber']}
+                ${obs['osca:uniqueId']}
                 </td>
             </tr>
             <tr class="hover:bg-white text-left">
@@ -322,7 +322,7 @@
                     const records = parseTSV(tsvText);
 
                     // Find record with matching id
-                    const record = records.find(r => r['dwc:recordNumber'] === id);
+                    const record = records.find(r => r['osca:uniqueId'] === id);
 
                     if (record) {
                         console.dir(record);
@@ -337,7 +337,7 @@
             }
 
             // Call function with your .tsv file URL
-            loadAndFindRecord('./data/osca-data.tsv'); // replace 'data.tsv' with your actual file path
+            loadAndFindRecord('./data/osca-data.tsv?v=5'); // replace 'data.tsv' with your actual file path
 
 
             const id = getIdParameter();
