@@ -461,14 +461,14 @@ let resultListModule = (function () {
                 <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="fas fa-external-link-alt text-p-orange-400"></i></button> 
                -->
                 <a href="https://osca.science/occurrence/?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
-               
+                ${res.originalOject.original_object['dwc:associatedSequences']?  '<a href="'+ res.originalOject.original_object['dwc:associatedSequences'] +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                 Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Exemplartyp: ${res.originalOject.specimen_type} | Objekttyp: ${res.originalOject.object_type ? res.originalOject.object_type : 'Unbekannt'}
+                Exemplartyp: ${res.originalOject.original_object['dwc:basisOfRecord']} <br> Objekttyp: ${res.originalOject.original_object['dc:type'] ? res.originalOject.original_object['dc:type'] : 'Unbekannt'}
                 </div>
             `
 
@@ -603,9 +603,6 @@ let resultListModule = (function () {
                 <img src="${urls[0]}" loading="lazy" class="w-28 rounded-sm shadow"/>
                 <div class="w-100 -mt-8 gap-2 flex flex-row flex-wrap items-start">
                      ${urls.map((elem) => {
-                        if(elem.indexOf('boldsystems.org') > 0) {
-                            return  '<a href="'+ elem +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-yellow-600"><i class="fas fa-dna"></i> </a>'
-                        }
                         return '<a href="'+ elem +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i> </a>'
                     }).join('')}
                 </div>

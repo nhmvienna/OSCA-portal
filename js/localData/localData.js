@@ -20,7 +20,7 @@ let localDataModule = (function () {
       // Fetch and process OSCA data
       $.ajax({
         type: "GET",
-        url: "./data/osca-data.tsv?v=3",
+        url: "./data/osca-data.tsv?v=6",
         dataType: "text",
         success: function (data) {
           processOSCAData(data);
@@ -30,7 +30,7 @@ let localDataModule = (function () {
       // Fetch and process OSCA statistics
       $.ajax({
         type: "GET",
-        url: "./data/osca-in-numbers.tsv?v=3",
+        url: "./data/osca-in-numbers.tsv?v=6",
         dataType: "text",
         success: function (data) {
           processOSCAInNumbers(data);
@@ -95,7 +95,7 @@ let localDataModule = (function () {
           osca_id: data[0], //osca:osca:uniqueId
           phisical_specimen_id: data[1],//dwc:occurrenceID
           organization: data[9], //dwc:institutionCode
-          license: 'Creative Commons', 
+          license: data[67]? data[67]: 'Creative Commons', 
           collection_number: data[12], //dwc:collectionNumber
           media: data[15], //dwc:associatedMedia
           original_object: arraysToObject(data,headers)
