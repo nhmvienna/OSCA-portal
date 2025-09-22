@@ -216,15 +216,18 @@
                     Probe Typ <br> (Specimen Type) <input type="text" placeholder="Zum Beispiel: preserved specimen, fossil specimen, etc." class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                 </div>
                 -->
+                
                 <!--
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
                     Geändertes Datum <input type="date" placeholder="UTC date/time of first creation or subsequent modification" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                 </div>
                  -->
 
+                 <!-- 
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
                     Nur Objekte mit Medien anzeigen <input type="checkbox" placeholder="has Media" class="mx-2 p-2 rounded-lg border" value="hm" onclick="toggleResultCards(this.value, this.checked)" />
                 </div>
+                -->
 
                 <div class="w-full flex flex-row justify-around items-center border-b p-4 text-sm font-semibold">
                    <button class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value}); resultListModule.renderResultGrid()">Filter anwenden</button>
