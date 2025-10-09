@@ -131,10 +131,6 @@
                                 </svg>
                             </div>
 
-
-                            <!--   <div class="flex items-center justify-center rounded-lg bg-p-blue-50 py-1 px-3"> <input type="checkbox" name="search-source" id="search-source-bold" value="4"> <label for="search-source-bold" class="pl-1"> Suche auf BOLD <img src="./img/bold-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /></label> </div> -->
-                        
-                        
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3"> 
                                     <input type="checkbox" checked name="search-source" id="search-source-europeana" value="5" onclick="toggleResultCards(this.value, this.checked)"> 
@@ -194,14 +190,6 @@
                     Einschränkungen der Suche
                     <button class="py-2 px-4 shadow bg-gray-50 text-black text-xs rounded-lg border-2 hover:border-red-100 border-red-300" onclick="filtersModule.filterByStrictSearch(document.getElementById('searchQuery').value); resultListModule.renderResultGrid()">Strenge Suchbegriffe verwenden</button>   
                 </div>
-
-                <!-- 
-                <div class="w-full flex items-center border-b p-4 text-sm font-semibold gap-4">
-                    Land der Veröffentlichung
-                    <button class="py-2 px-4 shadow bg-gray-50 text-black text-xs rounded-lg border-2 hover:border-red-100 border-red-300 "> Österreichische Ergebnisse anzeigen </button>
-                    <button class="py-2 px-4 shadow bg-gray-50 text-black text-xs rounded-lg border-2 hover:border-red-100"> Internationale Ergebnisse anzeigen </button>
-                </div>
-                -->
 
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
                     Organisation <input id="instituteStringFilter" type="text" placeholder="Einen Organisationsnamen eingeben" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
