@@ -120,7 +120,7 @@ function loadProjectStatus() {
 function showOSCAInNumbers() {
     $.ajax({
         type: "GET",
-        url: "./data/osca-in-numbers.tsv?v=3", // URL of the TSV file
+        url: "./data/osca-in-numbers.tsv?v=4", // URL of the TSV file
         dataType: "text",
         success: function (data) {
             processOSCAInNumbers(data); // Process the fetched data

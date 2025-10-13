@@ -58,7 +58,7 @@ let localDataModule = (function () {
     if (q) {
       $.ajax({
         type: "GET",
-        url: "./data/osca-data.tsv?v=5",
+        url: "./data/osca-data.tsv?v=6",
         dataType: "text",
         success: function (data) {
           processOSCAData(data);
