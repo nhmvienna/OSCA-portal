@@ -46,6 +46,7 @@ let searchModule = (function () {
         resultListModule.mergeResults(data, 1, query);
 
         // ask all the data
+        
         if (data.count > recordsPerPage) {
           const steps = Math.floor(data.count / recordsPerPage);
 
@@ -56,9 +57,10 @@ let searchModule = (function () {
 
                 if (i == steps) $("#resultLoadingGBIF").hide();
               });
-            }, i * 100);
+            }, i * 300);
           }
         }
+          
 
         $("#resultLoadingGBIF").hide(); //remove this
       });

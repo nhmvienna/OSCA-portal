@@ -347,8 +347,8 @@ let resultListModule = (function () {
         let resultItems = '';
         currentResults.map((res, i) => {
 
-        if(res?.scientificName) {
-            resultItems += `
+            if (res?.scientificName) {
+                resultItems += `
     <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media)}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
         <div class="w-full flex flex-row">
             <div class="flex-grow flex flex-col w-full pb-2">
@@ -372,9 +372,9 @@ let resultListModule = (function () {
         </div>  
     </div>
         `
-        } 
-    });
-       
+            }
+        });
+
 
         $("#result-grid").html(resultItems);
     }
@@ -461,7 +461,7 @@ let resultListModule = (function () {
                 <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="fas fa-external-link-alt text-p-orange-400"></i></button> 
                -->
                 <a href="https://osca.science/occurrence/?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
-                ${res.originalOject.original_object['dwc:associatedSequences']?  '<a href="'+ res.originalOject.original_object['dwc:associatedSequences'] +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
+                ${res.originalOject.original_object['dwc:associatedSequences'] ? '<a href="' + res.originalOject.original_object['dwc:associatedSequences'] + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
@@ -603,8 +603,8 @@ let resultListModule = (function () {
                 <img src="${urls[0]}" loading="lazy" class="w-28 rounded-sm shadow"/>
                 <div class="w-100 -mt-8 gap-2 flex flex-row flex-wrap items-start">
                      ${urls.map((elem) => {
-                        return '<a href="'+ elem +'"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i> </a>'
-                    }).join('')}
+                return '<a href="' + elem + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-sm text-blue-600"><i class="fas fa-external-link-alt"></i> </a>'
+            }).join('')}
                 </div>
             </div>
             `;
@@ -808,10 +808,10 @@ let resultListModule = (function () {
      * @param {string} input - The string to search in. It can be a scientific name or a verbatim name
      * @param {string[]} words - Array of strings (words to check for)
      */
-function containsAllWordsInsensitive(input, words) {
-  const lowerInput = input.toLowerCase();
-  return words.every(word => lowerInput.includes(word.toLowerCase()));
-}
+    function containsAllWordsInsensitive(input, words) {
+        const lowerInput = input?.toLowerCase();
+        return words.every(word => lowerInput.includes(word.toLowerCase()));
+    }
 
 
     function showPages(totalResults, resultsPerPage) {
