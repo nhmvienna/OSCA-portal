@@ -68,9 +68,9 @@
 
 </head>
 
-<body class="m-0 p-0 stretchToScreen">
-    <!-- Pazly Blocks Come Here -->
-    <section id="pazly-template-set" class="absolute top-0  m-0 p-0 stretchToScreen">
+<body class="m-0 p-0 stretchToScreen app">
+    <!-- app Blocks Come Here -->
+    <section id="app-shell" class="absolute top-0  m-0 p-0 stretchToScreen">
         <section xmlns="http://www.w3.org/1999/xhtml" class="fixed z-10 w-full bg-white text-p-gray-700 border-b shadow">
             <div class="flex md:p-3 flex-col md:flex-row justify-between">
                 <div class="flex items-start flex-col pr-2 border-r">
@@ -89,16 +89,16 @@
                             </span>
                             <input id="searchQuery" type="text" class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 w-full placeholder-gray-400" placeholder="Search for specimens, countries, etc. ..." />
                         </div>
-                        <button id="searchButton" class="flex items-center shadow bg-p-green-500 hover:bg-p-green-700 text-p-white ml-2 py-2 px-4 rounded-lg"><i class="fas fa-search mr-2"></i> Suchen</a>
-                                  
+                        <button id="searchButton" data-i18n="app.search"  class="flex items-center shadow bg-p-green-500 hover:bg-p-green-700 text-p-white ml-2 py-2 px-4 rounded-lg"><i class="fas fa-search mr-2"></i> Suchen</a>
+
                     </div>
                     <div class="flex flex-grow items-center">
-                        <fieldset class="flex flex-grow items-start px-2 justify-between gap-2 pt-2 text-sm">
-                            <div class="flex items-center justify-center py-1 pl-3 pr-1">Ergebnisse: </div>
+                        <fieldset class="flex flex-grow items-start px-2 justify-between gap-2 pt-2 text-xs">
+                            <div data-i18n="app.results" class="flex items-center justify-center py-1 pl-3 pr-1 text-sm">Ergebnisse: </div>
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-orange-50 py-1 px-3">
-                                    <input type="checkbox" checked name="search-source" id="search-source-osca" value="3" onclick="toggleResultCards(this.value, this.checked)"> 
-                                    <label for="search-source-osca" class="pl-1"> <span id="resultCountOSCA" class="result-count font-bold"></span> von OSCA <img src="./img/osca-icon.png" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label>
+                                    <input type="checkbox" checked name="search-source" id="search-source-osca" value="3" onclick="toggleResultCards(this.value, this.checked)">
+                                    <label for="search-source-osca" class="pl-1"> <span id="resultCountOSCA" class="result-count font-bold"></span> <span data-i18n="app.resultsFromOSCA">von OSCA</span> <img src="./img/osca-icon.png" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label>
                                 </div>
 
                                 <svg id="resultLoadingOSCA" class="hidden animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -106,11 +106,11 @@
                                     <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             </div>
-                        
+
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
-                                    <input type="checkbox" checked name="search-source" id="search-source-gbif" value="1" onclick="toggleResultCards(this.value, this.checked)"> 
-                                    <label for="search-source-gbif" class="pl-1"> <span id="resultCountGBIF" class="result-count font-bold"></span> von GBIF <img src="./img/gbif-icon.png" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label> 
+                                    <input type="checkbox" checked name="search-source" id="search-source-gbif" value="1" onclick="toggleResultCards(this.value, this.checked)">
+                                    <label for="search-source-gbif" class="pl-1"> <span id="resultCountGBIF" class="result-count font-bold"></span> <span data-i18n="app.resultsFromGBIF">von GBIF</span> <img src="./img/gbif-icon.png" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label>
                                 </div>
 
                                 <svg id="resultLoadingGBIF" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -120,9 +120,9 @@
                             </div>
 
                             <div class="flex whitespace-nowrap items-center justify-center">
-                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3"> 
-                                    <input type="checkbox" checked name="search-source" id="search-source-geocase" value="2" onclick="toggleResultCards(this.value, this.checked)"> 
-                                    <label for="search-source-geocase" class="pl-1"> <span id="resultCountGeocase" class="result-count font-bold"></span> von GeoCASe <img src="./img/geocase-icon.ico" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label> 
+                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
+                                    <input type="checkbox" checked name="search-source" id="search-source-geocase" value="2" onclick="toggleResultCards(this.value, this.checked)">
+                                    <label for="search-source-geocase" class="pl-1"> <span id="resultCountGeocase" class="result-count font-bold"></span> <span data-i18n="app.resultsFromGeoCASE">von GeoCASe </span> <img src="./img/geocase-icon.ico" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label>
                                 </div>
 
                                 <svg id="resultLoadingGeocase" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -132,9 +132,9 @@
                             </div>
 
                             <div class="flex whitespace-nowrap items-center justify-center">
-                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3"> 
-                                    <input type="checkbox" checked name="search-source" id="search-source-europeana" value="5" onclick="toggleResultCards(this.value, this.checked)"> 
-                                    <label for="search-source-europeana" class="pl-1"> <span id="resultCountEuropeana" class="result-count font-bold"></span> von Europeana <img src="./img/europeana-icon.jpg" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label> 
+                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
+                                    <input type="checkbox" checked name="search-source" id="search-source-europeana" value="5" onclick="toggleResultCards(this.value, this.checked)">
+                                    <label for="search-source-europeana" class="pl-1"> <span id="resultCountEuropeana" class="result-count font-bold"></span> <span data-i18n="app.resultsFromEuropeana">von Europeana</span> <img src="./img/europeana-icon.jpg" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label>
                                 </div>
 
                                 <svg id="resultLoadingEuropeana" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -144,9 +144,9 @@
                             </div>
 
                             <div class="flex whitespace-nowrap items-center justify-center">
-                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3"> 
-                                    <input type="checkbox" checked name="search-source" id="search-source-dissco" value="6" onclick="toggleResultCards(this.value, this.checked)"> 
-                                    <label for="search-source-dissco" class="pl-1"> <span id="resultCountDissco" class="result-count font-bold"></span> von DiSSCO <img src="./img/dissco-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /></label> 
+                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
+                                    <input type="checkbox" checked name="search-source" id="search-source-dissco" value="6" onclick="toggleResultCards(this.value, this.checked)">
+                                    <label for="search-source-dissco" class="pl-1"> <span id="resultCountDissco" class="result-count font-bold"></span> <span data-i18n="app.resultsFromDiSSCO">von DiSSCO</span> <img src="./img/dissco-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /></label>
                                 </div>
 
                                 <svg id="resultLoadingDissco" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -154,9 +154,9 @@
                                     <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             </div>
-                        
+
                         </fieldset>
-                       
+
                     </div>
 
                 </div>
@@ -164,15 +164,15 @@
                 <!-- Stats and Other Buttons-->
                 <div class="flex flex-col items-start pl-2 gap-2 border-l text-center">
 
-                    <div onclick="loadProjectStatus()" class="w-full flex flex-row items-center justify-center text-xs rounded-lg px-4 py-2 bg-gray-50 border hover:bg-white shadow cursor-pointer"> 
-                       <span>OSCA in Zahlen</span>
+                    <div onclick="loadProjectStatus()" class="w-full flex flex-row items-center justify-center text-xs rounded-lg px-4 py-2 bg-gray-50 border hover:bg-white shadow cursor-pointer">
+                        <span data-i18n="app.oscaInNumbers">OSCA in Zahlen</span>
                     </div>
-                
+
                     <div onclick="resultListModule.downloadCurrentResults()" class="flex flex-row justify-between items-center border px-4 py-2 text-xs rounded-lg shadow cursor-pointer bg-white">
                         <i id="resultDownloadIcon" class="fas fa-arrow-down mr-2"></i>
                         <i id="resultDownloadInProgressIcon" class="hidden animate-spin fas fa-circle-notch text-p-green-600 mr-2"></i>
-                        <span>Seitenergebnisse Herunterladen</span>
-                    </div>  
+                        <span data-i18n="app.downloadResults">Seitenergebnisse Herunterladen</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -182,9 +182,10 @@
             <!-- Filters -->
             <div id="filters" class="hidden mt-2 w-1/3 z-40 col-span-3 bg-gray-50 bg-opacity-100 shadow-lg -ml-1 h-full" style="min-width: 420px;">
                 <!-- Title -->
-                <div class="w-full flex items-center border-b p-4 text-sm font-semibold">
+                <div data-i18n="app.filterList" class="w-full flex items-center border-b p-4 text-sm font-semibold">
                     Ergebnis-Filter (in Arbeit)
                 </div>
+
                 <!-- Filter Source 
                 <div class="w-full flex items-center border-b p-4 text-sm font-semibold gap-4">
                     Einschränkungen der Suche
@@ -193,11 +194,11 @@
                 -->
 
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
-                    Organisation <input id="instituteStringFilter" type="text" placeholder="Einen Organisationsnamen eingeben" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                   <span data-i18n="app.filterOrganization">Organisation</span> <input id="instituteStringFilter" type="text" placeholder="Einen Organisationsnamen eingeben" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                 </div>
 
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
-                    Probe ID <br> (Fragment) <input id="specimenIDStringFilter" type="text" placeholder="Zum Beispiel: 12345" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                  <span data-i18n="app.filterDataId">Probe ID</span> <input id="specimenIDStringFilter" type="text" placeholder="Zum Beispiel: 12345" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                 </div>
 
                 <!-- 
@@ -205,22 +206,22 @@
                     Probe Typ <br> (Specimen Type) <input type="text" placeholder="Zum Beispiel: preserved specimen, fossil specimen, etc." class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                 </div>
                 -->
-                
+
                 <!--
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
                     Geändertes Datum <input type="date" placeholder="UTC date/time of first creation or subsequent modification" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                 </div>
                  -->
 
-                 <!-- 
+                <!-- 
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
                     Nur Objekte mit Medien anzeigen <input type="checkbox" placeholder="has Media" class="mx-2 p-2 rounded-lg border" value="hm" onclick="toggleResultCards(this.value, this.checked)" />
                 </div>
                 -->
 
                 <div class="w-full flex flex-row justify-around items-center border-b p-4 text-sm font-semibold">
-                   <button class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value}); resultListModule.renderResultGrid()">Filter anwenden</button>
-                   <button class="py-2 px-4 shadow bg-red-400 text-white rounded-lg"  onclick="filtersModule.resetFilters(); resultListModule.renderResultGrid()">Filter zurücksetzen</button>
+                    <button data-i18n="app.filterBtnApply" class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value}); resultListModule.renderResultGrid()">Filter anwenden</button>
+                    <button data-i18n="app.filterBtnReset"  class="py-2 px-4 shadow bg-red-400 text-white rounded-lg" onclick="filtersModule.resetFilters(); resultListModule.renderResultGrid()">Filter zurücksetzen</button>
                 </div>
             </div>
 
@@ -287,7 +288,7 @@
             </div>
         </section>
     </section>
-    <!-- Pazly Blocks Ends Here -->
+    <!-- app Blocks Ends Here -->
 
     <!-- Modals and Hidden Elements-->
     <div id="modal" class="hidden fixed w-full h-full bg-black bg-opacity-50 p-32">
@@ -311,9 +312,9 @@
     <div id="project-stats-modal" class="fixed hidden w-full h-full bg-black bg-opacity-50 px-24 pt-32 pb-20">
         <div class="w-full h-full bg-white shadow rounded ">
             <div class="static w-full flex flex-row justify-between p-4 shadow">
-                <div>  <span class="text-pink-500 text-xs"> Letzte Aktualisierung: 3 Dezember 2024 </span> </div>
+                <div> <span class="text-pink-500 text-xs"> Letzte Aktualisierung: 3 Dezember 2024 </span> </div>
                 <div class="font-semibold w-1/3">
-                    OSCA in Zahlen 
+                    OSCA in Zahlen
                 </div>
                 <button onclick="hideProjectStats()" class="rounded-sm px-2 py-1 shadow text-white bg-red-500 hover:bg-red-700 mr-1" style="font-size:10px; font-weight:700">
                     <i class="fas fa-times"></i>
@@ -345,7 +346,7 @@
     <section class="m-0 p-0 w-0 h-0">
 
         <script src="js/libs/jquery.min.js"></script>
-     
+
         <script src="js/localData/localData.js"></script>
         <script src="js/search/searchModule.js"></script>
         <script src="js/filters/filtersModule.js"></script>
@@ -354,6 +355,51 @@
 
         <script src="js/main.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/22.5.0/i18next.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
+
+        <script>
+            // use plugins and options as needed, for options, detail see
+            // http://i18next.com/docs/
+            i18next.init({
+                debug: true,
+                lng: 'en', // evtl. use language-detector https://github.com/i18next/i18next-browser-languageDetector
+                resources: { // evtl. load via xhr https://github.com/i18next/i18next-xhr-backend
+                    en: {
+                        translation: {
+                            input: {
+                                placeholder: "a placeholder"
+                            },
+                            app: {
+                                search: 'Search',
+                                results: 'Results:',
+                                resultsFromOSCA: 'from OSCA',
+                                resultsFromGBIF: 'from GBIF',
+                                resultsFromGeoCASE: 'from GeoCASe',
+                                resultsFromEuropeana: 'from Europeana',
+                                resultsFromDiSSCO: 'from DiSSCO',
+                                oscaInNumbers: 'OSCA in Numbers',
+                                downloadResults: 'Download Results',
+                                filterList: 'Filter List (under Development)',
+                                filterOrganization: 'Organization',
+                                filterDataId: 'Data ID',
+                                filterBtnApply: 'Apply Filters',
+                                filterBtnReset: 'Reset Filters'
+                            },
+                        }
+                    }
+                }
+            }, function (err, t) {
+                // for options see
+                // https://github.com/i18next/jquery-i18next#initialize-the-plugin
+                jqueryI18next.init(i18next, $, { useOptionsAttr: true });
+
+                // start localizing, details:
+                // https://github.com/i18next/jquery-i18next#usage-of-selector-function
+                $('.app').localize();
+                $('.content').localize();
+            });
+        </script>
     </section>
 
 </body>
