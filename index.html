@@ -89,7 +89,7 @@
                             </span>
                             <input id="searchQuery" type="text" class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 w-full placeholder-gray-400" placeholder="Search for specimens, countries, etc. ..." />
                         </div>
-                        <button id="searchButton" data-i18n="app.search"  class="flex items-center shadow bg-p-green-500 hover:bg-p-green-700 text-p-white ml-2 py-2 px-4 rounded-lg"><i class="fas fa-search mr-2"></i> Suchen</a>
+                        <button id="searchButton" data-i18n="app.search" class="flex items-center shadow bg-p-green-500 hover:bg-p-green-700 text-p-white ml-2 py-2 px-4 rounded-lg"><i class="fas fa-search mr-2"></i> Suchen</a>
 
                     </div>
                     <div class="flex flex-grow items-center">
@@ -194,11 +194,11 @@
                 -->
 
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
-                   <span data-i18n="app.filterOrganization">Organisation</span> <input id="instituteStringFilter" type="text" placeholder="Einen Organisationsnamen eingeben" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                    <span data-i18n="app.filterOrganization">Organisation</span> <input id="instituteStringFilter" data-i18n="[placeholder]app.filterOrganizationPlaceholder" type="text" placeholder="Einen Organisationsnamen eingeben" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                 </div>
 
                 <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
-                  <span data-i18n="app.filterDataId">Probe ID</span> <input id="specimenIDStringFilter" type="text" placeholder="Zum Beispiel: 12345" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                    <span data-i18n="app.filterDataId">Probe ID</span> <input id="specimenIDStringFilter" data-i18n="[placeholder]app.filterDataIdPlaceholer" type="text" placeholder="Zum Beispiel: 12345" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                 </div>
 
                 <!-- 
@@ -221,7 +221,7 @@
 
                 <div class="w-full flex flex-row justify-around items-center border-b p-4 text-sm font-semibold">
                     <button data-i18n="app.filterBtnApply" class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value}); resultListModule.renderResultGrid()">Filter anwenden</button>
-                    <button data-i18n="app.filterBtnReset"  class="py-2 px-4 shadow bg-red-400 text-white rounded-lg" onclick="filtersModule.resetFilters(); resultListModule.renderResultGrid()">Filter zurücksetzen</button>
+                    <button data-i18n="app.filterBtnReset" class="py-2 px-4 shadow bg-red-400 text-white rounded-lg" onclick="filtersModule.resetFilters(); resultListModule.renderResultGrid()">Filter zurücksetzen</button>
                 </div>
             </div>
 
@@ -346,6 +346,9 @@
     <section class="m-0 p-0 w-0 h-0">
 
         <script src="js/libs/jquery.min.js"></script>
+        <script src="js/libs/i18next.min.js"></script>
+        <script src="js/libs/jquery-i18next.min.js"></script>
+
 
         <script src="js/localData/localData.js"></script>
         <script src="js/search/searchModule.js"></script>
@@ -354,52 +357,8 @@
         <script src="js/resultDetails/resultDetailsModule.js"></script>
 
         <script src="js/main.js"></script>
+        <script src="js/translations.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/22.5.0/i18next.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
-
-        <script>
-            // use plugins and options as needed, for options, detail see
-            // http://i18next.com/docs/
-            i18next.init({
-                debug: true,
-                lng: 'en', // evtl. use language-detector https://github.com/i18next/i18next-browser-languageDetector
-                resources: { // evtl. load via xhr https://github.com/i18next/i18next-xhr-backend
-                    en: {
-                        translation: {
-                            input: {
-                                placeholder: "a placeholder"
-                            },
-                            app: {
-                                search: 'Search',
-                                results: 'Results:',
-                                resultsFromOSCA: 'from OSCA',
-                                resultsFromGBIF: 'from GBIF',
-                                resultsFromGeoCASE: 'from GeoCASe',
-                                resultsFromEuropeana: 'from Europeana',
-                                resultsFromDiSSCO: 'from DiSSCO',
-                                oscaInNumbers: 'OSCA in Numbers',
-                                downloadResults: 'Download Results',
-                                filterList: 'Filter List (under Development)',
-                                filterOrganization: 'Organization',
-                                filterDataId: 'Data ID',
-                                filterBtnApply: 'Apply Filters',
-                                filterBtnReset: 'Reset Filters'
-                            },
-                        }
-                    }
-                }
-            }, function (err, t) {
-                // for options see
-                // https://github.com/i18next/jquery-i18next#initialize-the-plugin
-                jqueryI18next.init(i18next, $, { useOptionsAttr: true });
-
-                // start localizing, details:
-                // https://github.com/i18next/jquery-i18next#usage-of-selector-function
-                $('.app').localize();
-                $('.content').localize();
-            });
-        </script>
     </section>
 
 </body>

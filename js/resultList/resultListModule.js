@@ -377,6 +377,7 @@ let resultListModule = (function () {
 
 
         $("#result-grid").html(resultItems);
+        $('.app').localize();
     }
 
     // Utility functions for displaying media, links, and IDs
@@ -428,29 +429,29 @@ let resultListModule = (function () {
             case 1: // search on GBIF 
                 if (res.occurrenceOriginalLink && res.occurrenceOriginalLink.startsWith('http')) { //render Original Link only if it's actually a link
                     return `
-                    <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs">Suche-Details Anzeigen</a> 
-                    <a href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-700 text-white text-xs">Originalquelle Anzeigen</a> 
+                    <a data-i18n="app.resultCard.dataDetails" href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs">Suche-Details Anzeigen</a> 
+                    <a data-i18n="app.resultCard.originalDetail" href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-700 text-white text-xs">Originalquelle Anzeigen</a> 
 
                     <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                    Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                        <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                     </div>
                 `
                 }
                 return `
-                    <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs">Suche-Details Anzeigen</a> 
+                    <a data-i18n="app.resultCard.dataDetails" href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-green-500 text-white text-xs">Suche-Details Anzeigen</a> 
                     
                     <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                    Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                        <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                     </div>
                 `
 
 
             case 2: // search on GeoCase
                 return `
-                <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
+                <a data-i18n="app.resultCard.dataDetails" href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
                 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                    <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
             `
 
@@ -460,12 +461,12 @@ let resultListModule = (function () {
                 <!-- 
                 <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="fas fa-external-link-alt text-p-orange-400"></i></button> 
                -->
-                <a href="https://osca.science/occurrence/?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
+                <a data-i18n="app.resultCard.dataDetails" href="https://osca.science/occurrence/?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
                 ${res.originalOject.original_object['dwc:associatedSequences'] ? '<a href="' + res.originalOject.original_object['dwc:associatedSequences'] + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                    <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                 Exemplartyp: ${res.originalOject.original_object['dwc:basisOfRecord']} <br> Objekttyp: ${res.originalOject.original_object['dc:type'] ? res.originalOject.original_object['dc:type'] : 'Unbekannt'}
@@ -474,19 +475,19 @@ let resultListModule = (function () {
 
             case 5: // search on Europeana
                 return `
-                <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
+                <a data-i18n="app.resultCard.dataDetails" href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
                  
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                    <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
             `
             case 6: // search on Dissco
                 return `
-                <a href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
-                 <a href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-500 text-white text-xs">Originalquelle Anzeigen</a> 
+                <a data-i18n="app.resultCard.dataDetails" href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-400 text-white text-xs">Suche-Details Anzeigen</a> 
+                <a data-i18n="app.resultCard.originalDetail" href="${res.occurrenceOriginalLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-blue-500 text-white text-xs">Originalquelle Anzeigen</a> 
                
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                Inhaber: ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
+                    <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  mit ${res.license ? '<a href="' + res.license + '" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline"> Lizenz </a>' : 'Unknown'}
                 </div>
             `
             default: break;
@@ -527,7 +528,7 @@ let resultListModule = (function () {
             default: return `
              <div class="flex flex-col">
                 <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
-                <span>Keine Medien <br> verfügbar</span>
+                <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                 </div>
             </div>
             `
@@ -560,7 +561,7 @@ let resultListModule = (function () {
             return `
             <div class="flex flex-col">
                <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
-               <span>Keine Medien <br> verfügbar</span>
+               <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                </div>
            </div>
            `
@@ -576,7 +577,7 @@ let resultListModule = (function () {
             return `
             <div class="flex flex-col">
                 <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
-                <span>Keine Medien <br> verfügbar</span>
+                <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                 </div>
             </div>
             `;
@@ -614,7 +615,7 @@ let resultListModule = (function () {
         return `
             <div class="flex flex-col">
                 <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
-                    <span>Keine Medien <br> verfügbar</span>
+                    <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                 </div>
             </div>
             `;
@@ -640,7 +641,7 @@ let resultListModule = (function () {
             return `
             <div class="flex flex-col">
                 <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
-                <span>Keine Medien <br> verfügbar</span>
+                <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                 </div>
             </div>
             `
@@ -649,7 +650,7 @@ let resultListModule = (function () {
         return `
         <div class="flex flex-col">
             <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
-            <span>Keine Medien <br> verfügbar</span>
+            <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
             </div>
         </div>
         `
