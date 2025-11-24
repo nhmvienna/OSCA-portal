@@ -43,6 +43,45 @@ i18next.init({
                         specimenType: 'Specimen Type:',
                         objectType: 'Object Type:',
                         license: 'License'
+                    },
+                    inNumbers: {
+                        title: 'OSCA in Numbers',
+                        subtitle: 'The OSCA consortium currently consists of 15 institutions from across Austria that preserve, develop, research, and make accessible to the public biological and geoscientific collections. These statistics illustrate our process and the distribution of our resources.',
+                        lastUpdate: 'Last Update: ',
+                        preparation: {
+                            title: '1. Preparation',
+                            totalObjects: 'Prepared Objects',
+                            mollusks: 'Mollusks',
+                            endemics: 'Endemics',
+                            drySpecimen: 'Dry Spec.',
+                            wetSpecimen: 'Wet Spe.'
+                        },
+                        cataloging: {
+                            title: '2. Cataloging Metadata',
+                            totalObjects: 'Cataloged Objects',
+                            mids0: 'MIDS Level 0',
+                            mids1: 'MIDS Level 0',
+                            mids2: 'MIDS Level 2',
+                            mids3: 'MIDS Level 3'
+                        },
+                        digitizing: {
+                            title: '3. Digitization',
+                            totalObjects: 'Digitized Objects',
+                            onePic: 'Min. One Picture',
+                            picGallery: 'With Picture Gallery',
+                            multimedia: 'Multimedia Available'
+                        },
+                        exposing: {
+                            title: '4. Exposure to OSCA Portal',
+                            totalObjects: 'Exposed Objects',
+                            endemics: 'Endemics',
+                            mollusks: 'Mollusks'
+                        },
+                        publishing: {
+                            title: '5.Integration/Dissemination in International Portals',
+                            totalObjects: 'Published Objects'
+                        }
+
                     }
                 },
                 occurrence: {

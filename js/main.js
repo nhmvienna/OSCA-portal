@@ -169,49 +169,49 @@ function processOSCAInNumbers(data) {
 
         // Update the UI with the processed statistics
         $('#oscaInNumbersPopup').html(`
-            <div class="w-full text-center text-sm p-4">
-                    Das OSCA-Konsortium besteht derzeit aus 12 Institutionen aus ganz Österreich, die bio- und geowissenschaftliche Sammlungen bewahren, entwickeln, erforschen und für die Öffentlichkeit sichtbar machen. Diese Statistiken veranschaulichen unseren Prozess und unsere Aufwandsverteilung
+            <div class="w-full text-center text-sm p-4" data-i18n="app.inNumbers.subtitle">
+                    Das OSCA-Konsortium besteht derzeit aus 15 Institutionen aus ganz Österreich, die bio- und geowissenschaftliche Sammlungen bewahren, entwickeln, erforschen und für die Öffentlichkeit sichtbar machen. Diese Statistiken veranschaulichen unseren Prozess und unsere Aufwandsverteilung
                 </div>
                 <div class="w-full grid grid-cols-5 gap-4 p-4">
                     <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
-                        <span class="font-semibold"> 1. Preparation <br> <br> </span>
+                        <span class="font-semibold"> <span data-i18n="app.inNumbers.preparation.title">1. Vorbereitung</span> <br> <br> </span>
                         <div class="w-full bg-p-green-100 text-center p-2 rounded-lg mb-2 mt-4">
                             <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.preparation.total}</p>
-                            <p>Prepared Objects</p>
+                            <p data-i18n="app.inNumbers.preparation.totalObjects"> Vorbereitete Objekte </p>
                         </div>
                         <div class="w-full text-center grid grid-cols-2 gap-2 mb-4">
                             <div class="bg-p-green-100 text-center py-4 rounded-lg">
                                 <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.mollusks}</p>
-                                <p>Mollusks </p>
+                                <p data-i18n="app.inNumbers.preparation.mollusks"> Molluska </p>
                             </div>
                             <div class="bg-p-green-100 text-center py-4 rounded-lg">
                                 <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.endemics}</p>
-                                <p>Endemics </p>
+                                <p data-i18n="app.inNumbers.preparation.endemics"> Endemiten </p>
                             </div>
                         </div>
                         <div class="w-full text-center grid grid-cols-2 gap-2 mb-2">
                             <div class="bg-p-green-100 text-center py-4 rounded-lg">
                                 <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.dry_specs}</p>
-                                <p>Dry Spec. </p>
+                                <p data-i18n="app.inNumbers.preparation.drySpecimen"> Trockenprobe </p>
                             </div>
                             <div class="bg-p-green-100 text-center py-4 rounded-lg">
                                 <p class="text-2xl my-3 text-gray-800">${oscaInNumbers.preparation.wet_sepcs}</p>
-                                <p>Wet Spe. </p>
+                                <p data-i18n="app.inNumbers.preparation.wetSpecimen"> Nassprobe </p>
                             </div>
                         </div>
                     </div>
                     <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
-                        <span class="font-semibold"> 2. Cataloging Metadata <br> <br> </span>
+                        <span class="font-semibold"> <span data-i18n="app.inNumbers.cataloging.title">2. Metadaten Katalogierung</span> <br> <br> </span>
                         <div class="w-full bg-p-green-100 text-center p-2 rounded-lg mb-2 mt-4">
                             <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.cataloging.total}</p>
-                            <p>Cataloged Objects</p>
+                            <p data-i18n="app.inNumbers.cataloging.totalObjects"> Katalogisierte Objekte </p>
                         </div>
                         <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
                             <div class="text-center px-2">
                                 <p class="text-lg my-3 text-gray-800">${oscaInNumbers.cataloging.mids0}</p>
                             </div>
                             <div class="text-center px-2">
-                                <p class="text-xs my-3">MIDS <br> Level 0 </p>
+                                <p class="text-xs my-3" data-i18n="app.inNumbers.cataloging.mids0"> MIDS Stufe 0 </p>
                             </div>
                         </div>
                         <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
@@ -219,7 +219,7 @@ function processOSCAInNumbers(data) {
                                 <p class="text-lg my-3 text-gray-800">${oscaInNumbers.cataloging.mids1}</p>
                             </div>
                             <div class="text-center px-2">
-                                <p class="text-xs my-3">MIDS <br> Level 1 </p>
+                                <p class="text-xs my-3" data-i18n="app.inNumbers.cataloging.mids1"> MIDS Stufe 1 </p>
                             </div>
                         </div>
                         <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
@@ -227,7 +227,7 @@ function processOSCAInNumbers(data) {
                                 <p class="text-lg my-3 text-gray-800">${oscaInNumbers.cataloging.mids2}</p>
                             </div>
                             <div class="text-center px-2">
-                                <p class="text-xs my-3">MIDS <br> Level 2 </p>
+                                <p class="text-xs my-3" data-i18n="app.inNumbers.cataloging.mids2"> MIDS Stufe 2 </p>
                             </div>
                         </div>
                         <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
@@ -235,22 +235,22 @@ function processOSCAInNumbers(data) {
                                 <p class="text-lg my-3 text-gray-800">${oscaInNumbers.cataloging.mids3}</p>
                             </div>
                             <div class="text-center px-2">
-                                <p class="text-xs my-3">MIDS <br> Level 3 </p>
+                                <p class="text-xs my-3" data-i18n="app.inNumbers.cataloging.mids3"> MIDS Stufe 3 </p>
                             </div>
                         </div>
                     </div>
                     <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
-                        <span class="font-semibold"> 3. Digitization <br> <br> </span>
+                        <span class="font-semibold"> <span data-i18n="app.inNumbers.digitizing.title">3. Digitalisierung</span> <br> <br> </span>
                         <div class="w-full bg-p-green-100 text-center p-2 rounded-lg mb-2 mt-4">
                             <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.digitization.total}</p>
-                            <p>Digitized Objects</p>
+                            <p data-i18n="app.inNumbers.digitizing.totalObjects"> Digitalisierte Objekte </p>
                         </div>
                         <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-3 py-2">
                             <div class="text-center px-2">
                                  <p class="text-xl my-3 text-gray-800">${oscaInNumbers.digitization.one_pic}</p>
                             </div>
                             <div class="text-center px-2">
-                                <p class="text-xs my-3">Min. One <br> Picture </p>
+                                <p class="text-xs my-3" data-i18n="app.inNumbers.digitizing.onePic"> Mindestens ein Bild </p>
                             </div>
                         </div>
                         <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-3 py-2">
@@ -258,7 +258,7 @@ function processOSCAInNumbers(data) {
                                  <p class="text-xl my-3 text-gray-800">${oscaInNumbers.digitization.pic_gallery}</p>
                             </div>
                             <div class="text-center px-2">
-                                <p class="text-xs my-3">Picture <br> Gallery 1 </p>
+                                <p class="text-xs my-3" data-i18n="app.inNumbers.digitizing.picGallery"> Mit Bildergalerie </p>
                             </div>
                         </div>
                         <div class="w-full bg-p-green-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-3 py-2">
@@ -266,15 +266,15 @@ function processOSCAInNumbers(data) {
                                  <p class="text-xl my-3 text-gray-800">${oscaInNumbers.digitization.multimedia}</p>
                             </div>
                             <div class="text-center px-2">
-                                <p class="text-xs my-3">Multimedia <br> Available </p>
+                                <p class="text-xs my-3" data-i18n="app.inNumbers.digitizing.multimedia"> Multimedia verfügbar </p>
                             </div>
                         </div>
                     </div>
                     <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
-                        <span class="font-semibold"> 4. Exposure to OSCA Portal <br> <br> </span>
+                        <span class="font-semibold"> <span data-i18n="app.inNumbers.exposing.title">4. Verfügbar im OSCA-Portal</span> <br> <br> </span>
                         <div class="w-full bg-p-orange-100 text-center p-2 rounded-lg mb-2 mt-4">
                              <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.osca_portal.total}</p>
-                            <p>Exposed Objects</p>
+                            <p data-i18n="app.inNumbers.exposing.totalObjects">Verfügbare Objekte</p>
                         </div>
                         
                         <div class="w-full bg-p-orange-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
@@ -282,7 +282,7 @@ function processOSCAInNumbers(data) {
                                 <p class="text-2xl my-6 text-gray-800">${oscaInNumbers.osca_portal.endemics}</p>
                             </div>
                             <div class="text-center p-2">
-                                <p class="text-base my-6">Endemics </p>
+                                <p class="text-base my-6" data-i18n="app.inNumbers.exposing.endemics"> Endemiten </p>
                             </div>
                         </div>
                         <div class="w-full bg-p-orange-100 rounded-lg text-center grid grid-cols-2 gap-2 mb-2">
@@ -290,16 +290,16 @@ function processOSCAInNumbers(data) {
                                 <p class="text-2xl my-6 text-gray-800">${oscaInNumbers.osca_portal.mollusks}</p>
                             </div>
                             <div class="text-center p-2">
-                                <p class="text-base my-6"> Mollusks </p>
+                                <p class="text-base my-6" data-i18n="app.inNumbers.exposing.mollusks"> Molluska </p>
                             </div>
                         </div>
                         
                     </div>
                     <div class="bg-gray-50 shadow rounded-lg text-center text-sm p-2 flex flex-col">
-                        <span class="font-semibold"> 5.Integration/Dissemination in International Portals  </span>
+                        <span class="font-semibold" data-i18n="app.inNumbers.publishing.title"> 5. Integration/Verbreitung in internationalen Portalen  </span>
                         <div class="w-full bg-p-blue-100 text-center p-2 rounded-lg mb-2 mt-4">
                             <p class="text-3xl my-3 text-gray-800">${oscaInNumbers.integration.total}</p>
-                            <p>Exposed Objects</p>
+                            <p data-i18n="app.inNumbers.publishing.totalObjects">Veröffentlichte Objekte</p>
                         </div>
                         
                         <div class="w-full bg-p-blue-100 rounded-lg text-left text-md leading-relaxed mb-3 py-5 pl-3">
@@ -312,5 +312,7 @@ function processOSCAInNumbers(data) {
         `);
 
     }
+    
+    $('.app').localize();
 }
 
