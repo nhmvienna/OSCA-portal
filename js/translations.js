@@ -14,7 +14,7 @@ function getLanguageFromUrl(url) {
 // http://i18next.com/docs/
 i18next.init({
     debug: true,
-    lng: getLanguageFromUrl(window.location.href), // evtl. use language-detector https://github.com/i18next/i18next-browser-languageDetector
+    lng: getLanguageFromUrl(window.parent.location.href), // evtl. use language-detector https://github.com/i18next/i18next-browser-languageDetector
     resources: { // evtl. load via xhr https://github.com/i18next/i18next-xhr-backend
         en: {
             translation: {
