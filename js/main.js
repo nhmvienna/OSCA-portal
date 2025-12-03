@@ -4,6 +4,7 @@ let searchQuery = 'braya'; // Default search query e.g: 'Braya'
 let searchPage = 1; // Default search page
 let showProjectStats = false; // Flag to show project statistics modal
 
+let pendingSearchRequests = []; // Array of promisses for search requests
 let currentResults = []; // Array to store current search results
 let recordsPerPage = 1000; // Number of records to display per page
 
