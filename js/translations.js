@@ -92,6 +92,234 @@ i18next.init({
                     extra: 'EXTRA OCCURRENCE DATA'
                 }
             }
+        },
+        bs: {
+            translation: {
+                app: {
+                    search: 'Pretraga',
+                    results: 'Rezultati:',
+                    resultsFromOSCA: 'iz OSCA',
+                    resultsFromGBIF: 'iz GBIF',
+                    resultsFromGeoCASE: 'iz GeoCASe',
+                    resultsFromEuropeana: 'iz Europeana',
+                    resultsFromDiSSCO: 'iz DiSSCO',
+                    oscaInNumbers: 'OSCA u brojevima',
+                    downloadResults: 'Rezultati download-a',
+                    filterList: 'Filter lista (pod obradom)',
+                    filterOrganization: 'Organizacija',
+                    filterOrganizationPlaceholder: 'Utipkajte ime organizacije',
+                    filterDataId: 'Data ID',
+                    filterDataIdPlaceholer: 'Naprimjer: 12345',
+                    filterBtnApply: 'Koristi filtere',
+                    filterBtnReset: 'Resetuj filtere',
+                    resultCard: {
+                        dataDetails: 'Pogledaj detalje',
+                        originalDetail: 'Pogledaj originalni izvor',
+                        errorImage: 'Mediji nisu dostupni',
+                        dataOwner: 'Vlasnik:',
+                        specimenType: 'Tip sepecimena:',
+                        objectType: 'Tip objekta:',
+                        license: 'Licenca'
+                    },
+                    inNumbers: {
+                        title: 'OSCA u brojevima',
+                        subtitle: 'Konzorcij OSCA trenutno se sastoji od 15 institucija diljem Austrije koje čuvaju, razvijaju, istražuju i čine dostupnima javnosti biološke i geoznanstvene zbirke. Ove statistike ilustriraju naš proces i raspodjelu naših resursa.',
+                        lastUpdate: 'Zadnji update: ',
+                        preparation: {
+                            title: '1. Priprema',
+                            totalObjects: 'Pripremljeni objekti',
+                            mollusks: 'Mollusks',
+                            endemics: 'Endemics',
+                            drySpecimen: 'Suhi specimen.', //Suhi specimen
+                            wetSpecimen: 'Mokri specimen.' //Mokri specimen
+                        },
+                        cataloging: {
+                            title: '2. Kataloziranje metapodataka',
+                            totalObjects: 'Katalizirani predmeti',
+                            mids0: 'MIDS Level 0',
+                            mids1: 'MIDS Level 0',
+                            mids2: 'MIDS Level 2',
+                            mids3: 'MIDS Level 3'
+                        },
+                        digitizing: {
+                            title: '3. Digitalizacija',
+                            totalObjects: 'Digitalizirani objekti',
+                            onePic: 'Minimalno jedna slika',
+                            picGallery: 'Sa galerijom slika',
+                            multimedia: 'Multimedija dostupna'
+                        },
+                        exposing: {
+                            title: '4. Ekspozitura za OSCA Portal',
+                            totalObjects: 'Izloženi predmeti',
+                            endemics: 'Endemics',
+                            mollusks: 'Mollusks'
+                        },
+                        publishing: {
+                            title: 'Integracija/difuzija na međunarodnim portalima',
+                            totalObjects: 'Objavljeni predmeti'
+                        }
+                    }
+                },
+                occurrence: {
+                    header: 'Detalji pojave',
+                    backToPortalBtn: 'Povratak na pretraživanje',
+                    identifiers: 'IDENTIFIKATORI za',
+                    data: 'Podaci o pojavljivanju s kvalitetom',
+                    extra: 'PODACI O DODATNIM DOGAĐAJIMA'
+                }
+            }
+        },
+        sr: {
+            translation: {
+                app: {
+                    search: 'Pretraga',
+                    results: 'Rezultati:',
+                    resultsFromOSCA: 'iz OSCA',
+                    resultsFromGBIF: 'iz GBIF',
+                    resultsFromGeoCASE: 'iz GeoCASe',
+                    resultsFromEuropeana: 'iz Europeana',
+                    resultsFromDiSSCO: 'iz DiSSCO',
+                    oscaInNumbers: 'OSCA u brojevima',
+                    downloadResults: 'Rezultati download-a',
+                    filterList: 'Filter lista (pod obradom)',
+                    filterOrganization: 'Organizacija',
+                    filterOrganizationPlaceholder: 'Utipkajte ime organizacije',
+                    filterDataId: 'Data ID',
+                    filterDataIdPlaceholer: 'Naprimjer: 12345',
+                    filterBtnApply: 'Koristi filtere',
+                    filterBtnReset: 'Resetuj filtere',
+                    resultCard: {
+                        dataDetails: 'Pogledaj detalje',
+                        originalDetail: 'Pogledaj originalni izvor',
+                        errorImage: 'Mediji nisu dostupni',
+                        dataOwner: 'Vlasnik:',
+                        specimenType: 'Tip sepecimena:',
+                        objectType: 'Tip objekta:',
+                        license: 'Licenca'
+                    },
+                    inNumbers: {
+                        title: 'OSCA u brojevima',
+                        subtitle: 'Konzorcij OSCA trenutno se sastoji od 15 institucija diljem Austrije koje čuvaju, razvijaju, istražuju i čine dostupnima javnosti biološke i geoznanstvene zbirke. Ove statistike ilustriraju naš proces i raspodjelu naših resursa.',
+                        lastUpdate: 'Zadnji update: ',
+                        preparation: {
+                            title: '1. Priprema',
+                            totalObjects: 'Pripremljeni objekti',
+                            mollusks: 'Mollusks',
+                            endemics: 'Endemics',
+                            drySpecimen: 'Suhi specimen.', //Suhi specimen
+                            wetSpecimen: 'Mokri specimen.' //Mokri specimen
+                        },
+                        cataloging: {
+                            title: '2. Kataloziranje metapodataka',
+                            totalObjects: 'Katalizirani predmeti',
+                            mids0: 'MIDS Level 0',
+                            mids1: 'MIDS Level 0',
+                            mids2: 'MIDS Level 2',
+                            mids3: 'MIDS Level 3'
+                        },
+                        digitizing: {
+                            title: '3. Digitalizacija',
+                            totalObjects: 'Digitalizirani objekti',
+                            onePic: 'Minimalno jedna slika',
+                            picGallery: 'Sa galerijom slika',
+                            multimedia: 'Multimedija dostupna'
+                        },
+                        exposing: {
+                            title: '4. Ekspozitura za OSCA Portal',
+                            totalObjects: 'Izloženi predmeti',
+                            endemics: 'Endemics',
+                            mollusks: 'Mollusks'
+                        },
+                        publishing: {
+                            title: 'Integracija/difuzija na međunarodnim portalima',
+                            totalObjects: 'Objavljeni predmeti'
+                        }
+                    }
+                },
+                occurrence: {
+                    header: 'Detalji pojave',
+                    backToPortalBtn: 'Povratak na pretraživanje',
+                    identifiers: 'IDENTIFIKATORI za',
+                    data: 'Podaci o pojavljivanju s kvalitetom',
+                    extra: 'PODACI O DODATNIM DOGAĐAJIMA'
+                }
+            }
+        },
+        hr: {
+            translation: {
+                app: {
+                    search: 'Pretraga',
+                    results: 'Rezultati:',
+                    resultsFromOSCA: 'iz OSCA',
+                    resultsFromGBIF: 'iz GBIF',
+                    resultsFromGeoCASE: 'iz GeoCASe',
+                    resultsFromEuropeana: 'iz Europeana',
+                    resultsFromDiSSCO: 'iz DiSSCO',
+                    oscaInNumbers: 'OSCA u brojevima',
+                    downloadResults: 'Rezultati download-a',
+                    filterList: 'Filter lista (pod obradom)',
+                    filterOrganization: 'Organizacija',
+                    filterOrganizationPlaceholder: 'Utipkajte ime organizacije',
+                    filterDataId: 'Data ID',
+                    filterDataIdPlaceholer: 'Naprimjer: 12345',
+                    filterBtnApply: 'Koristi filtere',
+                    filterBtnReset: 'Resetuj filtere',
+                    resultCard: {
+                        dataDetails: 'Pogledaj detalje',
+                        originalDetail: 'Pogledaj originalni izvor',
+                        errorImage: 'Mediji nisu dostupni',
+                        dataOwner: 'Vlasnik:',
+                        specimenType: 'Tip sepecimena:',
+                        objectType: 'Tip objekta:',
+                        license: 'Licenca'
+                    },
+                    inNumbers: {
+                        title: 'OSCA u brojevima',
+                        subtitle: 'Konzorcij OSCA trenutno se sastoji od 15 institucija diljem Austrije koje čuvaju, razvijaju, istražuju i čine dostupnima javnosti biološke i geoznanstvene zbirke. Ove statistike ilustriraju naš proces i raspodjelu naših resursa.',
+                        lastUpdate: 'Zadnji update: ',
+                        preparation: {
+                            title: '1. Priprema',
+                            totalObjects: 'Pripremljeni objekti',
+                            mollusks: 'Mollusks',
+                            endemics: 'Endemics',
+                            drySpecimen: 'Suhi specimen.', //Suhi specimen
+                            wetSpecimen: 'Mokri specimen.' //Mokri specimen
+                        },
+                        cataloging: {
+                            title: '2. Kataloziranje metapodataka',
+                            totalObjects: 'Katalizirani predmeti',
+                            mids0: 'MIDS Level 0',
+                            mids1: 'MIDS Level 0',
+                            mids2: 'MIDS Level 2',
+                            mids3: 'MIDS Level 3'
+                        },
+                        digitizing: {
+                            title: '3. Digitalizacija',
+                            totalObjects: 'Digitalizirani objekti',
+                            onePic: 'Minimalno jedna slika',
+                            picGallery: 'Sa galerijom slika',
+                            multimedia: 'Multimedija dostupna'
+                        },
+                        exposing: {
+                            title: '4. Ekspozitura za OSCA Portal',
+                            totalObjects: 'Izloženi predmeti',
+                            endemics: 'Endemics',
+                            mollusks: 'Mollusks'
+                        },
+                        publishing: {
+                            title: 'Integracija/difuzija na međunarodnim portalima',
+                            totalObjects: 'Objavljeni predmeti'
+                        }
+                    }
+                },
+                occurrence: {
+                    header: 'Detalji pojave',
+                    backToPortalBtn: 'Povratak na pretraživanje',
+                    identifiers: 'IDENTIFIKATORI za',
+                    data: 'Podaci o pojavljivanju s kvalitetom',
+                    extra: 'PODACI O DODATNIM DOGAĐAJIMA'
+                }
+            }
         }
     }
 }, function (err, t) {
