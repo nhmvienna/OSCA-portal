@@ -721,6 +721,16 @@ let resultListModule = (function () {
         }
     }
 
+    function extractTextFromHTML(str) {
+        const div = document.createElement("div");
+        div.innerHTML = str;
+        return div.textContent
+            .replace(/\s+/g, " ")
+            .replace(/:\s*/g, ": ")
+            .trim();
+    }
+
+
     function convertArrayOfObjectsToTSV(array) {
         let tsv = '';
         // Header
@@ -731,9 +741,26 @@ let resultListModule = (function () {
         array.forEach(item => {
             const row = headers.map(header => {
                 let value = item[header];
-                if (typeof value === 'string') {
-                    value = value.replace(/\t/g, '    '); // Replace tabs with spaces
+                
+                if (header == 'sourceOfSearch') {
+                    switch(value){
+                        case 1: return 'GBIF';
+                        case 2: return 'GeoCASE';
+                        case 3: return 'OSCA';
+                        case 4: return 'BOLD Systems';
+                        case 5: return 'Europeana';
+                        case 6: return 'DiSSCo';
+                    }
                 }
+
+                if (typeof value === 'string') {
+                    value = extractTextFromHTML(value).replace(/\t/g, '    '); // Replace tabs with spaces
+                };
+
+                 if (typeof value === 'object') {
+                    value = JSON.stringify(value) // MAke object a string
+                };
+
                 return value;
             });
             tsv += row.join('\t') + '\n';
