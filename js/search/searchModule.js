@@ -53,28 +53,25 @@ let searchModule = (function () {
 
       // Perform a search on the GBIF API
       $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
-      const reqGBIF = $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&limit=" + recordsPerPage + "&offset=0&q=" + encodeURIComponent(query), function (data) {
+      const reqGBIF = $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&offset=0&limit=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
         resultListModule.mergeResults(data, 1, query);
 
         // ask all the data
-        /*
+        
         if (data.count > recordsPerPage) {
           const steps = Math.floor(data.count / recordsPerPage);
 
           for (let i = 1; i <= steps; i++) {
             setTimeout(() => { //delay each API call with 0.1 seconds
-              $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&limit=" + recordsPerPage + "&offset=" + i * recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
+              pendingSearchRequests.push($.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&limit=" + recordsPerPage + "&offset=" + i * recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
                 resultListModule.pushResults(data, 1, query);
-
                 if (i == steps) $("#resultLoadingGBIF").hide();
-              });
-            }, i * 300);
-          }
+              }));
+            }, i * 100);
+          }  
+        } else {
+            $("#resultLoadingGBIF").hide(); // Hide the loading indicator for GBIF
         }
-        */
-
-
-        $("#resultLoadingGBIF").hide(); // Hide the loading indicator for GBIF
       });
 
 
@@ -93,7 +90,7 @@ let searchModule = (function () {
 
       // Perform a search on the Europeana API
       $("#resultLoadingEuropeana").show(); // Show the loading indicator for Europeana
-      const reqEuropeana = $.get("https://api.europeana.eu/record/v2/search.json?start=1&rows=" + (Math.floor(Math.random() * 21) + 80) + "&wskey=laniciri&query=" + encodeURIComponent(query), function (data) {
+      const reqEuropeana = $.get("https://api.europeana.eu/record/v2/search.json?wskey=laniciri&theme=nature&qf=where:Austria&start=1&rows=" + (Math.floor(Math.random() * 21) + 80) + "&query=" + encodeURIComponent(query), function (data) {
         resultListModule.mergeResults(data, 5, query); // Merge the results into the result list module
         $("#resultLoadingEuropeana").hide(); // Hide the loading indicator for Europeana
       });
