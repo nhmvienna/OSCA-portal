@@ -20,54 +20,6 @@ let resultListModule = (function () {
     }
 
     /**
-     * Updates the results based on the search source.
-     * @param {Object} data - The data returned from the search.
-     * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
-     * @param {string} query - The search words inputted by the user (can be scientific name or verbatim name).
-     */
-    function updateResults(data, searchSource, query) {
-        switch (searchSource) {
-            case 1: // GBIF
-                resultCountGBIF = data?.count;
-                currentResults = data.results;
-
-                $("#resultStatistics").html(resultCountGBIF);
-                showPages(parseInt(resultCountGBIF), recordsPerPage);
-
-                renderGBIFResultGrid(currentResults);
-                break;
-
-            case 2: // GeoCase
-                resultCountGeocase = data?.response?.numFound;
-                currentResults = data.response.docs;
-
-                $("#resultStatistics").html(resultCountGeocase);
-                showPages(parseInt(resultCountGeocase), recordsPerPage);
-
-                renderGeoCASEResultGrid(currentResults);
-                break;
-
-            case 3: // OSCA
-                resultCountOSCA = data.dataSize;
-                currentResults = data.data;
-
-                $("#resultStatistics").html(resultCountOSCA);
-                showPages(resultCountOSCA, recordsPerPage);
-
-                renderOSCAResultGrid(currentResults);
-                break;
-
-            case 4: // BOLD (currently under construction)
-                resultCountBOLD = 0;
-
-                $("#resultStatistics").html('BOLD data under construction');
-                displayError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
-                showPages(0, 0);
-                break;
-        }
-    }
-
-    /**
      * Merges results from different sources into the current results.
      * @param {Object} data - The data returned from the search.
      * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
@@ -95,8 +47,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGBIF").html(resultCountGBIF);
-                showPages(parseInt(resultCountGBIF), recordsPerPage);
-
+               
                 renderResultGrid(currentResults);
                 break;
 
@@ -120,8 +71,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGeocase").html(resultCountGeocase);
-                showPages(parseInt(resultCountGeocase), recordsPerPage);
-
+                
                 renderResultGrid(currentResults);
                 break;
 
@@ -145,8 +95,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountOSCA").html(resultCountOSCA);
-                showPages(resultCountOSCA, recordsPerPage);
-
+               
                 renderResultGrid(currentResults);
                 break;
 
@@ -155,7 +104,7 @@ let resultListModule = (function () {
 
                 $("#resultStatistics").html('BOLD data under construction');
                 displayError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
-                showPages(0, 0);
+                
                 break;
 
             case 5: // results from Europeana
@@ -178,8 +127,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountEuropeana").html(resultCountEuropeana);
-                showPages(resultCountEuropeana, recordsPerPage);
-
+                
                 renderResultGrid(currentResults);
                 break;
 
@@ -203,8 +151,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountDissco").html(resultCountDissco);
-                showPages(resultCountDissco, recordsPerPage);
-
+                
                 renderResultGrid(currentResults);
                 break;
             default: break;
@@ -221,8 +168,7 @@ let resultListModule = (function () {
     function pushResults(data, searchSource, query) {
         switch (searchSource) {
             case 1: // results from GBIF 
-                //resultCountGBIF = data?.count;
-                currentResults.push(data.results.map(res => {
+                const moreGBIFResults = data.results.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.scientificName,
@@ -234,17 +180,15 @@ let resultListModule = (function () {
                         specimenID: ' <span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber ? res.catalogNumber : 'nicht verfügbar'),
                         originalOject: res
                     }
-                }));
+                });
+                
+                currentResults = currentResults.concat(moreGBIFResults);
 
-                $("#resultCountGBIF").html(resultCountGBIF);
-                showPages(parseInt(resultCountGBIF), recordsPerPage);
-
-                renderResultGrid(currentResults);
+                appendResultGrid(moreGBIFResults);
                 break;
 
             case 2: // results from GeoCase
-                resultCountGeocase = data?.response?.numFound;
-                currentResults.push(data.response.docs.map(res => {
+                const moreGeoCaseResults = data.response.docs.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.fullscientificname,
@@ -256,17 +200,15 @@ let resultListModule = (function () {
                         specimenID: '<span class="font-semibold">GeoCASE ID:</span>' + res.id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.unitid ? res.unitid : "nicht verfügbar"),
                         originalOject: res
                     }
-                }));
+                });
 
-                $("#resultCountGeocase").html(resultCountGeocase);
-                showPages(parseInt(resultCountGeocase), recordsPerPage);
+                currentResults = currentResults.concat(moreGeoCaseResults);
 
-                renderResultGrid(currentResults);
+                appendResultGrid(moreGeoCaseResults);
                 break;
 
             case 3: // results from OSCA
-                resultCountOSCA = data.dataSize;
-                currentResults.push(data.data.map(res => {
+                const moreOSCAResults = data.data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.scientific_name,
@@ -278,12 +220,11 @@ let resultListModule = (function () {
                         specimenID: '<span class="font-semibold">OSCA ID:</span>' + res.phisical_specimen_id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.collection_number ? res.collection_number : 'nicht verfügbar'),
                         originalOject: res
                     }
-                }));
+                });
 
-                $("#resultCountOSCA").html(resultCountOSCA);
-                showPages(resultCountOSCA, recordsPerPage);
+                currentResults = currentResults.concat(moreOSCAResults);
 
-                renderResultGrid(currentResults);
+                appendResultGrid(moreOSCAResults);
                 break;
 
             case 4: // results from BOLD
@@ -291,12 +232,11 @@ let resultListModule = (function () {
 
                 $("#resultStatistics").html('BOLD data under construction');
                 displayError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
-                showPages(0, 0);
+                
                 break;
 
             case 5: // results from Europeana
-                resultCountEuropeana = data.itemsCount;
-                currentResults.push(data.items.map(res => {
+                const moreEuropeanaResults = data.items.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.title[0],
@@ -308,17 +248,16 @@ let resultListModule = (function () {
                         specimenID: '<span class="font-semibold">Europeana ID:</span>' + res.id,
                         originalOject: res
                     }
-                }));
+                });
 
-                $("#resultCountEuropeana").html(resultCountEuropeana);
-                showPages(resultCountEuropeana, recordsPerPage);
+                currentResults = currentResults.concat(moreEuropeanaResults);
 
-                renderResultGrid(currentResults);
+                appendResultGrid(moreEuropeanaResults);
                 break;
 
             case 6: // results from DiSSCO
-                resultCountDissco = data.data.length;
-                currentResults.push(data.data.map(res => {
+                
+                const moreDiSSCoResults = data.data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
                         scientificName: res.attributes['ods:specimenName'],
@@ -330,12 +269,11 @@ let resultListModule = (function () {
                         specimenID: '<span class="font-semibold">DiSSCO ID:</span>' + res.attributes['@id'],
                         originalOject: res
                     }
-                }));
+                });
 
-                $("#resultCountDissco").html(resultCountDissco);
-                showPages(resultCountDissco, recordsPerPage);
+                currentResults = currentResults.concat(moreDiSSCoResults);
 
-                renderResultGrid(currentResults);
+                appendResultGrid(moreDiSSCoResults);
                 break;
             default: break;
 
@@ -343,7 +281,7 @@ let resultListModule = (function () {
     }
 
     // Function to render the result grid (merged results)
-    function renderResultGrid() {
+    function renderResultGrid(currentResults) {
         let resultItems = '';
         currentResults.map((res, i) => {
 
@@ -377,6 +315,44 @@ let resultListModule = (function () {
 
 
         $("#result-grid").html(resultItems);
+        $('.app').localize();
+    }
+
+    // Function to render the result grid (merged results)
+    function appendResultGrid(moreResults) {
+        let resultItems = '';
+        moreResults.map((res, i) => {
+
+            if (res?.scientificName) {
+                resultItems += `
+    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media)}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
+        <div class="w-full flex flex-row">
+            <div class="flex-grow flex flex-col w-full pb-2">
+                <div class="border-t-0 px-3 pt-1 pb-2 align-middle text-xs font-semibold flex flex-row items-center justify-start">
+                    <img src="${getIcon(res.sourceOfSearch)}" class="object-center object-contain w-8 h-8 inline-block rounded-sm p-1" />
+                    <div> ${res.scientificName} </div>
+                </div>
+            
+                <div class="flex flex-col text-center px-4 w-full gap-2">
+                    ${displayLinks(res, res.sourceOfSearch)}
+                </div>
+            </div>
+
+            <div class="w-2/6 flex-shrink border-t-0 align-middle border-l-0 border-r-0 text-xs p-4">
+                ${displayMedia(res.media, res.sourceOfSearch)}
+            </div>
+        </div>
+    
+        <div class="w-full flex border-t flex-col text-center px-4 py-2 w-full">
+            ${displayIDs(res, res.sourceOfSearch)}
+        </div>  
+    </div>
+        `
+            }
+        });
+
+
+        $("#result-grid").append(resultItems);
         $('.app').localize();
     }
 
@@ -838,7 +814,7 @@ let resultListModule = (function () {
      */
     function containsAllWordsInsensitive(input, words) {
         const lowerInput = input?.toLowerCase();
-        return words.every(word => lowerInput.includes(word.toLowerCase()));
+        return words.every(word => lowerInput?.includes(word.toLowerCase()));
     }
 
 
@@ -959,7 +935,6 @@ let resultListModule = (function () {
     // Expose only the necessary functions
     return {
         init: init,
-        updateResults: updateResults,
         mergeResults: mergeResults,
         pushResults: pushResults,
         renderResultGrid: renderResultGrid,

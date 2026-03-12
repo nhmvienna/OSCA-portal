@@ -58,12 +58,14 @@ let localDataModule = (function () {
     if (q) {
       $.ajax({
         type: "GET",
-        url: "./data/osca-data.tsv?v=6",
+        url: "./data/osca-data.tsv?v=7",
         dataType: "text",
         success: function (data) {
           processOSCAData(data);
-          console.log(q, start, offset)
+          
           let totalResults = oscaResults.filter((d) => d.scientific_name?.toLowerCase().includes(q.toLowerCase()))
+          console.dir(totalResults);
+
           let results = {
             data: totalResults,
             dataSize: totalResults.length
