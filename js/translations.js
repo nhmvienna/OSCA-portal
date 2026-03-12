@@ -20,7 +20,7 @@ i18next.init({
             translation: {
                 app: {
                     search: 'Search',
-                    results: 'Results:',
+                    results: 'Sources:',
                     resultsFromOSCA: 'from OSCA',
                     resultsFromGBIF: 'from GBIF',
                     resultsFromGeoCASE: 'from GeoCASe',
@@ -97,7 +97,7 @@ i18next.init({
             translation: {
                 app: {
                     search: 'Pretraga',
-                    results: 'Rezultati:',
+                    results: 'Izvori:',
                     resultsFromOSCA: 'iz OSCA',
                     resultsFromGBIF: 'iz GBIF',
                     resultsFromGeoCASE: 'iz GeoCASe',
@@ -173,7 +173,7 @@ i18next.init({
             translation: {
                 app: {
                     search: 'Pretraga',
-                    results: 'Rezultati:',
+                    results: 'Izvori:',
                     resultsFromOSCA: 'iz OSCA',
                     resultsFromGBIF: 'iz GBIF',
                     resultsFromGeoCASE: 'iz GeoCASe',
@@ -249,7 +249,7 @@ i18next.init({
             translation: {
                 app: {
                     search: 'Pretraga',
-                    results: 'Rezultati:',
+                    results: 'Izvori:',
                     resultsFromOSCA: 'iz OSCA',
                     resultsFromGBIF: 'iz GBIF',
                     resultsFromGeoCASE: 'iz GeoCASe',

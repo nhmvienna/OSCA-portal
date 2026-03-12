@@ -95,7 +95,7 @@
                     </div>
                     <div class="flex flex-grow items-center">
                         <fieldset class="flex flex-grow items-start px-2 justify-between gap-2 pt-2 text-xs">
-                            <div data-i18n="app.results" class="flex items-center justify-center py-1 pl-3 pr-1 text-sm">Ergebnisse: </div>
+                            <div data-i18n="app.results" class="flex items-center justify-center py-1 pl-3 pr-1 text-sm">Quellen: </div>
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-orange-50 py-1 px-3">
                                     <input type="checkbox" checked name="search-source" id="search-source-osca" value="3" onclick="toggleResultCards(this.value, this.checked)">
@@ -231,54 +231,7 @@
 
                 <!-- Result Items -->
                 <div class="relative w-full p-4 mt-6 ">
-                    <table id="result-list" class="items-center w-full border border-white shadow-lg rounded bg-white overflow-hidden">
-                        <thead class="static">
-                            <tr>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Scientific Name
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Physical Specimen ID
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Organization
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Speciment Type
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Modified
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    License
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Location Qualitative[Quantitative]
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Geological Age
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Collecting Agent
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Event Date
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Type Status
-                                </th>
-                                <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
-                                    Media
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="resultItems">
-
-                        </tbody>
-
-                    </table>
-
+                  
                     <div id="result-grid" class="w-full grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-4">
                     </div>
                 </div>

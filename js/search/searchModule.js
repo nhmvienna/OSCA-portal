@@ -7,7 +7,7 @@ let searchModule = (function () {
     $('#searchButton').on('click', function () {
       searchQuery = $('#searchQuery').val(); // Get the search query from the input field
       searchPage = 1; // Reset the search page to the first page
-      $('input:checkbox').prop('checked', true); // Check all search sources
+      // $('input:checkbox').prop('checked', true); // Check all search sources
       $('.result-count').text(''); // Reset result counters
       filtersModule.clearFilters();
 
@@ -19,7 +19,7 @@ let searchModule = (function () {
       if (event.key === 'Enter') { // Check if the Enter key was pressed
         searchQuery = $('#searchQuery').val(); // Get the search query from the input field
         searchPage = 1; // Reset the search page to the first page
-        $('input:checkbox').prop('checked', true); // Check all search sources
+        // $('input:checkbox').prop('checked', true); // Check all search sources
         $('.result-count').text(''); // Reset result counters
         filtersModule.clearFilters();
 
@@ -51,70 +51,74 @@ let searchModule = (function () {
       $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
 
 
-      // Perform a search on the OSCA local data module
-      $("#resultLoadingOSCA").show(); // Show the loading indicator for OSCA
-      localDataModule.search(query, 'asc', searchPage - 1, recordsPerPage, '', function (results) {
-        resultListModule.mergeResults(results, 3, query); // Merge the results into the result list module
-        $("#resultLoadingOSCA").hide(); // Hide the loading indicator for OSCA
-      });
+      if ($('#search-source-osca').prop('checked')) { // Perform a search on the OSCA local data module
+        $("#resultLoadingOSCA").show(); // Show the loading indicator for OSCA
+        localDataModule.search(query, 'asc', searchPage - 1, recordsPerPage, '', function (results) {
+          resultListModule.mergeResults(results, 3, query); // Merge the results into the result list module
+          $("#resultLoadingOSCA").hide(); // Hide the loading indicator for OSCA
+        });
+      }
 
+      if ($('#search-source-gbif').prop('checked')) { // Perform a search on the GBIF API
+        $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
+        const reqGBIF = $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&offset=0&limit=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
+          resultListModule.mergeResults(data, 1, query);
 
-      // Perform a search on the GBIF API
-      $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
-      const reqGBIF = $.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&offset=0&limit=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
-        resultListModule.mergeResults(data, 1, query);
+          // ask all the data
+          if (data.count > recordsPerPage) {
+            const steps = Math.floor(data.count / recordsPerPage);
 
-        // ask all the data
-        if (data.count > recordsPerPage) {
-          const steps = Math.floor(data.count / recordsPerPage);
-
-          for (let i = 1; i <= steps; i++) {
-            setTimeout(() => { //delay each API call with 0.1 seconds
-              pendingSearchRequests.push($.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&limit=" + recordsPerPage + "&offset=" + i * recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
-                resultListModule.pushResults(data, 1, query);
-                if (i == steps) $("#resultLoadingGBIF").hide();
-              }));
-            }, i * 300);
+            for (let i = 1; i <= steps; i++) {
+              setTimeout(() => { //delay each API call with 0.1 seconds
+                pendingSearchRequests.push($.get("https://api.gbif.org/v1/occurrence/search?advanced=1&basis_of_record=PRESERVED_SPECIMEN&publishing_country=AT&limit=" + recordsPerPage + "&offset=" + i * recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
+                  resultListModule.pushResults(data, 1, query);
+                  if (i == steps) $("#resultLoadingGBIF").hide();
+                }));
+              }, i * 300);
+            }
+          } else {
+            $("#resultLoadingGBIF").hide(); // Hide the loading indicator for GBIF
           }
-        } else {
+        }).fail(function () {
           $("#resultLoadingGBIF").hide(); // Hide the loading indicator for GBIF
-        }
-      }).fail(function () {
-        $("#resultLoadingGBIF").hide(); // Hide the loading indicator for GBIF
-        $('#resultCountGBIF').css('color', 'red');
-      });
+          $('#resultCountGBIF').css('color', 'red');
+        });
+      }
+
+      if ($('#search-source-geocase').prop('checked')) { // Perform a search on the GeoCASE API
+        $("#resultLoadingGeocase").show();
+        const reqGeoCase = $.get("https://api.geocase.eu/v1/solr?sort=id%20asc&start=" + (searchPage - 1) * recordsPerPage + "&rows=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
+          resultListModule.mergeResults(data, 2, query); // Merge the results into the result list module
+          $("#resultLoadingGeocase").hide(); // Hide the loading indicator for Geocase
+        }).fail(function () {
+          $("#resultLoadingGeocase").hide(); // Hide the loading indicator for Geocase
+          $('#resultCountGeocase').css('color', 'red');
+        });
+      }
 
 
-      $("#resultLoadingGeocase").show();
-      const reqGeoCase = $.get("https://api.geocase.eu/v1/solr?sort=id%20asc&start=" + (searchPage - 1) * recordsPerPage + "&rows=" + recordsPerPage + "&q=" + encodeURIComponent(query), function (data) {
-        resultListModule.mergeResults(data, 2, query); // Merge the results into the result list module
-        $("#resultLoadingGeocase").hide(); // Hide the loading indicator for Geocase
-      }).fail(function () {
-        $("#resultLoadingGeocase").hide(); // Hide the loading indicator for Geocase
-        $('#resultCountGeocase').css('color', 'red');
-      });
+      if ($('#search-source-europeana').prop('checked')) { // Perform a search on the Europeana API
+        $("#resultLoadingEuropeana").show(); // Show the loading indicator for Europeana
+        const reqEuropeana = $.get("https://api.europeana.eu/record/v2/search.json?wskey=laniciri&theme=nature&qf=where:Austria&start=1&rows=" + (Math.floor(Math.random() * 21) + 80) + "&query=" + encodeURIComponent(query), function (data) {
+          resultListModule.mergeResults(data, 5, query); // Merge the results into the result list module
+          $("#resultLoadingEuropeana").hide(); // Hide the loading indicator for Europeana
+        }).fail(function () {
+          $("#resultLoadingEuropeana").hide(); // Hide the loading indicator for Europeana
+          $('#resultCountEuropeana').css('color', 'red');
+        });
+      }
 
-
-      // Perform a search on the Europeana API
-      $("#resultLoadingEuropeana").show(); // Show the loading indicator for Europeana
-      const reqEuropeana = $.get("https://api.europeana.eu/record/v2/search.json?wskey=laniciri&theme=nature&qf=where:Austria&start=1&rows=" + (Math.floor(Math.random() * 21) + 80) + "&query=" + encodeURIComponent(query), function (data) {
-        resultListModule.mergeResults(data, 5, query); // Merge the results into the result list module
-        $("#resultLoadingEuropeana").hide(); // Hide the loading indicator for Europeana
-      }).fail(function () {
-         $("#resultLoadingEuropeana").hide(); // Hide the loading indicator for Europeana
-         $('#resultCountEuropeana').css('color', 'red');
-      });
-
-      // Perform a search on the DiSSCo API
+      if ($('#search-source-dissco').prop('checked')) { // Perform a search on the DiSSCo API
       $("#resultLoadingDissco").show(); // Show the loading indicator for DiSSCo https://sandbox.dissco.tech/api/digital-specimen/v1/search?q=
       //  https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=
       const reqDissco = $.get("https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=" + encodeURIComponent(query), function (data) {
         resultListModule.mergeResults(data, 6, query); // Merge the results into the result list module
         $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
       }).fail(function () {
-          $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
-           $('#resultCountDissco').css('color', 'red');
+        $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
+        $('#resultCountDissco').css('color', 'red');
       });
+    }
 
       pendingSearchRequests.push(reqGBIF, reqGeoCase, reqEuropeana, reqDissco);
     }
