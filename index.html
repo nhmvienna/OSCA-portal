@@ -76,7 +76,7 @@
             <div class="flex md:p-3 flex-col md:flex-row justify-between">
                 <div class="flex items-start flex-col pr-2 border-r">
                     <a pazly-editable="href" class="flex title-font font-medium items-center p-2 text-p-gray-900 md:mb-0">
-                        <span class="text-xs">v4.33</span> <br>
+                        <span class="text-xs">v4.34</span> <br>
                     </a>
                     <div id="filter-toggle-button" onclick="filtersModule.switchFilters()" class="whitespace-nowrap text-xs px-4 py-2 rounded-lg shadow-md border cursor-pointer bg-p-gray-50 border-pink-200"> <i class="fas fa-sliders-h text-sm font-semibold"></i> Filter</div>
                 </div>
@@ -221,8 +221,8 @@
                 -->
 
                 <div class="w-full flex flex-row justify-around items-center border-b p-4 text-sm font-semibold">
-                    <button data-i18n="app.filterBtnApply" class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value}); resultListModule.renderResultGrid()">Filter anwenden</button>
-                    <button data-i18n="app.filterBtnReset" class="py-2 px-4 shadow bg-red-400 text-white rounded-lg" onclick="filtersModule.resetFilters(); resultListModule.renderResultGrid()">Filter zurücksetzen</button>
+                    <button data-i18n="app.filterBtnApply" class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value})">Filter anwenden</button>
+                    <button data-i18n="app.filterBtnReset" class="py-2 px-4 shadow bg-red-400 text-white rounded-lg" onclick="filtersModule.clearFilters()">Filter zurücksetzen</button>
                 </div>
             </div>
 
@@ -304,14 +304,14 @@
         <script src="js/libs/jquery-i18next.min.js"></script>
 
 
-        <script src="js/localData/localData.js"></script>
-        <script src="js/search/searchModule.js"></script>
-        <script src="js/filters/filtersModule.js"></script>
-        <script src="js/resultList/resultListModule.js"></script>
-        <script src="js/resultDetails/resultDetailsModule.js"></script>
+        <script src="js/localData/localData.js?v=434"></script>
+        <script src="js/search/searchModule.js?v=434"></script>
+        <script src="js/filters/filtersModule.js?v=434"></script>
+        <script src="js/resultList/resultListModule.js?v=434"></script>
+        <script src="js/resultDetails/resultDetailsModule.js?v=434"></script>
 
-        <script src="js/main.js"></script>
-        <script src="js/translations.js"></script>
+        <script src="js/main.js?v=434"></script>
+        <script src="js/translations.js?v=434"></script>
 
     </section>
 

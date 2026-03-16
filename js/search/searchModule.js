@@ -83,6 +83,8 @@ let searchModule = (function () {
           $("#resultLoadingGBIF").hide(); // Hide the loading indicator for GBIF
           $('#resultCountGBIF').css('color', 'red');
         });
+
+        pendingSearchRequests.push(reqGBIF);
       }
 
       if ($('#search-source-geocase').prop('checked')) { // Perform a search on the GeoCASE API
@@ -94,6 +96,8 @@ let searchModule = (function () {
           $("#resultLoadingGeocase").hide(); // Hide the loading indicator for Geocase
           $('#resultCountGeocase').css('color', 'red');
         });
+
+        pendingSearchRequests.push(reqGeoCase);
       }
 
 
@@ -106,21 +110,24 @@ let searchModule = (function () {
           $("#resultLoadingEuropeana").hide(); // Hide the loading indicator for Europeana
           $('#resultCountEuropeana').css('color', 'red');
         });
+
+        pendingSearchRequests.push(reqEuropeana);
       }
 
       if ($('#search-source-dissco').prop('checked')) { // Perform a search on the DiSSCo API
-      $("#resultLoadingDissco").show(); // Show the loading indicator for DiSSCo https://sandbox.dissco.tech/api/digital-specimen/v1/search?q=
-      //  https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=
-      const reqDissco = $.get("https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=" + encodeURIComponent(query), function (data) {
-        resultListModule.mergeResults(data, 6, query); // Merge the results into the result list module
-        $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
-      }).fail(function () {
-        $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
-        $('#resultCountDissco').css('color', 'red');
-      });
-    }
+        $("#resultLoadingDissco").show(); // Show the loading indicator for DiSSCo https://sandbox.dissco.tech/api/digital-specimen/v1/search?q=
+        //  https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=
+        const reqDissco = $.get("https://disscover.dissco.eu/api/digital-specimen/v1/search?pageSize=100&pageNumber=1&q=" + encodeURIComponent(query), function (data) {
+          resultListModule.mergeResults(data, 6, query); // Merge the results into the result list module
+          $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
+        }).fail(function () {
+          $("#resultLoadingDissco").hide(); // Hide the loading indicator for DiSSCo
+          $('#resultCountDissco').css('color', 'red');
+        });
+        
+        pendingSearchRequests.push(reqDissco);
+      }
 
-      pendingSearchRequests.push(reqGBIF, reqGeoCase, reqEuropeana, reqDissco);
     }
   }
 

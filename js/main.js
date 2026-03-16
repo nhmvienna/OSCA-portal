@@ -80,19 +80,13 @@ $(document).ready(function () {
         searchSourceSelectedValue = parseInt($('input[name="search-source"]:checked').val());
     });
 
-    // Retrieve URL parameters and set default values if not present
-    searchQuery = decodeURIComponent(getUrlVars()['q'] ? getUrlVars()['q'] : searchQuery);
-    searchPage = parseInt(getUrlVars()['page'] ? getUrlVars()['page'] : searchPage);
-    searchSourceSelectedValue = parseInt(getUrlVars()['source'] ? getUrlVars()['source'] : searchSourceSelectedValue);
-
     // Set the initial search source selection
     $('input[name="search-source"][value="' + searchSourceSelectedValue + '"]').prop('checked', true);
     $('#searchQuery').val(searchQuery);
 
     // Perform the initial search and display results
     searchModule.search(searchQuery, searchSourceSelectedValue);
-    resultListModule.showResults();
-
+    
     // Load project statistics if the flag is set
     if (showProjectStats) {
         loadProjectStatus();

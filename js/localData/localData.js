@@ -64,7 +64,7 @@ let localDataModule = (function () {
           processOSCAData(data);
           
           let totalResults = oscaResults.filter((d) => d.scientific_name?.toLowerCase().includes(q.toLowerCase()))
-          console.dir(totalResults);
+          
 
           let results = {
             data: totalResults,

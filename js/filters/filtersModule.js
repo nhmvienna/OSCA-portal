@@ -13,19 +13,19 @@ let filtersModule = (function () {
     originalResults = [];
   }
 
-  
+
   //Toggles the visibility of the filters section and adjusts the grid layout accordingly.
   function switchFilters() {
-    $('#filters').toggle(1, function() {
-      if($(this).is(':visible')) {
+    $('#filters').toggle(1, function () {
+      if ($(this).is(':visible')) {
         $('#result-grid').removeClass('md:grid-cols-3 2xl:grid-cols-4');
         $('#result-grid').addClass('md:grid-cols-2 2xl:grid-cols-3');
-  
+
         renderFilters(searchSourceSelectedValue);
       } else {
         $('#result-grid').removeClass('md:grid-cols-2 2xl:grid-cols-3');
         $('#result-grid').addClass('md:grid-cols-3 2xl:grid-cols-4');
-      } 
+      }
     });
   }
 
@@ -50,11 +50,11 @@ let filtersModule = (function () {
    * @param {string} strictSerachString - The string to filter results by.
    */
   function filterByStrictSearch(strictSerachString) {
-    if(originalResults.length < 1) {
+    if (originalResults.length < 1) {
       originalResults = currentResults;
     }
-    
-    if(currentResults.length > 1) {
+
+    if (currentResults.length > 1) {
       filteredResults = currentResults.filter(result => result.scientificName.toLowerCase().includes(strictSerachString.toLowerCase()));
       currentResults = filteredResults;
     }
@@ -65,9 +65,18 @@ let filtersModule = (function () {
    * @param {string} instituteString - The string to filter results by.
    */
   function filterByInstitute(instituteString) {
-    if(currentResults.length > 1) {
-      filteredResults = currentResults.filter(result => result.owner?.toLowerCase().includes(instituteString?.toLowerCase()));
-      currentResults = filteredResults;
+    console.log('before the filter');
+    console.dir(currentResults);
+
+    if (instituteString?.length > 1) {
+
+      if (currentResults.length > 1) {
+        filteredResults = currentResults.filter(result => result.owner?.toLowerCase().includes(instituteString?.toLowerCase()));
+        currentResults = filteredResults;
+
+        console.log('before AFTER filter');
+        console.dir(currentResults);
+      }
     }
   }
 
@@ -76,7 +85,8 @@ let filtersModule = (function () {
    * @param {string} specimenTypeString - The string to filter results by.
    */
   function filterBySpecimenType(specimenTypeString) {
-    if(currentResults.length > 1) {
+
+    if (currentResults.length > 1) {
       filteredResults = currentResults.filter(result => result.owner?.toLowerCase().includes(specimenTypeString?.toLowerCase()));
       currentResults = filteredResults;
     }
@@ -87,9 +97,11 @@ let filtersModule = (function () {
    * @param {string} specimenIDString - The string to filter results by.
    */
   function filterBySpecimenID(specimenIDString) {
-    if(currentResults.length > 1) {
-      filteredResults = currentResults.filter(result => result.specimenID?.toLowerCase().includes(specimenIDString?.toLowerCase()) || result.occurrenceOriginalLink?.toLowerCase().includes(specimenIDString?.toLowerCase()) );
-      currentResults = filteredResults;
+    if (specimenIDString?.length > 1) {
+      if (currentResults.length > 1) {
+        filteredResults = currentResults.filter(result => result.specimenID?.toLowerCase().includes(specimenIDString?.toLowerCase()) || result.occurrenceOriginalLink?.toLowerCase().includes(specimenIDString?.toLowerCase()));
+        currentResults = filteredResults;
+      }
     }
   }
 
@@ -101,27 +113,36 @@ let filtersModule = (function () {
    */
   function applyFilters(filterObject) {
     resetFilters();
-    
+
     // Save the original results if not already saved
-    if(originalResults.length < 1) {
+    if (originalResults.length < 1) {
       originalResults = currentResults;
     }
 
     // Apply individual filters
     filterByInstitute(filterObject.instituteString);
     filterBySpecimenID(filterObject.specimenIDString);
+
+    resultListModule.renderResultGrid(currentResults);
   }
 
 
   // Resets the filters and restores the original results.
   function resetFilters() {
-    if(originalResults.length > 0) {
+
+    if (originalResults.length > 0) {
       currentResults = originalResults;
+      resultListModule.renderResultGrid(currentResults);
     }
   }
 
   function clearFilters() {
+    resetFilters();
+
     originalResults = [];
+    $('#instituteStringFilter').val('');
+    $('#specimenIDStringFilter').val('');
+
   }
 
   // Expose only the necessary functions

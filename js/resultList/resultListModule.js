@@ -818,41 +818,6 @@ let resultListModule = (function () {
     }
 
 
-    function showPages(totalResults, resultsPerPage) {
-        let resultPageHTML = '';
-
-        for (i = 0; i < totalResults / resultsPerPage; i++) {
-            resultPageHTML += `
-                    <a class="text-xs p-1 hover:underline ${searchPage === i + 1 ? 'bg-white font-bold rounded shadow' : ''} text-blue-800 hover:text-blue-500 cursor-pointer" href="index.html?q=${searchQuery}&page=${i + 1}&source=${searchSourceSelectedValue}">${i + 1}</a>
-                `
-        }
-
-        $(".resultPages").html(resultPageHTML);
-    }
-
-    function showList() {
-        $('#result-grid').hide();
-        $('#result-list').show();
-        setViewParameter(1);
-
-    }
-
-    function showGrid() {
-        $('#result-list').hide();
-        $('#result-grid').show();
-        setViewParameter(2);
-    }
-
-    function showResults() {
-        console.log(getViewParameter(), typeof getViewParameter());
-
-        if (parseInt(getViewParameter()) === 1) {
-            showList();
-        } else {
-            showGrid()
-        }
-    }
-
     function getMonthName(monthNumber) {
         // Validate input
         if (typeof monthNumber !== 'number' || monthNumber < 1 || monthNumber > 12) {
@@ -938,9 +903,6 @@ let resultListModule = (function () {
         mergeResults: mergeResults,
         pushResults: pushResults,
         renderResultGrid: renderResultGrid,
-        showList: showList,
-        showGrid: showGrid,
-        showResults: showResults,
         downloadCurrentResults: downloadCurrentResults
     };
 
