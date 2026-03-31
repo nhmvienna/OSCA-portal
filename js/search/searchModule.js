@@ -52,12 +52,39 @@ let searchModule = (function () {
 
 
       if ($('#search-source-osca').prop('checked')) { // Perform a search on the OSCA local data module
+    
         $("#resultLoadingOSCA").show(); // Show the loading indicator for OSCA
         localDataModule.search(query, 'asc', searchPage - 1, recordsPerPage, '', function (results) {
           resultListModule.mergeResults(results, 3, query); // Merge the results into the result list module
           $("#resultLoadingOSCA").hide(); // Hide the loading indicator for OSCA
         });
+        
+
+          /* 
+        const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc0OTQwNTUzLCJpYXQiOjE3NzQ4NTQxNTMsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0._QnIv3t5wt6Epi7OuH7XLHBRImLU1LLuDQ6crP3R1n0';
+        
+        const cacheQuery = "SELECT * FROM data LIMIT 5"; // WHERE scientificName LIKE '% %' LIMIT 5"
+        $.ajax({
+          url: 'https://data.osca.science/api/search?q=' + encodeURIComponent(cacheQuery),
+          method: 'GET',
+          headers: {
+            'Authorization': 'Bearer ' + jwtToken
+          },
+          success: function (response) {
+            console.log('Success:', response);
+            //resultListModule.mergeResults(response.data, 7, query); // Merge the results into the result list module
+          },
+          error: function (xhr, status, error) {
+            console.error('Error:', error);
+          }
+        });
+
+        */
+
+
       }
+
+            /*
 
       if ($('#search-source-gbif').prop('checked')) { // Perform a search on the GBIF API
         $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
@@ -86,6 +113,7 @@ let searchModule = (function () {
 
         pendingSearchRequests.push(reqGBIF);
       }
+
 
       if ($('#search-source-geocase').prop('checked')) { // Perform a search on the GeoCASE API
         $("#resultLoadingGeocase").show();
@@ -128,6 +156,7 @@ let searchModule = (function () {
         pendingSearchRequests.push(reqDissco);
       }
 
+      */
     }
   }
 
