@@ -76,7 +76,7 @@
 <body class="m-0 p-0 stretchToScreen app">
     <!-- app Blocks Come Here -->
     <section id="app-shell" class="absolute top-0  m-0 p-0 stretchToScreen">
-        <section xmlns="http://www.w3.org/1999/xhtml" class="fixed z-10 w-full bg-white text-p-gray-700 border-b shadow">
+        <section xmlns="http://www.w3.org/1999/xhtml" class="fixed z-10 w-full bg-white text-p-gray-700 border-b shadow-md">
             <div class="w-full p-2 px-4 flex flex-row flex-wrap items-center justify-between border-b">
                 <span class="flex items-center font-bold">
                     <img src="http://osca.science/wp-content/uploads/2024/01/OSCA_logo-1.svg" alt="" srcset="" class="h-6"> PORTAL
@@ -86,7 +86,7 @@
             <div class="flex md:p-3 flex-col md:flex-row justify-between">
                 <div class="flex items-start flex-col pr-2 border-r">
                     <a pazly-editable="href" class="flex title-font font-medium items-center p-2 text-p-gray-900 md:mb-0">
-                        <span class="text-xs">v4.34</span> <br>
+                        <span class="text-xs">v4.35</span> <br>
                     </a>
                     <div id="filter-toggle-button" onclick="filtersModule.switchFilters()" class="whitespace-nowrap text-xs px-4 py-2 rounded-lg shadow-md border cursor-pointer bg-p-gray-50 border-pink-200"> <i class="fas fa-sliders-h text-sm font-semibold"></i> Filter</div>
                 </div>
@@ -192,7 +192,14 @@
         <section class="relative mt-32 md:mt-24 z-0 pt-1  w-full bg-white text-p-gray-700 flex flex-col">
             <div class="w-full h-full flex flex-row">
                 <!-- Filters -->
-                <div id="filters" class="hidden mt-12 w-1/3 z-40 col-span-3 bg-gray-50 bg-opacity-100 shadow-lg -ml-1 h-full" style="min-width: 420px;">
+                <div id="filters" class="hidden mt-12 w-1/3 z-40 col-span-3 bg-gray-50 bg-opacity-100 -ml-1 h-full" style="min-width: 420px;">
+
+
+                    <div class="w-full flex items-center  border-b px-4 py-8 text-sm font-semibold bg-white">
+                        📸 Nur Objekte mit Medien anzeigen <input type="checkbox" placeholder="has Media" class="mx-2 p-2 rounded-lg border text-2xl" value="hm" onclick="toggleResultCards(this.value, this.checked)" />
+                    </div>
+
+
                     <!-- Title -->
                     <div data-i18n="app.filterList" class="w-full flex items-center border-b p-4 text-sm font-semibold">
                         Ergebnis-Filter (in Arbeit)
@@ -225,11 +232,6 @@
                 </div>
                  -->
 
-                    <!-- 
-                <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
-                    Nur Objekte mit Medien anzeigen <input type="checkbox" placeholder="has Media" class="mx-2 p-2 rounded-lg border" value="hm" onclick="toggleResultCards(this.value, this.checked)" />
-                </div>
-                -->
 
                     <div class="w-full flex flex-row justify-around items-center border-b p-4 text-sm font-semibold">
                         <button data-i18n="app.filterBtnApply" class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value})">Filter anwenden</button>
@@ -238,7 +240,7 @@
                 </div>
 
                 <!-- Result List  -->
-                <div class="w-full col-span-12 bg-p-truegray-100 h-full">
+                <div class="w-full col-span-12 bg-p-truegray-100 h-full border-l">
 
                     <!-- Result Items -->
                     <div class="relative w-full p-4 mt-12 ">
@@ -254,15 +256,15 @@
             <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 p-8" style="background: #726051 !important;">
                 <div class="flex flex-col gap-12 items-start px-6">
                     <img src="http://osca.science/wp-content/uploads/2024/01/OSCA_logo_white.svg" alt="" srcset="" style="max-height:58px ;">
-                
+
                     <span class="text-white">Unterstützt durch das Bundesministerium für Frauen, Wissenschaft und Forschung (2025-2029)</span>
-                
+
                     <span class="text-white">Unterstützt durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport (2022-2024)</span>
-                
+
                     <img src="https://osca.science/wp-content/uploads/2025/04/BMFWF_Logo_srgb.png" alt="" srcset="" style="height:93px; width:285px;">
-                    
+
                     <img src="https://osca.science/wp-content/uploads/2025/08/BMWKMS_Logo_srgb.png" alt="" srcset="" style="height:93px; width:285px;">
-                
+
                     <a href="https://osca.science/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer" class="text-white font-thin"> IMPRESSUM & DATENSCHUTZ </a>
                 </div>
 
