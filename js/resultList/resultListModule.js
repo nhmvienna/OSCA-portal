@@ -338,6 +338,7 @@ let resultListModule = (function () {
 
 
         $("#result-grid").html(resultItems);
+
         $('.app').localize();
     }
 
@@ -888,7 +889,7 @@ let resultListModule = (function () {
     }
 
     function markMedia(media) {
-        if (media && media.length > 2) return 'hasMedia'
+        if (media && media.length >= 1) return 'hasMedia'
         return 'hideMedia';
     }
 

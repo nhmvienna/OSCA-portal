@@ -124,6 +124,11 @@ let filtersModule = (function () {
     filterBySpecimenID(filterObject.specimenIDString);
 
     resultListModule.renderResultGrid(currentResults);
+
+    //check for media filtering
+    if ($('#showOnlyMedia').is(":checked")) {
+      $('.hideMedia').hide();
+    }
   }
 
 
