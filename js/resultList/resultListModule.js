@@ -460,7 +460,7 @@ let resultListModule = (function () {
                 <!-- 
                 <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="fas fa-external-link-alt text-p-orange-400"></i></button> 
                -->
-                <a data-i18n="app.resultCard.dataDetails" href="${window.parent.location.href.replace('portal/', '')}occurrence/?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
+                <a data-i18n="app.resultCard.dataDetails" href="./occurrence.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
                 ${res.originalOject.original_object['dwc:associatedSequences'] ? '<a href="' + res.originalOject.original_object['dwc:associatedSequences'] + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
 

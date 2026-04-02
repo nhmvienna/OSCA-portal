@@ -84,7 +84,7 @@ let searchModule = (function () {
 
       }
 
-            /*
+      
 
       if ($('#search-source-gbif').prop('checked')) { // Perform a search on the GBIF API
         $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
@@ -156,7 +156,7 @@ let searchModule = (function () {
         pendingSearchRequests.push(reqDissco);
       }
 
-      */
+    
     }
   }
 
