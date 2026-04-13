@@ -159,13 +159,13 @@ let resultListModule = (function () {
                 currentResults = currentResults.concat(data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
-                        scientificName: res.scientificName? res.scientificName: "braya",
+                        scientificName: res.scientificName? res.scientificName: " ",
                         occurenceSourceLink: '',
                         occurrenceOriginalLink: '',
-                        owner: '',
+                        owner: res.institutionCode? res.institutionCode: " ",
                         license: 'CC0',
-                        media: '',
-                        specimenID: '',
+                        media: res.associatedMedia? res.associatedMedia : "",
+                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' | <span class="font-semibold">Katalog ID:</span>' + res.collectionNumber : ''),
                         originalOject: res
                     }
                 }));
@@ -458,9 +458,7 @@ let resultListModule = (function () {
             case 3: // search on OSCA
                 return `
                 <div class="w-full flex flex-row items-center">
-                <!-- 
-                <button onclick="resultDetailsModule.newModalHandler(true, '${encodeURI(JSON.stringify(res.originalOject))}')" class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="fas fa-external-link-alt text-p-orange-400"></i></button> 
-               -->
+                
                 <a data-i18n="app.resultCard.dataDetails" href="./occurrence.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
                 ${res.originalOject.original_object['dwc:associatedSequences'] ? '<a href="' + res.originalOject.original_object['dwc:associatedSequences'] + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
@@ -492,8 +490,13 @@ let resultListModule = (function () {
             `
             case 7: // search on OSCA CACHE
                 return `
+                
+                <div class="w-full flex flex-row items-center">
                 <a data-i18n="app.resultCard.dataDetails" href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-pink-400 text-white text-xs">Work In Progress</a> 
                 
+                
+                ${res.originalOject.associatedSequences ? '<a href="' + res.originalOject.associatedSequences + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
+                </div>
                 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                     <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  - ${res.license ? '<a href="https://creativecommons.org/public-domain/cc0/" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline" data-i18n="app.resultCard.license"> Lizenz CCO </a>' : 'Lizenz: Unbekannt'}
@@ -519,6 +522,9 @@ let resultListModule = (function () {
 
             case 6: // search on Dissco
                 return displayDisscoMedia(media);
+
+            case 7: // search on OSCA Cahe
+                return displayOSCAListMedia(media);
 
             default: break;
         }

@@ -60,10 +60,11 @@ let searchModule = (function () {
         });
         
 
-          /* 
-        const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc0OTQwNTUzLCJpYXQiOjE3NzQ4NTQxNTMsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0._QnIv3t5wt6Epi7OuH7XLHBRImLU1LLuDQ6crP3R1n0';
+      
+        const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc2NTA3NzIzLCJpYXQiOjE3NzU2NDM3MjMsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0.XLNMV8NlE01fi8hJeFBqQeX_zKB47WJcpQF5wON92mE';
+       
         
-        const cacheQuery = "SELECT * FROM data LIMIT 5"; // WHERE scientificName LIKE '% %' LIMIT 5"
+        const cacheQuery = "SELECT * FROM data WHERE LOWER(scientificName) LIKE '%braya%'"
         $.ajax({
           url: 'https://data.osca.science/api/search?q=' + encodeURIComponent(cacheQuery),
           method: 'GET',
@@ -72,19 +73,17 @@ let searchModule = (function () {
           },
           success: function (response) {
             console.log('Success:', response);
-            //resultListModule.mergeResults(response.data, 7, query); // Merge the results into the result list module
+            resultListModule.mergeResults(response.data, 7, query); // Merge the results into the result list module
           },
           error: function (xhr, status, error) {
             console.error('Error:', error);
           }
         });
 
-        */
-
 
       }
 
-      
+      /*
 
       if ($('#search-source-gbif').prop('checked')) { // Perform a search on the GBIF API
         $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
@@ -156,6 +155,7 @@ let searchModule = (function () {
         pendingSearchRequests.push(reqDissco);
       }
 
+      */
     
     }
   }

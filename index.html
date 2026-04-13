@@ -79,7 +79,7 @@
         <section xmlns="http://www.w3.org/1999/xhtml" class="fixed z-10 w-full bg-white text-p-gray-700 border-b shadow-md">
             <div class="w-full p-2 px-4 flex flex-row flex-wrap items-center justify-between border-b">
                 <span class="flex items-center font-bold">
-                    <img src="http://osca.science/wp-content/uploads/2024/01/OSCA_logo-1.svg" alt="" srcset="" class="h-6"> PORTAL
+                    <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo-1.svg" alt="" srcset="" class="h-6"> PORTAL
                 </span>
                 <a href="https://osca.science/" class="p-2 px-4 rounded-lg border border-gray-300 text-xs uppercase" style="color:#726051;">zur Startseite</a>
             </div>
@@ -189,7 +189,7 @@
         </section>
 
 
-        <section class="relative mt-32 md:mt-24 z-0 pt-1  w-full bg-white text-p-gray-700 flex flex-col">
+        <section class="relative mt-32 md:mt-24 z-0 pt-1  w-full bg-p-gray-100 text-p-gray-700 flex flex-col">
             <div class="w-full h-full flex flex-row">
                 <!-- Filters -->
                 <div id="filters" class="hidden mt-12 w-1/3 z-40 col-span-3 bg-gray-50 bg-opacity-100 -ml-1 h-full" style="min-width: 420px;">
@@ -206,11 +206,11 @@
                     </div>
 
                     <!-- Filter Source 
-                <div class="w-full flex items-center border-b p-4 text-sm font-semibold gap-4">
-                    Einschränkungen der Suche
-                    <button class="py-2 px-4 shadow bg-gray-50 text-black text-xs rounded-lg border-2 hover:border-red-100 border-red-300" onclick="filtersModule.filterByStrictSearch(document.getElementById('searchQuery').value); resultListModule.renderResultGrid()">Strenge Suchbegriffe verwenden</button>   
-                </div>
-                -->
+                    <div class="w-full flex items-center border-b p-4 text-sm font-semibold gap-4">
+                        Einschränkungen der Suche
+                        <button class="py-2 px-4 shadow bg-gray-50 text-black text-xs rounded-lg border-2 hover:border-red-100 border-red-300" onclick="filtersModule.filterByStrictSearch(document.getElementById('searchQuery').value); resultListModule.renderResultGrid()">Strenge Suchbegriffe verwenden</button>   
+                    </div>
+                    -->
 
                     <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
                         <span data-i18n="app.filterOrganization">Organisation</span> <input id="instituteStringFilter" data-i18n="[placeholder]app.filterOrganizationPlaceholder" type="text" placeholder="Einen Organisationsnamen eingeben" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
@@ -221,17 +221,16 @@
                     </div>
 
                     <!-- 
-                <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
-                    Probe Typ <br> (Specimen Type) <input type="text" placeholder="Zum Beispiel: preserved specimen, fossil specimen, etc." class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
-                </div>
-                -->
+                    <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
+                        Probe Typ <br> (Specimen Type) <input type="text" placeholder="Zum Beispiel: preserved specimen, fossil specimen, etc." class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                    </div>
+                    -->
 
                     <!--
-                <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
-                    Geändertes Datum <input type="date" placeholder="UTC date/time of first creation or subsequent modification" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
-                </div>
-                 -->
-
+                    <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
+                        Geändertes Datum <input type="date" placeholder="UTC date/time of first creation or subsequent modification" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                    </div>
+                    -->
 
                     <div class="w-full flex flex-row justify-around items-center border-b p-4 text-sm font-semibold">
                         <button data-i18n="app.filterBtnApply" class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value})">Filter anwenden</button>
@@ -245,7 +244,7 @@
                     <!-- Result Items -->
                     <div class="relative w-full p-4 mt-12 ">
 
-                        <div id="result-grid" class="w-full grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-4">
+                        <div id="result-grid" class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
                         </div>
                     </div>
 
@@ -255,7 +254,7 @@
             <!-- Footer -->
             <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 p-8" style="background: #726051 !important;">
                 <div class="flex flex-col gap-12 items-start px-6">
-                    <img src="http://osca.science/wp-content/uploads/2024/01/OSCA_logo_white.svg" alt="" srcset="" style="max-height:58px ;">
+                    <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo_white.svg" alt="" srcset="" style="max-height:58px ;">
 
                     <span class="text-white">Unterstützt durch das Bundesministerium für Frauen, Wissenschaft und Forschung (2025-2029)</span>
 
