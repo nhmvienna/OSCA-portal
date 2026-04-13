@@ -75,11 +75,11 @@
     <section id="pazly-template-set" class="absolute top-0  m-0 p-0 stretchToScreen">
 
         <div class="fixed w-full bg-white p-2 px-4 flex flex-row flex-wrap items-center justify-between border-b shadow-md">
-                <span class="flex items-center font-bold">
-                    <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo-1.svg" alt="" srcset="" class="h-6"> PORTAL
-                </span>
-                <a href="https://osca.science/" class="p-2 px-4 rounded-lg border border-gray-300 text-xs uppercase" style="color:#726051;">zur Startseite</a>
-            </div>
+            <span class="flex items-center font-bold">
+                <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo-1.svg" alt="" srcset="" class="h-6"> PORTAL
+            </span>
+            <a href="https://osca.science/" class="p-2 px-4 rounded-lg border border-gray-300 text-xs uppercase" style="color:#726051;">zur Startseite</a>
+        </div>
 
         <section xmlns="http://www.w3.org/1999/xhtml" class="w-full pt-16 text-p-white bg-p-gray-100">
             <div class="w-full md:px-20 p-3 container mx-auto flex flex-row items-center justify-between">
@@ -100,28 +100,28 @@
         </section>
 
         <!-- Footer -->
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 p-8" style="background: #726051 !important;">
-                <div class="flex flex-col gap-12 items-start px-6">
-                    <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo_white.svg" alt="" srcset="" style="max-height:58px ;">
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 p-8" style="background: #726051 !important;">
+            <div class="flex flex-col gap-12 items-start px-6">
+                <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo_white.svg" alt="" srcset="" style="max-height:58px ;">
 
-                    <span class="text-white">Unterstützt durch das Bundesministerium für Frauen, Wissenschaft und Forschung (2025-2029)</span>
+                <span class="text-white">Unterstützt durch das Bundesministerium für Frauen, Wissenschaft und Forschung (2025-2029)</span>
 
-                    <span class="text-white">Unterstützt durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport (2022-2024)</span>
+                <span class="text-white">Unterstützt durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport (2022-2024)</span>
 
-                    <img src="https://osca.science/wp-content/uploads/2025/04/BMFWF_Logo_srgb.png" alt="" srcset="" style="height:93px; width:285px;">
+                <img src="https://osca.science/wp-content/uploads/2025/04/BMFWF_Logo_srgb.png" alt="" srcset="" style="height:93px; width:285px;">
 
-                    <img src="https://osca.science/wp-content/uploads/2025/08/BMWKMS_Logo_srgb.png" alt="" srcset="" style="height:93px; width:285px;">
+                <img src="https://osca.science/wp-content/uploads/2025/08/BMWKMS_Logo_srgb.png" alt="" srcset="" style="height:93px; width:285px;">
 
-                    <a href="https://osca.science/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer" class="text-white font-thin"> IMPRESSUM & DATENSCHUTZ </a>
-                </div>
-
-                <div class="flex flex-col gap-12 items-start px-6">
-                    <span class="text-white font-semibold text-xl uppercase">Möchten Sie Über OSCA mehr Erfahren?</span>
-                    <a href="mailto:osca@nhm.at" class="text-white underline"> osca@nhm.at</a>
-                    <p class="text-white">OSCA Konsortium <br> Naturhistorisches Museum Wien <br> Burgring 7, 1010 Wien, Austria</p>
-                </div>
-
+                <a href="https://osca.science/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer" class="text-white font-thin"> IMPRESSUM & DATENSCHUTZ </a>
             </div>
+
+            <div class="flex flex-col gap-12 items-start px-6">
+                <span class="text-white font-semibold text-xl uppercase">Möchten Sie Über OSCA mehr Erfahren?</span>
+                <a href="mailto:osca@nhm.at" class="text-white underline"> osca@nhm.at</a>
+                <p class="text-white">OSCA Konsortium <br> Naturhistorisches Museum Wien <br> Burgring 7, 1010 Wien, Austria</p>
+            </div>
+
+        </div>
     </section>
     <!-- Pazly Blocks Ends Here -->
 
@@ -240,7 +240,7 @@
                     ${camelCaseToWords(key)}
                 </th>
                 <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
-                ${typeof value === 'object' ? linkifyText(JSON.stringify(value)) : linkifyText(value)}
+                ${typeof value === 'object' ? linkifyText(JSON.stringify(value)) : linkifyText(value.toString())}
                 </td>
             </tr>
             `;
@@ -324,11 +324,141 @@
                 return htmlTemplate;
             }
 
+
+            // Function to process and display details for OSCA observations
+            function displayDetailsOSCACache(obs) {
+                let rows = `
+                        <tr class="hover:bg-white text-left">
+                            <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                ${camelCaseToWords('osca:uniqueID')}
+                            </th>
+                            <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                            ${obs['id']}
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white text-left">
+                            <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                ${camelCaseToWords('dwc:occurrenceID')}
+                            </th>
+                            <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                            ${obs['occurrenceId']}
+                            </td>
+                        </tr>
+                        `;
+
+                let dataRows = '';
+                if (obs) {
+                    for (const [key, value] of Object.entries(obs)) {
+                        if (value) {
+                            dataRows +=
+                                `
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                        ${camelCaseToWords(key)}
+                                    </th>
+                                    <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                                    ${linkifyText(value.toString())}
+                                    </td>
+                                </tr>
+                                `;
+                        }
+
+                    }
+                }
+
+                let nullValues = '';
+                if (obs) {
+                    for (const [key, value] of Object.entries(obs)) {
+                        if (!value) {
+                            nullValues +=
+                                `
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                        ${camelCaseToWords(key)}
+                                    </th>
+                                    <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                                    NULL
+                                    </td>
+                                </tr>
+                                `;
+                        }
+
+                    }
+                }
+
+                let htmlKeysTemplate = `
+                        <table class="items-center w-full border shadow-lg rounded bg-p-orange-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                        Observation Key
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                        Observation Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody  class="mt-12">
+                                ${rows}
+                            </tbody>
+                        </table>
+
+                        <table class="items-center w-full border shadow-lg mt-4 rounded bg-p-green-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                        Observation Key
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                        Observation Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody  class="mt-12">
+                                ${dataRows}
+                            </tbody>
+                        </table>
+
+                        <table class="items-center w-full border shadow-lg mt-4 rounded bg-p-gray-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                        Observation Key
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                        Observation Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody  class="mt-12">
+                                ${nullValues}
+                            </tbody>
+                        </table>
+
+                        `;
+
+
+                let htmlTemplate =
+                    `<div class="w-full px-4 py-2"> 
+                        <div class="pb-4"> <b data-i18n="occurrence.identifiers"> IDENTIFIKATIONSNUMMERN für </b> <b class="text-p-blue-800">${obs['scientificName']}</b> </div>
+                        ${htmlKeysTemplate} 
+                    </div>`;
+
+                return htmlTemplate;
+            }
+
             // Get the ID parameter from the URL
             function getIdParameter() {
                 const params = new URLSearchParams(window.location.search);
                 return params.get('id');
             }
+
+            // Get the CACHE ID parameter from the URL
+            function getCacheIdParameter() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('cacheid');
+            }
+
 
             // Parse TSV text into an array of objects (assuming header row)
             function parseTSV(tsvText) {
@@ -347,28 +477,63 @@
             // Load TSV file and find record
             async function loadAndFindRecord(tsvUrl) {
                 const id = getIdParameter();
+                const cacheid = getCacheIdParameter();
+
                 if (!id) {
-                    document.getElementById('output').innerText = 'No ID parameter found in URL.';
-                    return;
+                    if (!cacheid) {
+                        document.getElementById('output').innerText = 'No ID parameter found in URL.';
+                        return;
+                    }
                 }
 
-                try {
-                    const response = await fetch(tsvUrl);
-                    const tsvText = await response.text();
-                    const records = parseTSV(tsvText);
+                if (id) {
+                    try {
+                        const response = await fetch(tsvUrl);
+                        const tsvText = await response.text();
+                        const records = parseTSV(tsvText);
 
-                    // Find record with matching id
-                    const record = records.find(r => r['osca:uniqueID'] === id);
+                        // Find record with matching id
+                        const record = records.find(r => r['osca:uniqueID'] === id);
 
-                    if (record) {
-                        document.getElementById('output').innerHTML = displayDetailsOSCA(record);
-                        $('.occurrence').localize();
-                    } else {
-                        document.getElementById('output').innerText = 'No record found for ID: ' + id;
+                        if (record) {
+                            document.getElementById('output').innerHTML = displayDetailsOSCA(record);
+                            $('.occurrence').localize();
+                        } else {
+                            document.getElementById('output').innerText = 'No record found for ID: ' + id;
+                        }
+                    } catch (err) {
+                        console.error('Error loading TSV:', err);
+                        document.getElementById('output').innerText = 'Error loading TSV file.';
                     }
-                } catch (err) {
-                    console.error('Error loading TSV:', err);
-                    document.getElementById('output').innerText = 'Error loading TSV file.';
+                }
+
+                if (cacheid) {
+                    const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc2NTA3NzIzLCJpYXQiOjE3NzU2NDM3MjMsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0.XLNMV8NlE01fi8hJeFBqQeX_zKB47WJcpQF5wON92mE';
+
+
+                    const cacheQuery = "SELECT * FROM data WHERE id = " + cacheid
+                    $.ajax({
+                        url: 'https://data.osca.science/api/search?q=' + encodeURIComponent(cacheQuery),
+                        method: 'GET',
+                        headers: {
+                            'Authorization': 'Bearer ' + jwtToken
+                        },
+                        success: function (response) {
+                            console.log('Success:', response);
+
+
+                            if (response) {
+                                document.getElementById('output').innerHTML = displayDetailsOSCACache(response.data[0]);
+                                $('.occurrence').localize();
+                            } else {
+                                document.getElementById('output').innerText = 'No record found for ID: ' + id;
+                            }
+
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                        }
+                    });
                 }
             }
 

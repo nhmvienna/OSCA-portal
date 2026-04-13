@@ -492,9 +492,7 @@ let resultListModule = (function () {
                 return `
                 
                 <div class="w-full flex flex-row items-center">
-                <a data-i18n="app.resultCard.dataDetails" href="${res.occurenceSourceLink}" target="_blank" class="mx-1 px-2 py-1 rounded-full bg-pink-400 text-white text-xs">Work In Progress</a> 
-                
-                
+                <a data-i18n="app.resultCard.dataDetails" href="./occurrence.html?cacheid=${res.originalOject.id}" target="_blank" class="flex flex-grow text-center justify-center mx-1 px-2 py-1 rounded-full bg-pink-400 text-white text-xs">Work In Progress </a>
                 ${res.originalOject.associatedSequences ? '<a href="' + res.originalOject.associatedSequences + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
                 
