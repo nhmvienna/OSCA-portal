@@ -8,7 +8,9 @@
     <meta http-equiv="Cache-Control" content="no-store" />
 
 
-    <title name="pageTitle">OSCA Occurrence Details</title>
+    <title>Open Scientific Collections Austria (OSCA) - Portal</title>
+    <link rel="shortcut icon" href="https://osca.science/wp-content/uploads/2024/01/cropped-android-chrome-512x512-2-32x32.png">
+
     <meta name="author" content="" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -28,35 +30,7 @@
     <link rel="stylesheet" href="css/colors/backgrounds.css" />
     <link rel="stylesheet" href="css/colors/text.css" />
     <link rel="stylesheet" href="css/colors/border.css" />
-    <style>
-        body {
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            line-height: 1.3 !important;
-        }
-
-        ol {
-            list-style-type: decimal !important;
-            padding-left: 1em !important;
-        }
-
-        ul {
-            list-style-type: disc !important;
-            padding-left: 1em !important;
-        }
-
-        .stretchToScreen {
-            width: 100vw;
-            height: 100vh;
-        }
-    </style>
+    <link rel="stylesheet" href="css/colors/overwrites.css" />
 
     <!-- Fontswesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -340,7 +314,7 @@
                             <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
                                 ${camelCaseToWords('dwc:occurrenceID')}
                             </th>
-                            <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                            <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
                             ${obs['occurrenceId']}
                             </td>
                         </tr>
@@ -349,14 +323,14 @@
                 let dataRows = '';
                 if (obs) {
                     for (const [key, value] of Object.entries(obs)) {
-                        if (value) {
+                        if (value && key != 'fullRecord') {
                             dataRows +=
                                 `
                                 <tr class="hover:bg-white text-left">
                                     <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
                                         ${camelCaseToWords(key)}
                                     </th>
-                                    <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                                    <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
                                     ${linkifyText(value.toString())}
                                     </td>
                                 </tr>
@@ -508,8 +482,9 @@
                 }
 
                 if (cacheid) {
-                    const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc2NTA3NzIzLCJpYXQiOjE3NzU2NDM3MjMsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0.XLNMV8NlE01fi8hJeFBqQeX_zKB47WJcpQF5wON92mE';
-
+                    const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc3MTAzNzE0LCJpYXQiOjE3NzYyMzk3MTQsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0.Bjn7OeplRrJIBlhlD61UYBDJFPPjooYwwHPSX_mnenY';
+                    
+                    
 
                     const cacheQuery = "SELECT * FROM data WHERE id = " + cacheid
                     $.ajax({
