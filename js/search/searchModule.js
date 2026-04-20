@@ -64,7 +64,7 @@ let searchModule = (function () {
         const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc2NTA3NzIzLCJpYXQiOjE3NzU2NDM3MjMsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0.XLNMV8NlE01fi8hJeFBqQeX_zKB47WJcpQF5wON92mE';
        
         
-        const cacheQuery = "SELECT * FROM data WHERE LOWER(scientificName) LIKE '%braya%'"
+        const cacheQuery = "SELECT * FROM data WHERE LOWER(scientificName) LIKE '%" + query + "%'"
         $.ajax({
           url: 'https://data.osca.science/api/search?q=' + encodeURIComponent(cacheQuery),
           method: 'GET',
