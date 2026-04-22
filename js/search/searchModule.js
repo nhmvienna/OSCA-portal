@@ -54,15 +54,16 @@ let searchModule = (function () {
       if ($('#search-source-osca').prop('checked')) { // Perform a search on the OSCA local data module
     
         $("#resultLoadingOSCA").show(); // Show the loading indicator for OSCA
+        
+        /*
         localDataModule.search(query, 'asc', searchPage - 1, recordsPerPage, '', function (results) {
           resultListModule.mergeResults(results, 3, query); // Merge the results into the result list module
           $("#resultLoadingOSCA").hide(); // Hide the loading indicator for OSCA
         });
-        
+        */
 
       
-        const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc2NTA3NzIzLCJpYXQiOjE3NzU2NDM3MjMsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0.XLNMV8NlE01fi8hJeFBqQeX_zKB47WJcpQF5wON92mE';
-       
+        const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxODA4MzgzMDk3LCJpYXQiOjE3NzY4NDcwOTcsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0.-1GXC7UUUo9lNZDv5sx6YWRn0lOKnDgktsXG5R6Lh0M';
         
         const cacheQuery = "SELECT * FROM data WHERE LOWER(scientificName) LIKE '%" + query + "%'"
         $.ajax({
@@ -72,18 +73,19 @@ let searchModule = (function () {
             'Authorization': 'Bearer ' + jwtToken
           },
           success: function (response) {
-            console.log('Success:', response);
             resultListModule.mergeResults(response.data, 7, query); // Merge the results into the result list module
+            $("#resultLoadingOSCA").hide(); // Hide the loading indicator for OSCA
           },
           error: function (xhr, status, error) {
             console.error('Error:', error);
+            $("#resultLoadingOSCA").hide(); // Hide the loading indicator for OSCA
           }
         });
 
 
       }
 
-      /*
+
 
       if ($('#search-source-gbif').prop('checked')) { // Perform a search on the GBIF API
         $("#resultLoadingGBIF").show(); // Show the loading indicator for GBIF
@@ -155,7 +157,7 @@ let searchModule = (function () {
         pendingSearchRequests.push(reqDissco);
       }
 
-      */
+
     
     }
   }

@@ -156,6 +156,9 @@ let resultListModule = (function () {
                 break;
 
             case 7: // results from OSCA CACHE
+                resultCountOSCA = data.length;
+                $("#resultCountOSCA").html(resultCountOSCA);
+
                 currentResults = currentResults.concat(data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
@@ -492,12 +495,15 @@ let resultListModule = (function () {
                 return `
                 
                 <div class="w-full flex flex-row items-center">
-                <a data-i18n="app.resultCard.dataDetails" href="./occurrence.html?cacheid=${res.originalOject.id}" target="_blank" class="flex flex-grow text-center justify-center mx-1 px-2 py-1 rounded-full bg-pink-400 text-white text-xs">Work In Progress </a>
+                <a data-i18n="app.resultCard.dataDetails" href="./occurrence.html?cacheid=${res.originalOject.id}" target="_blank" class="flex flex-grow text-center justify-center mx-1 px-2 py-1 rounded-full bg-pink-400 text-white text-xs">Suche-Details Anzeigen </a>
                 ${res.originalOject.associatedSequences ? '<a href="' + res.originalOject.associatedSequences + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
                 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                     <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  - ${res.license ? '<a href="https://creativecommons.org/public-domain/cc0/" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline" data-i18n="app.resultCard.license"> Lizenz CCO </a>' : 'Lizenz: Unbekannt'}
+                </div>
+                <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
+                    <span data-i18n="app.resultCard.specimenType"> Exemplartyp: </span> ${res.originalOject.basisOfRecord} <br> <span data-i18n="app.resultCard.objectType"> Objekttyp: </span> ${res.originalOject.typeStatus ? res.originalOject.typeStatus : 'Unbekannt'}
                 </div>
             `
             default: break;
