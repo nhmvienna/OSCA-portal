@@ -326,7 +326,7 @@ let resultListModule = (function () {
                 </div>
             </div>
 
-            <div class="w-2/6 flex-shrink border-t-0 align-middle border-l-0 border-r-0 text-xs p-4">
+            <div class="w-2/6 flex-shrink border-t-0 align-middle border-l-0 border-r-0 text-xs pr-4 py-2">
                 ${displayMedia(res.media, res.sourceOfSearch)}
             </div>
         </div>
@@ -546,7 +546,7 @@ let resultListModule = (function () {
         `
             default: return `
              <div class="flex flex-col">
-                <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
+                <div class="flex flex-col items-center justify-center text-center border w-full h-24 rounded-sm bg-gray-50">
                 <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                 </div>
             </div>
@@ -579,7 +579,7 @@ let resultListModule = (function () {
         } else {
             return `
             <div class="flex flex-col">
-               <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
+               <div class="flex flex-col items-center justify-center text-center border w-full h-24 rounded-sm bg-gray-50">
                <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                </div>
            </div>
@@ -595,7 +595,7 @@ let resultListModule = (function () {
         if (typeof media !== 'string') { // Invalid input
             return `
             <div class="flex flex-col">
-                <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
+                <div class="flex flex-col items-center justify-center text-center border w-full h-24 rounded-sm bg-gray-50">
                 <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                 </div>
             </div>
@@ -633,7 +633,7 @@ let resultListModule = (function () {
         // Invalid input
         return `
             <div class="flex flex-col">
-                <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
+                <div class="flex flex-col items-center justify-center text-center border w-full h-24 rounded-sm bg-gray-50">
                     <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                 </div>
             </div>
@@ -659,7 +659,7 @@ let resultListModule = (function () {
         if (media.length > 2) {
             return `
             <div class="flex flex-col">
-                <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
+                <div class="flex flex-col items-center justify-center text-center border w-full h-24 rounded-sm bg-gray-50">
                 <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
                 </div>
             </div>
@@ -668,7 +668,7 @@ let resultListModule = (function () {
 
         return `
         <div class="flex flex-col">
-            <div class="flex flex-col items-center justify-center text-center border w-28 h-24 rounded-sm bg-gray-50">
+            <div class="flex flex-col items-center justify-center text-center border w-full h-24 rounded-sm bg-gray-50">
             <span data-i18n="app.resultCard.errorImage">Keine Medien <br> verfügbar</span>
             </div>
         </div>

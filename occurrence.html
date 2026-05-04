@@ -39,13 +39,13 @@
 
 <body class="m-0 p-0 stretchToScreen occurrence">
 
-    <!-- Pazly Custom Background-->
+    <!-- Custom Background-->
     <section id="pazly-page-background" class="fixed m-0 p-0 stretchToScreen">
         <img class="w-full h-full object-cover object-center" loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+P///38ACfsD/QVDRcoAAAAASUVORK5CYII=" />
     </section>
 
 
-    <!-- Pazly Blocks Come Here -->
+    <!-- Blocks Come Here -->
     <section id="pazly-template-set" class="absolute top-0  m-0 p-0 stretchToScreen">
 
         <div class="fixed w-full bg-white p-2 px-4 flex flex-row flex-wrap items-center justify-between border-b shadow-md">
@@ -61,7 +61,7 @@
                 <div class="flex flex-col md:flex-row">
 
                     <div class="flex flex-row justify-center pb-2 md:pb-0">
-                        <a pazly-editable="innerHTML href bg clone" target="_blank" href="https://osca.science/portal/" class="hover:shadow-lg ml-4 py-2 px-4 cursor-pointer rounded-full whitespace-pre-line font-semibold bg-black text-white" data-i18n="occurrence.backToPortalBtn">Zurück zur Suche</a>
+                        <a target="_blank" href="https://osca.science/portal/" class="hover:shadow-lg ml-4 py-2 px-4 cursor-pointer rounded-full whitespace-pre-line font-semibold bg-black text-white" data-i18n="occurrence.backToPortalBtn">Zurück zur Suche</a>
                     </div>
                 </div>
             </div>
@@ -97,9 +97,9 @@
 
         </div>
     </section>
-    <!-- Pazly Blocks Ends Here -->
+    <!-- Blocks Ends Here -->
 
-    <!-- Pazly Scripts Start Here -->
+    <!-- Scripts Start Here -->
     <section id="pazly-scripts-set" class="m-0 p-0 w-0 h-0">
 
         <script src="js/libs/jquery.min.js"></script>
@@ -306,7 +306,7 @@
                             <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
                                 ${camelCaseToWords('osca:uniqueID')}
                             </th>
-                            <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                            <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
                             ${obs['id']}
                             </td>
                         </tr>
@@ -482,9 +482,7 @@
                 }
 
                 if (cacheid) {
-                    const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxNzc3MTAzNzE0LCJpYXQiOjE3NzYyMzk3MTQsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJhcGlfa2V5X2lkIjoxLCJkb21haW4iOiI0Ni4xMDEuMjE0LjI1In0.Bjn7OeplRrJIBlhlD61UYBDJFPPjooYwwHPSX_mnenY';
-                    
-                    
+                    const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxODA4ODE5MTgxLCJpYXQiOjE3NzcyODMxODEsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJ0eXBlIjoiYXBpX2tleSIsImFwaV9rZXlfaWQiOjEsImRvbWFpbiI6IjQ2LjEwMS4yMTQuMjUiLCJyYXRlX2xpbWl0X3Blcl9ob3VyIjoxMDAwfQ.2ICubK90YTzgIOfLTLQ5qkxgLYaQKNkXHwItpd7S_t4';
 
                     const cacheQuery = "SELECT * FROM data WHERE id = " + cacheid
                     $.ajax({
