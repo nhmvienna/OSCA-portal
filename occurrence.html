@@ -58,6 +58,9 @@
         <section xmlns="http://www.w3.org/1999/xhtml" class="w-full pt-16 text-p-white bg-p-gray-100">
             <div class="w-full md:px-20 p-3 container mx-auto flex flex-row items-center justify-between">
                 <div class="text-black font-bold" data-i18n="occurrence.header"> OCCURRENCE ANGABEN </div>
+
+                <div id="darwinCoreObjDownloadBtn" class="hover:shadow-lg ml-4 py-2 px-4 cursor-pointer rounded-full whitespace-pre-line font-semibold bg-white shadow text-black"> <i class="fas fa-file-download mr-2"></i> <span data-i18n="occurrence.downloadOccurrenceBtn">DarwinCore Herunterladen</span> </div>
+
                 <div class="flex flex-col md:flex-row">
 
                     <div class="flex flex-row justify-center pb-2 md:pb-0">
@@ -108,29 +111,8 @@
         <script src="js/translations.js"></script>
 
         <script>
-            // handle links with @href started with '#' only
-            $(document).on('click', 'a[href^="#"]', function (e) {
-                // target element id
-                var id = $(this).attr('href');
 
-                // target element
-                var $id = $(id);
-                if ($id.length === 0) {
-                    return;
-                }
-
-                // prevent standard hash navigation (avoid blinking in IE)
-                e.preventDefault();
-
-                // top position relative to the document
-                var pos = $id.offset().top;
-
-                // animated top scrolling
-                $('body, html').animate({ scrollTop: pos });
-            });
-        </script>
-
-        <script>
+            let darwinCoreObj;
 
             // Utility function to convert camelCase strings to words
             function camelCaseToWords(input) {
@@ -496,7 +478,8 @@
 
 
                             if (response) {
-                                document.getElementById('output').innerHTML = displayDetailsOSCACache(response.data[0]);
+                                darwinCoreObj = response.data[0];
+                                document.getElementById('output').innerHTML = displayDetailsOSCACache(darwinCoreObj);
                                 $('.occurrence').localize();
                             } else {
                                 document.getElementById('output').innerText = 'No record found for ID: ' + id;
@@ -513,6 +496,43 @@
             // Call function with your .tsv file URL
             loadAndFindRecord('./data/osca-data.tsv?v=7'); // replace 'data.tsv' with your actual file path
 
+            function objectToTSV(obj) {
+                if (!obj || typeof obj !== 'object' || Array.isArray(obj)) {
+                    throw new Error('Input must be a plain object');
+                }
+
+                const headers = Object.keys(obj);
+                const values = headers.map(key => {
+                    const value = obj[key];
+
+                    // Convert value to string and escape tabs/newlines
+                    return String(value)
+                        .replace(/\t/g, ' ')   // remove tabs
+                        .replace(/\n/g, ' ');  // remove newlines
+                });
+
+                const headerRow = headers.join('\t');
+                const valueRow = values.join('\t');
+
+                return `${headerRow}\n${valueRow}`;
+            }
+
+
+
+            $('#darwinCoreObjDownloadBtn').click(() => {
+                console.dir(darwinCoreObj);
+
+                const tsv = objectToTSV(darwinCoreObj);
+                const blob = new Blob([tsv], { type: 'text/tab-separated-values' });
+                const url = URL.createObjectURL(blob);
+
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'osca-' + getCacheIdParameter() + '-occurrence.tsv';
+                a.click();
+
+                URL.revokeObjectURL(url);
+            });
 
             const id = getIdParameter();
             if (id) {
