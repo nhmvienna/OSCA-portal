@@ -58,7 +58,7 @@ let resultListModule = (function () {
                         sourceOfSearch: searchSource,
                         scientificName: res.fullscientificname,
                         occurenceSourceLink: "https://geocase.eu/specimen/" + res.geocase_id,
-                        occurrenceOriginalLink: '',
+                        occurrenceOriginalLink: res.datasourceurl,
                         owner: (res.providername ? res.providername : 'Unbekannter Anbieter'),
                         license: res.license,
                         media: res.images,
@@ -67,7 +67,7 @@ let resultListModule = (function () {
                     }
                 }));
 
-                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
+                //currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGeocase").html(resultCountGeocase);
@@ -219,7 +219,7 @@ let resultListModule = (function () {
                         sourceOfSearch: searchSource,
                         scientificName: res.fullscientificname,
                         occurenceSourceLink: "https://geocase.eu/specimen/" + res.geocase_id,
-                        occurrenceOriginalLink: '',
+                        occurrenceOriginalLink: res.datasourceurl,
                         owner: (res.providername ? res.providername : 'Unbekannter Anbieter'),
                         license: res.license,
                         media: res.images,
