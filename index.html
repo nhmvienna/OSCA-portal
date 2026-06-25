@@ -59,7 +59,7 @@
             <div class="flex md:p-3 flex-col md:flex-row justify-between">
                 <div class="flex items-start flex-col pr-2 border-r">
                     <a class="flex title-font font-medium items-center p-2 text-p-gray-900 md:mb-0">
-                        <span class="text-xs">v4.36</span> <br>
+                        <span class="text-xs">v4.38 (dev. preview)</span> <br>
                     </a>
                     <div id="filter-toggle-button" onclick="filtersModule.switchFilters()" class="whitespace-nowrap text-xs px-4 py-2 rounded-lg shadow-md border cursor-pointer bg-p-gray-50 border-pink-200"> <i class="fas fa-sliders-h text-sm font-semibold"></i> Filter</div>
                 </div>
@@ -73,11 +73,13 @@
                             </span>
                             <input id="searchQuery" type="text" class="pl-10 pr-4 py-2 rounded-lg border-2 border-green-500 w-full placeholder-gray-400" placeholder="Search for specimens, countries, etc. ..." />
                         </div>
-                        <button id="searchButton" data-i18n="app.search" class="flex items-center shadow bg-p-green-500 hover:bg-p-green-700 text-p-white ml-2 py-2 px-4 rounded-lg"><i class="fas fa-search mr-2"></i> Suchen</a>
+                        <button id="searchButton" class="flex items-center shadow bg-p-green-500 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg"><i class="fas fa-search mr-2"></i> <span data-i18n="app.search">Suchen</span> </a>
+                        <button id="searchGBIFORGButton" class="flex items-center shadow bg-p-green-700 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap">  <span data-i18n="app.gbifsearch">GBIF.org Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </a>
+                        <button id="searchGEOCASEButton" class="flex items-center shadow bg-p-orange-400 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap">  <span data-i18n="app.geocasesearch">GeoCASe.eu Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </a>
 
                     </div>
                     <div class="flex flex-grow items-center">
-                        <fieldset class="flex flex-grow items-start px-2 justify-between gap-2 pt-2 text-xs">
+                        <fieldset class="flex flex-grow items-start px-2 justify-start gap-4 pt-2 text-xs">
                             <div data-i18n="app.results" class="flex items-center justify-center py-1 pl-3 pr-1 text-sm">Quellen: </div>
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-orange-50 py-1 px-3">
@@ -90,7 +92,7 @@
                                     <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             </div>
-
+<!-- 
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
                                     <input type="checkbox" checked name="search-source" id="search-source-gbif" value="1" onclick="toggleResultCards(this.value, this.checked)">
@@ -102,7 +104,8 @@
                                     <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             </div>
-
+-->
+<!-- 
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
                                     <input type="checkbox" checked name="search-source" id="search-source-geocase" value="2" onclick="toggleResultCards(this.value, this.checked)">
@@ -114,7 +117,8 @@
                                     <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             </div>
-
+-->
+<!-- 
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
                                     <input type="checkbox" checked name="search-source" id="search-source-europeana" value="5" onclick="toggleResultCards(this.value, this.checked)">
@@ -126,7 +130,7 @@
                                     <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             </div>
-
+-->
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
                                     <input type="checkbox" checked name="search-source" id="search-source-dissco" value="6" onclick="toggleResultCards(this.value, this.checked)">

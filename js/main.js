@@ -84,9 +84,20 @@ $(document).ready(function () {
     $('input[name="search-source"][value="' + searchSourceSelectedValue + '"]').prop('checked', true);
     $('#searchQuery').val(searchQuery);
 
+    // Set external search links
+    $('#searchGBIFORGButton').on('click', function () {
+        window.open("https://www.gbif.org/occurrence/search?networkKey=80edc711-19b9-464c-a8b3-2cc15be80e26&basisOfRecord=PRESERVED_SPECIMEN&q=" + $('#searchQuery').val(), '_blank');
+    });
+
+    $('#searchGEOCASEButton').on('click', function () {
+        window.open("https://geocase.eu/search?providercountry=%22Austria%22&q=" + $('#searchQuery').val(), '_blank');
+    });
+
     // Perform the initial search and display results
     searchModule.search(searchQuery, searchSourceSelectedValue);
     
+
+
     // Load project statistics if the flag is set
     if (showProjectStats) {
         loadProjectStatus();
