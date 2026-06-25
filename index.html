@@ -54,6 +54,12 @@
                 <span class="flex items-center font-bold">
                     <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo-1.svg" alt="" srcset="" class="h-6"> PORTAL
                 </span>
+
+                <div onclick="loadProjectStatus()" class="flex flex-row items-center justify-center text-xs rounded-lg px-4 py-2 bg-gray-50 border hover:bg-white shadow cursor-pointer">
+                    <span data-i18n="app.oscaInNumbers">OSCA in Zahlen</span>
+                </div>
+
+
                 <a href="https://osca.science/" class="p-2 px-4 rounded-lg border border-gray-300 text-xs uppercase" style="color:#726051;">zur Startseite</a>
             </div>
             <div class="flex md:p-3 flex-col md:flex-row justify-between">
@@ -74,15 +80,13 @@
                             <input id="searchQuery" type="text" class="pl-10 pr-4 py-2 rounded-lg border-2 border-green-500 w-full placeholder-gray-400" placeholder="Search for specimens, countries, etc. ..." />
                         </div>
                         <button id="searchButton" class="flex items-center shadow bg-p-green-500 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg"><i class="fas fa-search mr-2"></i> <span data-i18n="app.search">Suchen</span> </a>
-                        <button id="searchGBIFORGButton" class="flex items-center shadow bg-p-green-700 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap">  <span data-i18n="app.gbifsearch">GBIF.org Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </a>
-                        <button id="searchGEOCASEButton" class="flex items-center shadow bg-p-orange-400 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap">  <span data-i18n="app.geocasesearch">GeoCASe.eu Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </a>
 
                     </div>
                     <div class="flex flex-grow items-center">
-                        <fieldset class="flex flex-grow items-start px-2 justify-start gap-4 pt-2 text-xs">
+                        <fieldset class="flex flex-grow items-center px-2 justify-start gap-4 pt-2 text-xs">
                             <div data-i18n="app.results" class="flex items-center justify-center py-1 pl-3 pr-1 text-sm">Quellen: </div>
                             <div class="flex whitespace-nowrap items-center justify-center">
-                                <div class="flex rounded-lg bg-p-orange-50 py-1 px-3">
+                                <div class="flex rounded-lg bg-p-orange-50 py-2 px-4">
                                     <input type="checkbox" checked name="search-source" id="search-source-osca" value="3" onclick="toggleResultCards(this.value, this.checked)">
                                     <label for="search-source-osca" class="pl-1"> <span id="resultCountOSCA" class="result-count font-bold"></span> <span data-i18n="app.resultsFromOSCA">von OSCA Cache</span> <img src="./img/osca-icon.png" class="object-center object-contain w-5 h-5 inline-block rounded-sm" /></label>
                                 </div>
@@ -92,7 +96,18 @@
                                     <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             </div>
-<!-- 
+                            <div class="flex whitespace-nowrap items-center justify-center">
+                                <div class="flex rounded-lg bg-p-blue-50 py-2 px-4">
+                                    <input type="checkbox" checked name="search-source" id="search-source-dissco" value="6" onclick="toggleResultCards(this.value, this.checked)">
+                                    <label for="search-source-dissco" class="pl-1"> <span id="resultCountDissco" class="result-count font-bold"></span> <span data-i18n="app.resultsFromDiSSCO">von DiSSCO</span> <img src="./img/dissco-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /></label>
+                                </div>
+
+                                <svg id="resultLoadingDissco" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-50" cx="12" cy="12" r="10" stroke="#2563eb" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                            <!-- 
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
                                     <input type="checkbox" checked name="search-source" id="search-source-gbif" value="1" onclick="toggleResultCards(this.value, this.checked)">
@@ -105,7 +120,7 @@
                                 </svg>
                             </div>
 -->
-<!-- 
+                            <!-- 
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
                                     <input type="checkbox" checked name="search-source" id="search-source-geocase" value="2" onclick="toggleResultCards(this.value, this.checked)">
@@ -118,7 +133,7 @@
                                 </svg>
                             </div>
 -->
-<!-- 
+                            <!-- 
                             <div class="flex whitespace-nowrap items-center justify-center">
                                 <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
                                     <input type="checkbox" checked name="search-source" id="search-source-europeana" value="5" onclick="toggleResultCards(this.value, this.checked)">
@@ -131,16 +146,12 @@
                                 </svg>
                             </div>
 -->
-                            <div class="flex whitespace-nowrap items-center justify-center">
-                                <div class="flex rounded-lg bg-p-blue-50 py-1 px-3">
-                                    <input type="checkbox" checked name="search-source" id="search-source-dissco" value="6" onclick="toggleResultCards(this.value, this.checked)">
-                                    <label for="search-source-dissco" class="pl-1"> <span id="resultCountDissco" class="result-count font-bold"></span> <span data-i18n="app.resultsFromDiSSCO">von DiSSCO</span> <img src="./img/dissco-icon.png" class="object-center object-contain w-4 h-4 inline-block rounded-sm" /></label>
-                                </div>
+                            
 
-                                <svg id="resultLoadingDissco" class="animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-50" cx="12" cy="12" r="10" stroke="#2563eb" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="#fff" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                </svg>
+                            <div onclick="resultListModule.downloadCurrentResults()" class="flex flex-row justify-between items-center border px-4 py-2 text-xs rounded-lg shadow cursor-pointer bg-white">
+                                <i id="resultDownloadIcon" class="fas fa-arrow-down mr-2"></i>
+                                <i id="resultDownloadInProgressIcon" class="hidden animate-spin fas fa-circle-notch text-p-green-600 mr-2"></i>
+                                <span data-i18n="app.downloadResults">Seitenergebnisse Herunterladen</span>
                             </div>
 
                         </fieldset>
@@ -150,17 +161,14 @@
                 </div>
 
                 <!-- Stats and Other Buttons-->
-                <div class="flex flex-col items-start pl-2 gap-2 border-l text-center">
-
-                    <div onclick="loadProjectStatus()" class="w-full flex flex-row items-center justify-center text-xs rounded-lg px-4 py-2 bg-gray-50 border hover:bg-white shadow cursor-pointer">
-                        <span data-i18n="app.oscaInNumbers">OSCA in Zahlen</span>
-                    </div>
-
-                    <div onclick="resultListModule.downloadCurrentResults()" class="flex flex-row justify-between items-center border px-4 py-2 text-xs rounded-lg shadow cursor-pointer bg-white">
-                        <i id="resultDownloadIcon" class="fas fa-arrow-down mr-2"></i>
-                        <i id="resultDownloadInProgressIcon" class="hidden animate-spin fas fa-circle-notch text-p-green-600 mr-2"></i>
-                        <span data-i18n="app.downloadResults">Seitenergebnisse Herunterladen</span>
-                    </div>
+                <div class="grid grid-cols-3 pl-2 gap-2 border-l text-center text-sm pr-4">
+                    <button id="searchGBIFORGButton" class="flex w-full items-center shadow bg-p-green-700 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap"> <span data-i18n="app.gbifsearch">GBIF Org Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </button>
+                    <button id="searchBOLDButton" class="flex w-full items-center shadow bg-p-orange-600 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap"> <span data-i18n="app.europeanasearch">BOLD Systems Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </button>
+                    <button id="searchGEOCASEButton" class="flex w-full items-center shadow bg-p-orange-400 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap"> <span data-i18n="app.geocasesearch">GeoCASe Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </button>
+                    
+                    <div> </div>
+                    <button id="searchEUROPEANAButton" class="flex w-full items-center shadow bg-p-blue-700 hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap"> <span data-i18n="app.europeanasearch">Europeana Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </button>
+                    <button id="searchKULTOORPOOLButton" class="flex w-full items-center shadow bg-p-black hover:shadow-lg text-p-white ml-2 py-2 px-4 rounded-lg whitespace-nowrap"> <span data-i18n="app.kulturpoolsearch">Kulturpool Suchen</span> <i class="fas fa-external-link-alt ml-2"></i> </button>
                 </div>
             </div>
         </section>

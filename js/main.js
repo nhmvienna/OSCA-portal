@@ -45,22 +45,22 @@ function hideProjectStats() {
 */
 function toggleResultCards(searchSource, value) {
     switch (searchSource) {
-        case '1': 
+        case '1':
             value ? $('.gbifResultCard').show() : $('.gbifResultCard').hide();
             break;
-        case '2': 
+        case '2':
             value ? $('.geocaseResultCard').show() : $('.geocaseResultCard').hide();
             break;
-        case '3': 
+        case '3':
             value ? $('.oscaResultCard').show() : $('.oscaResultCard').hide();
             break;
-        case '5': 
+        case '5':
             value ? $('.europeanaResultCard').show() : $('.europeanaResultCard').hide();
             break;
-        case '6': 
+        case '6':
             value ? $('.disscoResultCard').show() : $('.disscoResultCard').hide();
             break;
-        case 'hm': 
+        case 'hm':
             !value ? $('.hideMedia').show() : $('.hideMedia').hide();
             break;
     }
@@ -93,9 +93,21 @@ $(document).ready(function () {
         window.open("https://geocase.eu/search?providercountry=%22Austria%22&q=" + $('#searchQuery').val(), '_blank');
     });
 
+    $('#searchBOLDButton').on('click', function () {
+        window.open("https://portal.boldsystems.org/result?query=%22" + $('#searchQuery').val() + "%22[tax],Austria[geo]", '_blank');
+    });
+
+    $('#searchEUROPEANAButton').on('click', function () {
+        window.open("https://www.europeana.eu/en/search?page=1&qf=COUNTRY%3A%22Austria%22&view=grid&query=" + $('#searchQuery').val(), '_blank');
+    });
+
+    $('#searchKULTOORPOOLButton').on('click', function () {
+        window.open("https://kulturpool.at/suche?query=" + $('#searchQuery').val(), '_blank');
+    });
+
     // Perform the initial search and display results
     searchModule.search(searchQuery, searchSourceSelectedValue);
-    
+
 
 
     // Load project statistics if the flag is set
@@ -318,7 +330,7 @@ function processOSCAInNumbers(data) {
         `);
 
     }
-    
+
     $('.app').localize();
 }
 
