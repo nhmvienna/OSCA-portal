@@ -35,7 +35,7 @@ let resultListModule = (function () {
                         scientificName: res.scientificName,
                         occurenceSourceLink: "https://www.gbif.org/occurrence/" + res.gbifID,
                         occurrenceOriginalLink: res.occurrenceID,
-                        owner: (res.rightsHolder ? res.rightsHolder + ' ' : '') + (res.institutionCode ? res.institutionCode + ' '  : '')  + (res.collectionCode ? res.collectionCode + ' ' : ''),
+                        owner: (res.rightsHolder ? res.rightsHolder + ' ' : '') + (res.institutionCode ? res.institutionCode + ' ' : '') + (res.collectionCode ? res.collectionCode + ' ' : ''),
                         license: res.license,
                         media: res.media,
                         specimenID: ' <span class="font-semibold">GBIF ID:</span>' + res.gbifID + ' | <span class="font-semibold">Katalog ID:</span>' + (res.catalogNumber ? res.catalogNumber : 'nicht verfügbar'),
@@ -47,7 +47,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGBIF").html(resultCountGBIF);
-               
+
                 renderResultGrid(currentResults);
                 break;
 
@@ -70,7 +70,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGeocase").html(resultCountGeocase);
-                
+
                 renderResultGrid(currentResults);
                 break;
 
@@ -94,7 +94,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountOSCA").html(resultCountOSCA);
-               
+
                 renderResultGrid(currentResults);
                 break;
 
@@ -103,7 +103,7 @@ let resultListModule = (function () {
 
                 $("#resultStatistics").html('BOLD data under construction');
                 displayError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
-                
+
                 break;
 
             case 5: // results from Europeana
@@ -126,7 +126,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountEuropeana").html(resultCountEuropeana);
-                
+
                 renderResultGrid(currentResults);
                 break;
 
@@ -146,11 +146,11 @@ let resultListModule = (function () {
                     }
                 }));
 
-                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
+                //currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountDissco").html(resultCountDissco);
-                
+
                 renderResultGrid(currentResults);
                 break;
 
@@ -161,12 +161,12 @@ let resultListModule = (function () {
                 currentResults = currentResults.concat(data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
-                        scientificName: res.scientificName? res.scientificName: " ",
+                        scientificName: res.scientificName ? res.scientificName : " ",
                         occurenceSourceLink: '',
                         occurrenceOriginalLink: '',
-                        owner: res.institutionCode? res.institutionCode: " ",
+                        owner: res.institutionCode ? res.institutionCode : " ",
                         license: 'CC0',
-                        media: res.associatedMedia? res.associatedMedia : "",
+                        media: res.associatedMedia ? res.associatedMedia : "",
                         specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' | <span class="font-semibold">Katalog ID:</span>' + res.collectionNumber : ''),
                         originalOject: res
                     }
@@ -176,7 +176,7 @@ let resultListModule = (function () {
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountOSCA").html(resultCountOSCA);
-               
+
                 renderResultGrid(currentResults);
                 break;
             default: break;
@@ -206,7 +206,7 @@ let resultListModule = (function () {
                         originalOject: res
                     }
                 });
-                
+
                 currentResults = currentResults.concat(moreGBIFResults);
 
                 appendResultGrid(moreGBIFResults);
@@ -257,7 +257,7 @@ let resultListModule = (function () {
 
                 $("#resultStatistics").html('BOLD data under construction');
                 displayError(`Access to XMLHttpRequest at '<a class="hover:text-blue-500" target="_blank" href="https://www.boldsystems.org/">https://www.boldsystems.org/index.php/API_Public/specimen?format=json&taxon=Cochlostoma</a>' from origin '${window.location.origin}' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`, 4)
-                
+
                 break;
 
             case 5: // results from Europeana
@@ -281,7 +281,7 @@ let resultListModule = (function () {
                 break;
 
             case 6: // results from DiSSCO
-                
+
                 const moreDiSSCoResults = data.data.map(res => {
                     return {
                         sourceOfSearch: searchSource,
@@ -759,9 +759,9 @@ let resultListModule = (function () {
         array.forEach(item => {
             const row = headers.map(header => {
                 let value = item[header];
-                
+
                 if (header == 'sourceOfSearch') {
-                    switch(value){
+                    switch (value) {
                         case 1: return 'GBIF';
                         case 2: return 'GeoCASE';
                         case 3: return 'OSCA';
@@ -775,7 +775,7 @@ let resultListModule = (function () {
                     value = extractTextFromHTML(value).replace(/\t/g, '    '); // Replace tabs with spaces
                 };
 
-                 if (typeof value === 'object') {
+                if (typeof value === 'object') {
                     value = JSON.stringify(value) // MAke object a string
                 };
 
@@ -857,6 +857,12 @@ let resultListModule = (function () {
     function containsAllWordsInsensitive(input, words) {
         const lowerInput = input?.toLowerCase();
         return words.every(word => lowerInput?.includes(word.toLowerCase()));
+    }
+
+    function urlDomain(data) {
+        let a = document.createElement('a');
+        a.href = data;
+        return a.hostname;
     }
 
 
