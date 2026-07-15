@@ -43,7 +43,7 @@ let resultListModule = (function () {
                     }
                 }));
 
-                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
+                //currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGBIF").html(resultCountGBIF);
