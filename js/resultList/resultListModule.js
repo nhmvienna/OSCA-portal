@@ -504,6 +504,8 @@ let resultListModule = (function () {
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                     <span data-i18n="app.resultCard.specimenType"> Exemplartyp: </span> ${res.originalOject.basisOfRecord} <br> <span data-i18n="app.resultCard.objectType"> Objekttyp: </span> ${res.originalOject.typeStatus ? res.originalOject.typeStatus : 'Unbekannt'}
                 </div>
+                 ${res.originalOject.catalogNumber ? '<div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs "> <span> Katalog: <b>' + res.originalOject.catalogNumber + '</b> </span> </div>' : ''} 
+              
             `
             default: break;
         }
