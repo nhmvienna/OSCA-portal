@@ -167,7 +167,7 @@ let resultListModule = (function () {
                         owner: res.institutionCode? res.institutionCode: " ",
                         license: 'CC0',
                         media: res.associatedMedia? res.associatedMedia : "",
-                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' | <span class="font-semibold">Katalog ID:</span>' + res.collectionNumber : ''),
+                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' <br> <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' <br> <span class="font-semibold">Katalog ID:</span>' + res.collectionNumber : ''),
                         originalOject: res
                     }
                 }));
@@ -504,6 +504,9 @@ let resultListModule = (function () {
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                     <span data-i18n="app.resultCard.specimenType"> Exemplartyp: </span> ${res.originalOject.basisOfRecord} <br> <span data-i18n="app.resultCard.objectType"> Objekttyp: </span> ${res.originalOject.typeStatus ? res.originalOject.typeStatus : 'Unbekannt'}
                 </div>
+                
+                ${res.originalOject.catalogNumber ? '<div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs "> <span> Katalog: <b>' + res.originalOject.catalogNumber + '</b> </span> </div>' : ''} 
+                
             `
             default: break;
         }
