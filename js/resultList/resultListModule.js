@@ -167,7 +167,7 @@ let resultListModule = (function () {
                         owner: res.institutionCode ? res.institutionCode : " ",
                         license: 'CC0',
                         media: res.associatedMedia ? res.associatedMedia : "",
-                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' | <span class="font-semibold">Katalog ID:</span>' + res.collectionNumber : ''),
+                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' <br> <span class="font-semibold">Sammlungs-ID:</span>' + res.collectionNumber : ''),
                         originalOject: res
                     }
                 }));
@@ -242,7 +242,7 @@ let resultListModule = (function () {
                         owner: (res.organization ? res.organization : 'Unbekannter Anbieter'),
                         license: res.license,
                         media: res.media,
-                        specimenID: '<span class="font-semibold">OSCA ID:</span>' + res.phisical_specimen_id + ' | <span class="font-semibold">Katalog ID:</span>' + (res.collection_number ? res.collection_number : 'nicht verfügbar'),
+                        specimenID: '<span class="font-semibold">OSCA ID:</span>' + res.phisical_specimen_id + ' | <span class="font-semibold">Sammlungs-ID:</span>' + (res.collection_number ? res.collection_number : 'nicht verfügbar'),
                         originalOject: res
                     }
                 });
