@@ -204,6 +204,10 @@
                             <span data-i18n="app.filterDataId">Probe ID</span> <input id="specimenIDStringFilter" data-i18n="[placeholder]app.filterDataIdPlaceholer" type="text" placeholder="Zum Beispiel: 12345" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
                         </div>
 
+                        <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
+                            <span data-i18n="app.catalogId">Katalig ID</span> <input id="catalogIDStringFilter" data-i18n="[placeholder]app.catalogIdPlaceholer" type="text" placeholder="Zum Beispiel: CN-2b7a38f9" class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
+                        </div>
+
                         <!-- 
                     <div class="w-full flex items-center  border-b p-4 text-sm font-semibold">
                         Probe Typ <br> (Specimen Type) <input type="text" placeholder="Zum Beispiel: preserved specimen, fossil specimen, etc." class="w-4/6 flex-grow mx-2 p-2 rounded-lg border" />
@@ -217,7 +221,7 @@
                     -->
 
                         <div class="w-full flex flex-row justify-around items-center border-b p-4 text-sm font-semibold">
-                            <button data-i18n="app.filterBtnApply" class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value})">Filter anwenden</button>
+                            <button data-i18n="app.filterBtnApply" class="py-2 px-4 shadow bg-blue-600 text-white rounded-lg" onclick="filtersModule.applyFilters({'instituteString': document.getElementById('instituteStringFilter').value, 'specimenIDString': document.getElementById('specimenIDStringFilter').value,  'catalogIDString': document.getElementById('catalogIDStringFilter').value})">Filter anwenden</button>
                             <button data-i18n="app.filterBtnReset" class="py-2 px-4 shadow bg-red-400 text-white rounded-lg" onclick="filtersModule.clearFilters()">Filter zurücksetzen</button>
                         </div>
                     </div>
@@ -327,14 +331,14 @@
         <script src="js/libs/jquery-i18next.min.js"></script>
 
 
-        <script src="js/localData/localData.js?v=436"></script>
-        <script src="js/search/searchModule.js?v=436"></script>
-        <script src="js/filters/filtersModule.js?v=436"></script>
-        <script src="js/resultList/resultListModule.js?v=436"></script>
-        <script src="js/resultDetails/resultDetailsModule.js?v=436"></script>
+        <script src="js/localData/localData.js?v=437"></script>
+        <script src="js/search/searchModule.js?v=437"></script>
+        <script src="js/filters/filtersModule.js?v=437"></script>
+        <script src="js/resultList/resultListModule.js?v=437"></script>
+        <script src="js/resultDetails/resultDetailsModule.js?v=437"></script>
 
-        <script src="js/main.js?v=436"></script>
-        <script src="js/translations.js?v=436"></script>
+        <script src="js/main.js?v=437"></script>
+        <script src="js/translations.js?v=437"></script>
 
         <script>
             //send height changes to iframe

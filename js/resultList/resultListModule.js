@@ -165,7 +165,7 @@ let resultListModule = (function () {
                         occurenceSourceLink: '',
                         occurrenceOriginalLink: '',
                         owner: res.institutionCode ? res.institutionCode : " ",
-                        license: 'CC0',
+                        license: res.license? res.license : 'https://creativecommons.org/public-domain/#cc0',
                         media: res.associatedMedia ? res.associatedMedia : "",
                         specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' <br> <span class="font-semibold">Sammlungs-ID:</span>' + res.collectionNumber : ''),
                         originalOject: res
@@ -499,7 +499,7 @@ let resultListModule = (function () {
                 </div>
                 
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
-                    <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  - ${res.license ? '<a href="https://creativecommons.org/public-domain/cc0/" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline" data-i18n="app.resultCard.license"> Lizenz CCO </a>' : 'Lizenz: Unbekannt'}
+                    <span data-i18n="app.resultCard.dataOwner"> Inhaber: </span> ${res.owner}  - ${res.license ? '<a href="'+ res.license +'" target="_blank" onclick="event.stopPropagation();" class="text-blue-700 underline" data-i18n="app.resultCard.license"> Lizenz </a>' : 'Lizenz: Unbekannt'}
                 </div>
                 <div class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs ">
                     <span data-i18n="app.resultCard.specimenType"> Exemplartyp: </span> ${res.originalOject.basisOfRecord} <br> <span data-i18n="app.resultCard.objectType"> Objekttyp: </span> ${res.originalOject.typeStatus ? res.originalOject.typeStatus : 'Unbekannt'}

@@ -106,10 +106,25 @@ let filtersModule = (function () {
   }
 
   /**
+   * Filters the results based on the catalog ID.
+   * @param {string} catalogIDString - The string to filter results by.
+   */
+  function filterByCatalogID(catalogIDString) {
+    if (catalogIDString?.length > 1) {
+      if (currentResults.length > 1) {
+        filteredResults = currentResults.filter(result => result.sourceOfSearch === 7 && result.originalOject.catalogNumber?.toLowerCase().includes(catalogIDString?.toLowerCase()));
+        currentResults = filteredResults;
+        console.log('filtered by catalog',currentResults)
+      }
+    }
+  }
+
+  /**
    * Applies multiple filters to the results based on the provided filter object.
    * @param {Object} filterObject - An object containing filter criteria.
    * @param {string} filterObject.instituteString - Filter by institute name.
    * @param {string} filterObject.specimenIDString - Filter by specimen ID.
+   * @param {string} filterObject.catalogIDString - Filter by catalog ID.
    */
   function applyFilters(filterObject) {
     resetFilters();
@@ -122,6 +137,7 @@ let filtersModule = (function () {
     // Apply individual filters
     filterByInstitute(filterObject.instituteString);
     filterBySpecimenID(filterObject.specimenIDString);
+    filterByCatalogID(filterObject.catalogIDString)
 
     resultListModule.renderResultGrid(currentResults);
 
