@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="article" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+
+
+    <title>Open Scientific Collections Austria (OSCA) - Portal</title>
+    <link rel="shortcut icon" href="https://osca.science/wp-content/uploads/2024/01/cropped-android-chrome-512x512-2-32x32.png">
+
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="og:title" property="og:title" content="" />
+    <meta name="og:description" property="og:description" content="" />
+    <meta name="og:image" property="og:image" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="css/tailwind.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom Colors -->
+    <link rel="stylesheet" href="css/colors/gradients.css" />
+    <link rel="stylesheet" href="css/colors/backgrounds.css" />
+    <link rel="stylesheet" href="css/colors/text.css" />
+    <link rel="stylesheet" href="css/colors/border.css" />
+    <link rel="stylesheet" href="css/colors/overwrites.css" />
+
+    <!-- Fontswesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</head>
+
+<body class="m-0 p-0 stretchToScreen occurrence">
+
+    <!-- Custom Background-->
+    <section id="pazly-page-background" class="fixed m-0 p-0 stretchToScreen">
+        <img class="w-full h-full object-cover object-center" loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+P///38ACfsD/QVDRcoAAAAASUVORK5CYII=" />
+    </section>
+
+
+    <!-- Blocks Come Here -->
+    <section id="pazly-template-set" class="absolute top-0  m-0 p-0 stretchToScreen">
+
+        <div class="fixed w-full bg-white p-2 px-4 flex flex-row flex-wrap items-center justify-between border-b shadow-md">
+            <span class="flex items-center font-bold">
+                <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo-1.svg" alt="" srcset="" class="h-6"> PORTAL
+            </span>
+            <a href="https://osca.science/" target="_self" class="p-2 px-4 rounded-lg border border-gray-300 text-xs uppercase" style="color:#726051;">zur Startseite</a>
+        </div>
+
+        <section xmlns="http://www.w3.org/1999/xhtml" class="w-full pt-16 text-p-white bg-p-gray-100">
+            <div class="w-full md:px-20 p-3 container mx-auto flex flex-row items-center justify-between">
+                <div class="text-black font-bold" data-i18n="occurrence.header"> OCCURRENCE ANGABEN </div>
+
+                <div id="darwinCoreObjDownloadBtn" class="hover:shadow-lg ml-4 py-2 px-4 cursor-pointer rounded-full whitespace-pre-line font-semibold bg-white shadow text-black"> <i class="fas fa-file-download mr-2"></i> <span data-i18n="occurrence.downloadOccurrenceBtn">DarwinCore Herunterladen</span> </div>
+
+                <div class="flex flex-col md:flex-row">
+
+                    <div class="flex flex-row justify-center pb-2 md:pb-0">
+                        <a target="_blank" href="https://osca.science/portal/" class="hover:shadow-lg ml-4 py-2 px-4 cursor-pointer rounded-full whitespace-pre-line font-semibold bg-black text-white" data-i18n="occurrence.backToPortalBtn">Zurück zur Suche</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section xmlns="http://www.w3.org/1999/xhtml" class="w-full bg-p-truegray-100">
+            <div id="output" class="w-full container mx-auto md:px-16 p-6">
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 p-8" style="background: #726051 !important;">
+            <div class="flex flex-col gap-12 items-start px-6">
+                <img src="https://osca.science/wp-content/uploads/2024/01/OSCA_logo_white.svg" alt="" srcset="" style="max-height:58px ;">
+
+                <span class="text-white">Unterstützt durch das Bundesministerium für Frauen, Wissenschaft und Forschung (2025-2029)</span>
+
+                <span class="text-white">Unterstützt durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport (2022-2024)</span>
+
+                <img src="https://osca.science/wp-content/uploads/2025/04/BMFWF_Logo_srgb.png" alt="" srcset="" style="height:93px; width:285px;">
+
+                <img src="https://osca.science/wp-content/uploads/2025/08/BMWKMS_Logo_srgb.png" alt="" srcset="" style="height:93px; width:285px;">
+
+                <a href="https://osca.science/datenschutzerklaerung/" target="_blank" rel="noopener noreferrer" class="text-white font-thin"> IMPRESSUM & DATENSCHUTZ </a>
+            </div>
+
+            <div class="flex flex-col gap-12 items-start px-6">
+                <span class="text-white font-semibold text-xl uppercase">Möchten Sie Über OSCA mehr Erfahren?</span>
+                <a href="mailto:osca@nhm.at" class="text-white underline"> osca@nhm.at</a>
+                <p class="text-white">OSCA Konsortium <br> Naturhistorisches Museum Wien <br> Burgring 7, 1010 Wien, Austria</p>
+            </div>
+
+        </div>
+    </section>
+    <!-- Blocks Ends Here -->
+
+    <!-- Scripts Start Here -->
+    <section id="pazly-scripts-set" class="m-0 p-0 w-0 h-0">
+
+        <script src="js/libs/jquery.min.js"></script>
+        <script src="js/libs/i18next.min.js"></script>
+        <script src="js/libs/jquery-i18next.min.js"></script>
+        <script src="js/translations.js"></script>
+
+        <script>
+
+            let darwinCoreObj;
+
+            // Utility function to convert camelCase strings to words
+            function camelCaseToWords(input) {
+                // Inserts a space before uppercase letters and converts the string to uppercase
+                return input.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase();
+            }
+
+            /**
+             * Converts plain text URLs into clickable links that open in a new tab.
+             * @param {string} text - The input text that may contain URLs.
+             * @returns {string} - The text with URLs turned into HTML hyperlinks.
+             */
+            function linkifyText(text) {
+                const urlRegex = /(\bhttps?:\/\/[^\s<>]+|\bwww\.[^\s<>]+)/gi;
+
+                return text.replace(urlRegex, function (url) {
+                    // Separate trailing punctuation (.,!?;:)
+                    const match = url.match(/^(.*?)([.,!?;:|]+)?$/);
+                    let coreUrl = match[1];
+                    let trailing = match[2] || "";
+
+                    // Add http if missing
+                    let href = coreUrl;
+                    if (!/^https?:\/\//i.test(href)) {
+                        href = "http://" + href;
+                    }
+
+                    return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline">${coreUrl}</a>${trailing}`;
+                });
+            }
+
+            // Function to process and display details for OSCA observations
+            function displayDetailsOSCACache(obs) {
+
+                let allValues = '';
+                if (obs) {
+                    for (const [key, value] of Object.entries(obs)) {
+                        if (value && key != 'fullRecord') {
+                            allValues +=
+                                `
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                        ${key}
+                                    </th>
+                                    <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    ${linkifyText(value.toString())}
+                                    </td>
+                                </tr>
+                                `;
+                        } else {
+                            allValues +=
+                                `
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                        ${key}
+                                    </th>
+                                    <td class="break-all border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs p-4">
+                                    NULL
+                                    </td>
+                                </tr>
+                                `;
+                     
+                            }
+                    }
+                }
+
+                let htmlKeysTemplate = `
+                        <table class="items-center w-full border shadow-lg mt-8 rounded bg-p-gray-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 uppercase whitespace-nowrap font-semibold text-left">
+                                        Original Digital Record
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                       
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody  class="mt-12">
+                                ${allValues}
+                            </tbody>
+                        </table>
+                        `;
+
+
+                let htmlTemplate =
+                    `<div class="w-full px-4 py-2"> 
+                        <div class="pb-4"> <b data-i18n="occurrence.identifiers"> IDENTIFIKATIONSNUMMERN für </b> <b class="text-p-blue-800">${obs['scientificName']}</b> </div>
+                        
+                    </div>`;
+
+
+                let htmlIndetifiers =
+                    `<table class="items-center w-full border shadow-lg rounded bg-p-orange-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase whitespace-nowrap font-semibold text-left">
+                                        Observation Key
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                        Observation Value
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="mt-12">
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                        ${camelCaseToWords('osca:uniqueID')}
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    ${obs['id']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                        ${camelCaseToWords('osca:PID')}
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    ${obs['oscaPid']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-xs whitespace-nowrap p-4">
+                                        ${camelCaseToWords('osca:PID Version')}
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    ${obs['oscaPidVersion']}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `
+
+                let htmlMIDS0Template =
+                    `<table class="my-4 items-center w-full border shadow-lg rounded bg-p-pink-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 uppercase whitespace-nowrap font-semibold text-left">
+                                        MIDS 0 relevant
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                        
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="mt-12">
+                                <tr class="hover:bg-white text-left bg-p-pink-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Organization
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:institutionCode
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['institutionCode']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:institutionID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['institutionID']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:ownerInstitutionCode
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['ownerInstitutionCode']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left bg-p-pink-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Physical Specimen ID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:catalogNumber
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['catalogNumber']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:occurrenceID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['occurrenceId']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:materialEntityID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['materialEntityID']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:otherCatalogNumbers
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['otherCatalogNumbers']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:materialSampleID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['materialSampleID']}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `
+
+                let htmlMIDS1Template =
+                    `<table class="my-4 items-center w-full border shadow-lg rounded bg-p-purple-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 uppercase whitespace-nowrap font-semibold text-left">
+                                        MIDS 1 relevant
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                        
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="mt-12">
+                                <tr class="hover:bg-white text-left bg-p-purple-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        License
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dcterms:license
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['license']}
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-white text-left bg-p-purple-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Modified
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dcterms:modified
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['modified']}
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-white text-left bg-p-purple-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Name
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:scientificName
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['scientificName']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:vernacularName
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['vernacularName']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:verbatimIdentification
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['verbatimIdentification']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:organismName
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['organismName']}
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-white text-left bg-p-purple-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        ObjectType	
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:materialEntityType
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['materialEntityType']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:preparations
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['preparations']}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `
+                
+                let htmlMIDS2Template =
+                    `<table class="my-4 items-center w-full border shadow-lg rounded bg-p-green-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 uppercase whitespace-nowrap font-semibold text-left">
+                                        MIDS 2 relevant
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                        
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="mt-12">
+                                <tr class="hover:bg-white text-left bg-p-green-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Collecting Agent
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:recordedBy
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['recordedBy']}
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-white text-left bg-p-green-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Collecting Number
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:recordNumber
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['recordNumber']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:fieldNumber
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['fieldNumber']}
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-white text-left bg-p-green-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Date Collected
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:eventDate
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['eventDate']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:verbatimEventDate
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['verbatimEventDate']}
+                                    </td>
+                                </tr>
+                                 <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:year
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['year']}
+                                    </td>
+                                </tr>
+
+                    
+
+                                <tr class="hover:bg-white text-left bg-p-green-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Media	
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:associatedMedia
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${linkifyText(obs['associatedMedia'].toString())}
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-white text-left bg-p-green-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Qualitative Location	
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:continent
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['continent']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:country
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['country']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:countryCode
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['countryCode']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:county
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['county']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:higherGeography
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['higherGeography']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:island
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['island']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:islandGroup
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['islandGroup']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:locality
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['locality']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:municipality
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['municipality']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:stateProvince
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['stateProvince']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:verbatimCoordinates
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['verbatimCoordinates']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:verbatimLatitude
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['verbatimLatitude']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:verbatimLongitude
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['verbatimLongitude']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:verbatimLocality
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['verbatimLocality']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:waterBody
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['waterBody']}
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-white text-left bg-p-green-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Quantitative Location	
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:decimalLatitude
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['decimalLatitude']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:decimalLongitude
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['decimalLongitude']}
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    `
+
+
+                let htmlMIDS3Template =
+                    `<table class="my-4 items-center w-full border shadow-lg rounded bg-p-orange-50 overflow-hidden">
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 uppercase whitespace-nowrap font-semibold text-left">
+                                        MIDS 3 relevant
+                                    </th>
+                                    <th class="px-3 bg-p-bluegray-50 text-p-bluegray-500 align-middle border-b py-3 text-xs uppercase font-semibold text-left">
+                                        
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="mt-12">
+                                <tr class="hover:bg-white text-left bg-p-orange-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Collecting Agent ID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:recordedByID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['recordedByID']}
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-white text-left bg-p-orange-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Geographical Locality ID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:locationID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['locationID']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:geodeticDatum
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['geodeticDatum']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:coordinateUncertaintyInMeters
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['coordinateUncertaintyInMeters']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:coordinatePrecision
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['coordinatePrecision']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:footprintSRS
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['footprintSRS']}
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:footprintWKT
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['footprintWKT']}
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-white text-left bg-p-orange-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Identified As ID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:scientificNameID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['scientificNameID']}
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-white text-left bg-p-orange-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Identified By ID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:identifiedByID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['identifiedByID']}
+                                    </td>
+                                </tr>
+
+                                <tr class="hover:bg-white text-left bg-p-orange-200 ">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        Organization ID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                    
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white text-left">
+                                    <th class="border-t-0 px-3 align-middle text-sm whitespace-nowrap p-4">
+                                        dwc:institutionID
+                                    </th>
+                                    <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
+                                        ${obs['institutionID']}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `
+                
+                let htmlMIDSTemplate =
+                    `<div class="w-full px-4 py-2"> 
+                        <div class="pb-4"> <b data-i18n="occurrence.identifiers"> IDENTIFIKATIONSNUMMERN für </b> <b class="text-p-blue-800">${obs['scientificName']}</b> </div>
+                        ${htmlIndetifiers}
+
+                        ${htmlMIDS0Template} 
+
+                        ${htmlMIDS1Template} 
+
+                        ${htmlMIDS2Template} 
+
+                        ${htmlMIDS3Template} 
+
+                        ${htmlKeysTemplate} 
+                    </div>`;
+
+                return htmlMIDSTemplate;
+            }
+
+            // Get the ID parameter from the URL
+            function getIdParameter() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('id');
+            }
+
+            // Get the CACHE ID parameter from the URL
+            function getCacheIdParameter() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('cacheid');
+            }
+
+
+            // Parse TSV text into an array of objects (assuming header row)
+            function parseTSV(tsvText) {
+                const lines = tsvText.trim().split('\n');
+                const headers = lines[1].split('\t');
+                return lines.slice(2).map(line => {
+                    const values = line.split('\t');
+                    const record = {};
+                    headers.forEach((header, i) => {
+                        record[header] = values[i];
+                    });
+                    return record;
+                });
+            }
+
+            // Load TSV file and find record
+            async function loadAndFindRecord(tsvUrl) {
+                const id = getIdParameter();
+                const cacheid = getCacheIdParameter();
+
+                if (!id) {
+                    if (!cacheid) {
+                        document.getElementById('output').innerText = 'No ID parameter found in URL.';
+                        return;
+                    }
+                }
+
+                if (id) {
+                    try {
+                        const response = await fetch(tsvUrl);
+                        const tsvText = await response.text();
+                        const records = parseTSV(tsvText);
+
+                        // Find record with matching id
+                        const record = records.find(r => r['osca:uniqueID'] === id);
+
+                        if (record) {
+                            document.getElementById('output').innerHTML = displayDetailsOSCA(record);
+                            $('.occurrence').localize();
+                        } else {
+                            document.getElementById('output').innerText = 'No record found for ID: ' + id;
+                        }
+                    } catch (err) {
+                        console.error('Error loading TSV:', err);
+                        document.getElementById('output').innerText = 'Error loading TSV file.';
+                    }
+                }
+
+                if (cacheid) {
+                    const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcGlfa2V5XzEiLCJpc3MiOiJkYXRhLm9zY2Euc2NpZW5jZSIsImF1ZCI6ImRhdGEub3NjYS5zY2llbmNlIiwiZXhwIjoxODA4ODE5MTgxLCJpYXQiOjE3NzcyODMxODEsInNjb3BlIjoic2VhcmNoOnJlYWQiLCJ0eXBlIjoiYXBpX2tleSIsImFwaV9rZXlfaWQiOjEsImRvbWFpbiI6IjQ2LjEwMS4yMTQuMjUiLCJyYXRlX2xpbWl0X3Blcl9ob3VyIjoxMDAwfQ.2ICubK90YTzgIOfLTLQ5qkxgLYaQKNkXHwItpd7S_t4';
+
+                    const cacheQuery = "SELECT * FROM data WHERE id = " + cacheid
+                    $.ajax({
+                        url: 'https://data.osca.science/api/search?q=' + encodeURIComponent(cacheQuery),
+                        method: 'GET',
+                        headers: {
+                            'Authorization': 'Bearer ' + jwtToken
+                        },
+                        success: function (response) {
+                            console.log('Success:', response);
+
+
+                            if (response) {
+                                darwinCoreObj = response.data[0];
+                                document.getElementById('output').innerHTML = displayDetailsOSCACache(darwinCoreObj);
+                                $('.occurrence').localize();
+                            } else {
+                                document.getElementById('output').innerText = 'No record found for ID: ' + id;
+                            }
+
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                }
+            }
+
+            // Call function with your .tsv file URL
+            loadAndFindRecord('./data/osca-data.tsv?v=7'); // replace 'data.tsv' with your actual file path
+
+            function objectToTSV(obj) {
+                if (!obj || typeof obj !== 'object' || Array.isArray(obj)) {
+                    throw new Error('Input must be a plain object');
+                }
+
+                const headers = Object.keys(obj);
+                const values = headers.map(key => {
+                    const value = obj[key];
+
+                    // Convert value to string and escape tabs/newlines
+                    return String(value)
+                        .replace(/\t/g, ' ')   // remove tabs
+                        .replace(/\n/g, ' ');  // remove newlines
+                });
+
+                const headerRow = headers.join('\t');
+                const valueRow = values.join('\t');
+
+                return `${headerRow}\n${valueRow}`;
+            }
+
+
+
+            $('#darwinCoreObjDownloadBtn').click(() => {
+                console.dir(darwinCoreObj);
+
+                const tsv = objectToTSV(darwinCoreObj);
+                const blob = new Blob([tsv], { type: 'text/tab-separated-values' });
+                const url = URL.createObjectURL(blob);
+
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'osca-' + getCacheIdParameter() + '-occurrence.tsv';
+                a.click();
+
+                URL.revokeObjectURL(url);
+            });
+
+            const id = getIdParameter();
+            if (id) {
+                console.log(`ID parameter is: ${id}`);
+            } else {
+                console.log('ID parameter not found.');
+            }
+
+        </script>
+
+    </section>
+
+</body>
+
+</html>
