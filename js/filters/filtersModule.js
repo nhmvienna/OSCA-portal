@@ -148,6 +148,10 @@ let filtersModule = (function () {
     $('#instituteStringFilter').val('');
     $('#specimenIDStringFilter').val('');
 
+     //uncheck media filtering
+    $('#showOnlyMedia').attr('checked', false);
+    
+
   }
 
   // Expose only the necessary functions

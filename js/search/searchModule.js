@@ -8,6 +8,7 @@ let searchModule = (function () {
       searchQuery = $('#searchQuery').val(); // Get the search query from the input field
       searchPage = 1; // Reset the search page to the first page
       // $('input:checkbox').prop('checked', true); // Check all search sources
+      
       $('.result-count').text(''); // Reset result counters
       filtersModule.clearFilters();
 
@@ -20,6 +21,7 @@ let searchModule = (function () {
         searchQuery = $('#searchQuery').val(); // Get the search query from the input field
         searchPage = 1; // Reset the search page to the first page
         // $('input:checkbox').prop('checked', true); // Check all search sources
+        
         $('.result-count').text(''); // Reset result counters
         filtersModule.clearFilters();
 

@@ -67,6 +67,7 @@ let resultListModule = (function () {
                     }
                 }));
 
+                //currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountGeocase").html(resultCountGeocase);
@@ -90,7 +91,7 @@ let resultListModule = (function () {
                     }
                 }));
 
-                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
+                //currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountOSCA").html(resultCountOSCA);
@@ -122,7 +123,7 @@ let resultListModule = (function () {
                     }
                 }));
 
-                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query?.split(' ')));
+                //currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query?.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountEuropeana").html(resultCountEuropeana);
@@ -146,7 +147,7 @@ let resultListModule = (function () {
                     }
                 }));
 
-                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
+                //currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountDissco").html(resultCountDissco);
@@ -172,7 +173,7 @@ let resultListModule = (function () {
                     }
                 }));
 
-                currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
+                //currentResults = currentResults.filter(specimen => containsAllWordsInsensitive(specimen.scientificName, query.split(' ')));
                 currentResults = shuffleArray(currentResults);
 
                 $("#resultCountOSCA").html(resultCountOSCA);
@@ -461,7 +462,7 @@ let resultListModule = (function () {
                 return `
                 <div class="w-full flex flex-row items-center">
                 
-                <a data-i18n="app.resultCard.dataDetails" href="./occurrence.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
+                <a data-i18n="app.resultCard.dataDetails" href="./occurrence2.html?id=${res.originalOject.osca_id}"  target="_blank" onclick="event.stopPropagation();"  class="flex flex-grow mx-1 px-2 py-1 rounded-full bg-p-orange-300 text-white text-xs text-center justify-center">Suche-Details Anzeigen <i class="ml-3 fas fa-external-link-alt text-white"></i></a> 
                 ${res.originalOject.original_object['dwc:associatedSequences'] ? '<a href="' + res.originalOject.original_object['dwc:associatedSequences'] + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
 
@@ -494,7 +495,7 @@ let resultListModule = (function () {
                 return `
                 
                 <div class="w-full flex flex-row items-center">
-                <a data-i18n="app.resultCard.dataDetails" href="./occurrence.html?cacheid=${res.originalOject.id}" target="_blank" class="flex flex-grow text-center justify-center mx-1 px-2 py-1 rounded-full bg-pink-400 text-white text-xs">Suche-Details Anzeigen </a>
+                <a data-i18n="app.resultCard.dataDetails" href="./occurrence2.html?cacheid=${res.originalOject.id}" target="_blank" class="flex flex-grow text-center justify-center mx-1 px-2 py-1 rounded-full bg-pink-400 text-white text-xs">Suche-Details Anzeigen </a>
                 ${res.originalOject.associatedSequences ? '<a href="' + res.originalOject.associatedSequences + '"  target="_blank" onclick="event.stopPropagation();" class="bg-white text-xs px-2 py-1 shadow border rounded-full text-yellow-600"><i class="fas fa-dna"></i> </a>' : ''}
                 </div>
                 
