@@ -562,7 +562,7 @@
                                         dwc:associatedMedia
                                     </th>
                                     <td class="break-words border-t-0 px-3 align-middle border-l-0 border-r-0 p-4">
-                                        ${linkifyText(obs['associatedMedia'].toString())}
+                                        ${obs['associatedMedia']?linkifyText(obs['associatedMedia'].toString()): 'NULL'}
                                     </td>
                                 </tr>
 
