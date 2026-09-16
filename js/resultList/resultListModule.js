@@ -23,9 +23,9 @@ let resultListModule = (function () {
      * Merges results from different sources into the current results.
      * @param {Object} data - The data returned from the search.
      * @param {number} searchSource - The source of the search (e.g., GBIF, GeoCase).
-     * @param {string} query - The search words inputted by the user (can be scientific name or verbatim name).
+     * @param {string} filter - Filter set by the user (can be a media toggle).
      */
-    function mergeResults(data, searchSource, query) {
+    function mergeResults(data, searchSource, filter) {
         switch (searchSource) {
             case 1: // results from GBIF 
                 resultCountGBIF = data?.count;
@@ -313,7 +313,7 @@ let resultListModule = (function () {
 
             if (res?.scientificName) {
                 resultItems += `
-    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media)}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
+    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media, $('#showOnlyMedia').is(':checked')? 'hm': '')}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
         <div class="w-full flex flex-row">
             <div class="flex-grow flex flex-col w-full pb-2">
                 <div class="border-t-0 px-3 pt-1 pb-2 align-middle text-xs font-semibold flex flex-row items-center justify-start">
@@ -352,7 +352,7 @@ let resultListModule = (function () {
 
             if (res?.scientificName) {
                 resultItems += `
-    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media)}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
+    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media, filter)}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
         <div class="w-full flex flex-row">
             <div class="flex-grow flex flex-col w-full pb-2">
                 <div class="border-t-0 px-3 pt-1 pb-2 align-middle text-xs font-semibold flex flex-row items-center justify-start">
@@ -901,8 +901,9 @@ let resultListModule = (function () {
         }
     }
 
-    function markMedia(media) {
+    function markMedia(media, filter = '') {
         if (media && media.length >= 1) return 'hasMedia'
+        else if (filter == 'hm') return 'hideMedia hidden'
         return 'hideMedia';
     }
 
