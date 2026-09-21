@@ -167,7 +167,7 @@ let resultListModule = (function () {
                         owner: res.institutionCode ? res.institutionCode : " ",
                         license: res.license? res.license : 'https://creativecommons.org/public-domain/#cc0',
                         media: res.associatedMedia ? res.associatedMedia : "",
-                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' | <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' <br> <span class="font-semibold">Sammlungs-ID:</span>' + res.collectionNumber : ''),
+                        specimenID: '<span class="font-semibold">OSCA:PID :</span>' + res.oscaPid + (res.datasetId? ' <br> <span class="font-semibold">OSCA: Dataset ID:</span>' + res.datasetId : '') + ' <br> <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' <br> <span class="font-semibold">Katalog ID:</span>' + res.collectionNumber : ''),
                         originalOject: res
                     }
                 }));
@@ -312,7 +312,7 @@ let resultListModule = (function () {
 
             if (res?.scientificName) {
                 resultItems += `
-    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media)}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
+    <div class="${markSource(res.sourceOfSearch)} ${markMedia(res.media, $('#showOnlyMedia').is(':checked')? 'hm': '')}  flex flex-col justify-between shadow rounded-lg bg-white hover:bg-gray-50 text-left py-2">
         <div class="w-full flex flex-row">
             <div class="flex-grow flex flex-col w-full pb-2">
                 <div class="border-t-0 px-3 pt-1 pb-2 align-middle text-xs font-semibold flex flex-row items-center justify-start">
@@ -905,8 +905,9 @@ let resultListModule = (function () {
         }
     }
 
-    function markMedia(media) {
+    function markMedia(media, filter = '') {
         if (media && media.length >= 1) return 'hasMedia'
+        else if (filter == 'hm') return 'hideMedia hidden'
         return 'hideMedia';
     }
 
