@@ -168,7 +168,7 @@ let resultListModule = (function () {
                         owner: res.institutionCode? res.institutionCode: " ",
                         license: res.license? res.license: 'https://creativecommons.org/public-domain/#cc0',
                         media: res.associatedMedia? res.associatedMedia : "",
-                        specimenID: '<span class="font-semibold">DWC:RECORD NUMBER:</span>' + res.recordNumber + ' <br> <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' <br> <span class="font-semibold">Katalog ID:</span>' + res.collectionNumber : ''),
+                        specimenID: '<span class="font-semibold">OSCA:PID :</span>' + res.oscaPid + (res.datasetId? ' <br> <span class="font-semibold">OSCA: Dataset ID:</span>' + res.datasetId : '') + ' <br> <span class="font-semibold">DWC:OCCURRENCE ID:</span>' + res.occurrenceId + (res.collectionNumber ? ' <br> <span class="font-semibold">Katalog ID:</span>' + res.collectionNumber : ''),
                         originalOject: res
                     }
                 }));
